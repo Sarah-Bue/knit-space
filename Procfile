@@ -1,1 +1,1 @@
-web gunicorn knit_space.wsgigit
+web gunicorn knit_space.wsgi
