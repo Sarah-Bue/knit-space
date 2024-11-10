@@ -1,9 +1,11 @@
+# Imports
+
 from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
 
-
+# The BlogPost model is adapted from the Post model in Code Institute's "I think therefore I blog" walkthrough
 class BlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)

@@ -14,11 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# Imports
+
 from django.contrib import admin
-from django.urls import path
-from blog.views import my_blog
+from django.urls import path, include
+
+
+# Define URL patterns for KnitSpace project
 
 urlpatterns = [
+    # Include URL configurations from Blog app
+    path("", include("blog.urls"), name="blog-urls"),
+    # Django admin interface
     path('admin/', admin.site.urls),
-    path('blog/', my_blog, name='blog'),
 ]
