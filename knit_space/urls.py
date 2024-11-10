@@ -24,8 +24,10 @@ from django.urls import path, include
 # Define URL patterns for KnitSpace project
 
 urlpatterns = [
-    # Include URL configurations from Blog app
-    path("", include("blog.urls"), name="blog-urls"),
     # Django admin interface
     path('admin/', admin.site.urls),
+    # Summernote
+    path('summernote/', include('django_summernote.urls')),
+    # Include URL configurations from Blog app
+    path("", include("blog.urls"), name="blog-urls"),
 ]
