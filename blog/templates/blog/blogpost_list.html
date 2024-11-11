@@ -15,7 +15,9 @@
     {% for blogpost in object_list %}
     <h2>{{blogpost.title}}</h2>
     <p>Author: {{blogpost.author}}</p>
+    <p>{{blogpost.created_on}}</p>
     <p>{{blogpost.excerpt}}</p>
+    <p>{{blogpost.content}}</p>
     {% endfor %}
 
 </body>
