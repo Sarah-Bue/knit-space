@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<!-- index.html content starts here -->
+{% block content %}
+
+<h1>Posts list</h1>
+
+<!-- The basic list view is adapted from Code Institute's "I think therefore I blog" walkthrough -->
+{% for blogpost in object_list %}
+<h2>{{blogpost.title}}</h2>
+<p>Author: {{blogpost.author}}</p>
+<p>{{blogpost.created_on}}</p>
+<p>{{blogpost.excerpt}}</p>
+{% endfor %}
+
+<!-- index.html content ends here -->
+{% endblock %}

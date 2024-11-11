@@ -10,4 +10,5 @@ class PostList(generic.ListView):
     # Retrieves all BlogPost objects
     queryset = BlogPost.objects.all()
     # Template used to iterate over all objects for display
-    template_name = "blogpost_list.html"
+    template_name = "blog/index.html"
+    paginate_by = 6
