@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 
-<!-- index.html content starts here -->
+<!-- Start Content Block -->
 {% block content %}
 
-<!-- The basic list view is adapted from Code Institute's "I think therefore I blog" walkthrough -->
-{% for blogpost in object_list %}
-<h2>{{blogpost.title}}</h2>
-<p>Author: {{blogpost.author}}</p>
-<p>{{blogpost.created_on}}</p>
-<p>{{blogpost.excerpt}}</p>
-{% endfor %}
+<div class="container">
+    <div class="row">
+        <!-- Loop through each blog post -->
+        {% for blogpost in object_list %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-5 shadow-sm">
+                <!-- Images to be added -->
+                <img src="#" class="img-fluid" alt="{{ blogpost.title }}" />
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>{{ blogpost.title }}</h2>
+                    </div>
+                    <div class="card-text">
+                        <p>{{ blogpost.excerpt }}</p>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-<!-- index.html content ends here -->
+    <!-- Pagination (if applicable)-->
+    <!-- The pagination section has been adapted from Code Institute's "I think therefore I blog" walkthrough -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <!-- Back Button -->
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; Back </a></li>
+            {% endif %}
+
+            <!-- Next Button -->
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
 {% endblock %}
