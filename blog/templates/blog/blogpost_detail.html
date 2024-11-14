@@ -1,0 +1,38 @@
+<!-- Inherit from base.html -->
+{% extends 'base.html' %}
+
+<!-- Load Static Library -->
+{% load static %}
+
+<!-- Start Content Block -->
+{% block content %}
+
+
+<div class="masthead">
+    <div class="container">
+        <!-- Back Button -->
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <a href="javascript:history.back()" class="btn btn-secondary mb-3">Back</a>
+            </div>
+        </div>
+        <!-- Blog Post Details -->
+        <div class="row">
+            <div class="col-md-12 card mb-4">
+                <div class="card-body">
+                    <!-- Blog Post Header -->
+                    <h1 class="post-title">{{ blogpost.title }}</h1>
+                    <p class="post-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
+                    <!-- Blog Post Content -->
+                    <p class="card-text">
+                        <!-- "safe" for HTML rendering -->
+                        {{ blogpost.content | safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Content Block -->
+{% endblock content %}

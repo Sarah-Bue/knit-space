@@ -10796,3 +10796,17 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+
+
+                    /* Custom CSS */
+
+                    /* Card Hover Effect on large screens */
+@media (min-width: 992px) {
+  .hover-card {
+      transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hover-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -8,5 +8,5 @@ from django.urls import path
 urlpatterns = [
     # home page
     path('', views.PostList.as_view(), name='home'),
-    path('<slug:slug>/', views.post_detail, name='post_detail'),
+    path('<slug:slug>/', views.blogpost_detail, name='blogpost_detail'),
 ]

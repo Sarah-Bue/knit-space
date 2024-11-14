@@ -1,29 +1,38 @@
+<!-- Inherit from base.html -->
 {% extends "base.html" %}
+
+<!-- Load Static Library -->
+{% load static %}
 
 <!-- Start Content Block -->
 {% block content %}
 
 <div class="container">
     <div class="row">
+        <!-- Preview Cards -->
         <!-- Loop through each blog post -->
         {% for blogpost in object_list %}
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-5 shadow-sm">
-                <!-- Images to be added -->
-                <img src="#" class="img-fluid" alt="{{ blogpost.title }}" />
-                <div class="card-body">
-                    <div class="card-title">
-                        <h2>{{ blogpost.title }}</h2>
+            <a href="{% url 'blogpost_detail' blogpost.slug %}" class="text-decoration-none text-dark">
+                <div class="card mb-5 shadow-sm hover-card">
+                    <!-- Image -->
+                    <img src="{% static 'images/default.png' %}" class="img-fluid" alt="{{ blogpost.title }}" />
+                    <div class="card-body">
+                        <!-- Title -->
+                        <div class="card-title">
+                            <h2>{{ blogpost.title }}</h2>
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="card-text">
+                            <p>{{ blogpost.excerpt }}</p>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <p>{{ blogpost.excerpt }}</p>
-                    </div>
-                    <a href="{% url 'post_detail' blogpost.slug %}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                 </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
     </div>
+</div>
 
     <!-- Pagination (if applicable)-->
     <!-- The pagination section has been adapted from Code Institute's "I think therefore I blog" walkthrough -->
@@ -44,4 +53,5 @@
     {% endif %}
 
 </div>
+<!-- End Content Block -->
 {% endblock %}

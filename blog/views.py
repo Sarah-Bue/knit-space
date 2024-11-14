@@ -5,24 +5,27 @@ from django.views import generic
 from .models import BlogPost
 
 # Create your views here.
-
+"""
+Display all Blog Posts, 9 posts per page.
+"""
 class PostList(generic.ListView):
     # Retrieves all BlogPost objects
     queryset = BlogPost.objects.all()
     # Template used to iterate over all objects for display
     template_name = "blog/index.html"
+    # Show 9 posts per page
     paginate_by = 9
 
 
 """
-Display individual Blog Post
+Display individual Blog Posts.
 """
-def post_detail(request, slug):
+def blogpost_detail(request, slug):
     queryset = BlogPost.objects.all()
-    post = get_object_or_404(queryset, slug=slug)
+    blogpost = get_object_or_404(queryset, slug=slug)
 
     return render(
         request,
-        "blog/post_detail.html",
-        {"post": post},
+        "blog/blogpost_detail.html",
+        {"blogpost": blogpost},
     )
