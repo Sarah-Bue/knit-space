@@ -22,6 +22,10 @@
                         <div class="card-title">
                             <h2>{{ blogpost.title }}</h2>
                         </div>
+                        <!-- Author & Date -->
+                        <div class="card-text">
+                            <p> <em>by {{ blogpost.author }} | {{ blogpost.last_modified }}</em></p>
+                        </div>
                         <!-- Excerpt -->
                         <div class="card-text">
                             <p>{{ blogpost.excerpt }}</p>

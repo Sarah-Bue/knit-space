@@ -10,7 +10,7 @@ Display all Blog Posts, 9 posts per page.
 """
 class PostList(generic.ListView):
     # Retrieves all BlogPost objects
-    queryset = BlogPost.objects.all()
+    queryset = BlogPost.objects.all().order_by('-last_modified')
     # Template used to iterate over all objects for display
     template_name = "blog/index.html"
     # Show 9 posts per page
