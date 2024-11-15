@@ -8,7 +8,7 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html lang="en">
 
 <head>
     <!-- Meta Data -->
@@ -61,28 +61,26 @@
                         href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <!-- Log Out -->
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" 
+                        href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <!-- Sign Out -->
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == logout_url %}active{% endif %}" aria-current="page" 
-                        href="{% url 'account_logout' %}">Logout</a>
+                        href="{% url 'account_logout' %}">Sign Out</a>
                     </li>
                     {% else %}
-                    <!-- Register -->
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <!-- Log In -->
+                    <!-- Sign In or Sign Up -->
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == login_url %}active{% endif %}" aria-current="page" 
-                        href="{% url 'account_login' %}">Login</a>
+                        href="{% url 'account_login' %}">Sign In / Sign Up</a>
                     </li>
                     {% endif %}
 
                     <!-- To be Added 
-
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% static 'about.html' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% static 'login.html' %}">Log In</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% static 'contact.html' %}">Contact</a></li>
                     -->
 
@@ -107,7 +105,6 @@
             </div>
         </div>
     </header>
-
 
     <!-- Main -->
     <main>
