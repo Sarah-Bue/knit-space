@@ -1,8 +1,11 @@
 <!-- Load Static Library -->
 {% load static %}
 
-<!-- Generate 'home' view URL -->
+<!-- Capture URLS for specific views -->
 {% url 'home' as home_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -35,7 +38,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- Title -->
-    <title>KnitSpace | Let's get creative! </title>
+    <title>KnitSpace | Let's get creative!</title>
 </head>
 
 <body>
@@ -52,7 +55,29 @@
             <!-- Internal Links -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">Home</a></li>
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" 
+                        href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <!-- Log Out -->
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == logout_url %}active{% endif %}" aria-current="page" 
+                        href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <!-- Register -->
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <!-- Log In -->
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == login_url %}active{% endif %}" aria-current="page" 
+                        href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
 
                     <!-- To be Added 
 

@@ -1,0 +1,62 @@
+<!-- Inherit from base.html -->
+{% extends "base.html" %}
+
+<!-- Load internationalization tags for content translation -->
+{% load i18n %}
+
+<!-- Load Ccstom tags and filters for account management and authentication -->
+{% block head_title %}
+{% trans "Sign Out" %}
+{% endblock %}
+
+<!-- Start Content Block -->
+{% block content %}
+
+<!-- The Log Out section has been adapted from Code Institute's "I Think Therefore I Blog" walkthrough -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3>{% trans "Sign Out" %}</h3>
+            <p>
+              <!-- Start Translation Block -->
+              {% blocktrans %}
+              Are you sure? 
+              {% endblocktrans %}
+              <!-- End Translation Block -->
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form method="post" action="{% url 'account_logout' %}">
+              <!-- Cross-Site request forgery protection -->
+              {% csrf_token %}
+              <!-- Redicrect after successful logout -->
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="btn btn-secondary mb-3" type="submit">{% trans 'Sign Out' %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Content Block -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,6 +24,8 @@ from django.urls import path, include
 # Define URL patterns for KnitSpace project
 
 urlpatterns = [
+    # Include URL configurations from Allauth
+    path("accounts/", include("allauth.urls")),
     # Django admin interface
     path('admin/', admin.site.urls),
     # Summernote
