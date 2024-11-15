@@ -96,10 +96,18 @@ As a **guest user**, I can **click on a post preview** so that **I can open the 
 
 #### Account Management
 As a **guest user**, I can **create an account** so that **I can have a personalized experience and access member-only features.**.
+- Users can create an account using their email address.
+- Users are provided with feedback messages for invalid form inputs.
 
 As a **registered user**, I can **log in to my account** so that **I can access my dashboard and other member-only features**.
+- Users are able to log into their accounts using their username and password.
+- Users are redirected to the home page after logging in.
 
 As a **registered user**, I can **log out of my account** so that **I can ensure my account security and privacy**.
+- Users are able to log out of their accounts.
+- Users need to confirm that they want to log out before being logged out.
+- Users are redirected to the home page after logging out.
+
 
 #### Dashboard Management
 As a **registered user**, I can **save posts to my dashboard** so that **I can easily access my favorite content**.
@@ -118,31 +126,38 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 #### Admin Features
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
-|Create SuperUser | Yes | Successful |
-|Create User  | Yes | Successful |
-|Create Post  | Yes | Successful |
-|Delete Post  | Yes | Successful |
+|Create superUser | Yes | Successful |
+|Create user | Yes | Successful |
+|Create post | Yes | Successful |
+|Delete post | Yes | Successful |
+|View all posts | Yes | Successful |
+|Filter posts | Yes | Successful |
+
+#### Account Management
+| Feature | Tested? | User Feedback Provided |
+|---|---|---|
+|Create new account | Yes | Successful |
+|Log in to account | Yes | Successful |
+|Log out of account | Yes | Successful |
 
 #### Home Page
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
 |Browse paginated blog excerpts | Yes | Successful |
-|Click on excerpt opens full page blog entry  | Yes | Successful |
-|Click on back returns user to home page | Yes | Successful |
-
+|Click on excerpt opens full page blog entry | Yes | Successful |
+|Click on back returns user to homepage | Yes | Successful |
 
 #### Header
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
-|Click on logo returns to Homepage | Yes | Successful |
-|Navigation bar links redirect to other pages  | Yes | Successful |
-
+|Click on logo returns to homepage | Yes | Successful |
+|Navigation bar links redirect to other internal pages  | Yes | Successful |
 
 #### Footer
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
-|Social Media Redirects | Yes | Successful |
-|Social Media Links open in new tab | Yes | Successful |
+|Click on social media icon redirects to its website | Yes | Successful |
+|Social Media links open in new tab | Yes | Successful |
 
 
 
