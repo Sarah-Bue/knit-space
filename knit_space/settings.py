@@ -52,8 +52,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # Summernote
     'django_summernote',
-    # Blog
+    # KnitSpace applications
     'blog',
+    'dashboard',
 ]
 
 # Django-allauth configuration for user authentication and redirection

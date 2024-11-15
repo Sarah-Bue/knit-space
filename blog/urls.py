@@ -8,5 +8,6 @@ from django.urls import path
 urlpatterns = [
     # home page
     path('', views.PostList.as_view(), name='home'),
+    # full-page blog post view
     path('<slug:slug>/', views.blogpost_detail, name='blogpost_detail'),
 ]

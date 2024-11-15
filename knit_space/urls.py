@@ -28,6 +28,8 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Django admin interface
     path('admin/', admin.site.urls),
+    # Dashboard
+    path('dashboard/', include('dashboard.urls')),
     # Summernote
     path('summernote/', include('django_summernote.urls')),
     # Include URL configurations from Blog app
