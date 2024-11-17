@@ -23,7 +23,9 @@
         <div class="saved-posts">
             <!-- Iterate over saved_posts and display each one -->
             {% for saved_post in saved_posts %}
-                <div class="card mb-4">
+            <!-- Whole card becomes clickable link -->
+            <a href="{% url 'blogpost_detail' slug=saved_post.post.slug %}" class="card-link">
+                <div class="card mb-4 hover-card">
                     <!-- Post information that are being displayed -->
                     <div class="card-body">
                         <h3 class="card-title">{{ saved_post.post.title }}</h3>
