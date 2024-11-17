@@ -74,8 +74,64 @@ When clicking on a blog post preview card, a full-page view is opened. It presen
 ## Technologies Used
 
 ### Languages
-### Frameworks, Libraries, and Packages
 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python ](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Tools
+
+### Libraries, Frameworks & Packages
+
+- [Django](https://www.djangoproject.com/) was used as web framework.
+
+- [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django to display backend data to HTML.
+   
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used to help with styling and responsiveness.
+
+- [Google Fonts](https://fonts.google.com) was used to import the fonts into the html file, and were used on all parts of the site.
+
+- [Font Awesome](https://fontawesome.com) was used throughout the website to add icons for aesthetic and UX purposes. 
+
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) was used for user authentication, registration, and account management.
+ 
+- [Gunicorn](https://gunicorn.org/) was used as Python WSGI HTTP Server for UNIX to support the deployment of Django application.  
+
+- [Summernote](https://summernote.org/) was used as WYSIWYG editor.
+
+- [Heroku Postgres](https://www.heroku.com/postgres) was used in production, as a service based on PostgreSQL provided by Heroku.
+
+
+### Tools and Programs
+
+- [Git](https://git-scm.com) was used for version control. 
+
+- [GitPod](https://gitpod.io/) was used for writing, committin, and ppushing code to GitHub.
+
+- [GitHub](https://github.com) was used to store the code. 
+
+- [Heroku](https://www.heroku.com) was used to host and deploy the website.
+
+- [Am I Responsive](ami.responsivedesign.is) was used to preview the website across a variety of popular devices.
+
+- [Coolors](https://coolors.co) was used to create a color pallette for the website.
+
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project
+
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used during development process for code review and to test responsiveness.
+
+- [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code.
+
+- [JSHint](https://jshint.com/) was used to validate the JavaScript code.
+
+- [PEP8 Online Check](http://pep8online.com/) was used to validate the Python code
+
+- [Favicon.cc](https://www.favicon.cc/) was used to create the site favicon.
+
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) was used to measure the quality of the page.
 
 [Back to top ⇧](#knit-space)
 
@@ -108,9 +164,11 @@ As a **registered user**, I can **log out of my account** so that **I can ensure
 - Users need to confirm that they want to log out before being logged out.
 - Users are redirected to the home page after logging out.
 
-
 #### Dashboard Management
 As a **registered user**, I can **save posts to my dashboard** so that **I can easily access my favorite content**.
+- For logged in users, a link to the dashboard is visible in the navigation bar.
+- For logged in users, a button to save a blog post is visible on the full-page blog post.
+- Once saved, the blog post appears on the users dashboard
 
 As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
 
@@ -126,7 +184,7 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 #### Admin Features
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
-|Create superUser | Yes | Successful |
+|Create superuser | Yes | Successful |
 |Create user | Yes | Successful |
 |Create post | Yes | Successful |
 |Delete post | Yes | Successful |
@@ -146,12 +204,14 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 |Browse paginated blog excerpts | Yes | Successful |
 |Click on excerpt opens full page blog entry | Yes | Successful |
 |Click on back returns user to homepage | Yes | Successful |
+|Save button on full-page entry is invisible for guest users | Yes | Successful |
 
 #### Header
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
 |Click on logo returns to homepage | Yes | Successful |
-|Navigation bar links redirect to other internal pages  | Yes | Successful |
+|Click on navigation bar links redirect to other internal pages  | Yes | Successful |
+|Link to dashboard is invisible for guest users | Yes | Successful |
 
 #### Footer
 | Feature | Tested? | User Feedback Provided |
@@ -159,7 +219,11 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 |Click on social media icon redirects to its website | Yes | Successful |
 |Social Media links open in new tab | Yes | Successful |
 
-
+#### Dashboard
+| Feature | Tested? | User Feedback Provided |
+|---|---|---|
+|Dashboard is only visible to logged in users | Yes | Successful |
+|Saved blog posts appear on the dashboard | Yes | Successful |
 
 ### Automated Testing
 
@@ -176,6 +240,7 @@ Browser | Outcome | Pass/Fail
 ### Bugs
 |Feature | Bug | Fix |
 |---|---|---|
+|Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Not fixed |
 
 
 ### Accessibility
