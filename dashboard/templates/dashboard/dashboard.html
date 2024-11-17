@@ -7,7 +7,7 @@
 <!-- Load internationalization tags for content translation -->
 {% load i18n %}
 
-<!-- Set page title to "Sign In"-->
+<!-- Set page title to "Dashboard" with translation support -->
 {% block head_title %}
 {% trans "Dashboard" %}
 {% endblock %}
@@ -18,6 +18,23 @@
 <div class="container">
     <div class="row">
         <h1 class="post-title">Welcome to your Dashboard, {{ request.user.username }}!</h1>
+    </div>
+    <div class="row">
+        <div class="saved-posts">
+            <!-- Iterate over saved_posts and display each one -->
+            {% for saved_post in saved_posts %}
+                <div class="card mb-4">
+                    <!-- Post information that are being displayed -->
+                    <div class="card-body">
+                        <h3 class="card-title">{{ saved_post.post.title }}</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</h6>
+                    </div>
+                </div>
+            <!-- Alternative text if no saved posts available -->
+            {% empty %}
+                <p>No saved posts yet. Start saving your favorite blog posts!</p>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

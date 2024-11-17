@@ -16,6 +16,16 @@
                 <a href="javascript:history.back()" class="btn btn-secondary mb-3">Back</a>
             </div>
         </div>
+
+        <!-- Save Button-->
+        {% if user.is_authenticated %}
+        <form action="{% url 'save_post' blogpost.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary mb-3">Save</button>
+        </form>
+        {% endif %}
+
+
         <!-- Blog Post Details -->
         <div class="row">
             <div class="col-md-12 card mb-4">

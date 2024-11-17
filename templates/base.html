@@ -11,11 +11,11 @@
 <html lang="en">
 
 <head>
-    <!-- Meta Data -->
+    <!-- Character set and responsive design Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Meta tags for SEO -->
+    <!-- SEO Meta Tags -->
     <meta name="description" content="KnitSpace is a community-driven platform where users can read, share, and save their favorite knit blog posts. Explore exclusive content and connect with fellow knitting enthusiasts.">
     <meta name="keywords" content="KnitSpace, knitting blog, knitting community, knit patterns, crafting, yarn, knitting posts, blog posts, knitting tutorials, knit designs, knitting">
 
@@ -37,8 +37,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Title -->
-    <title>KnitSpace | Let's get creative!</title>
+    <!-- Customizable title -->
+    <title>{% block head_title %}KnitSpace | Let's get creative!{% endblock %}</title>
 </head>
 
 <body>
@@ -64,7 +64,7 @@
                     <!-- Dashboard -->
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" 
-                        href="{% url 'dashboard' %}">Dashboard</a>
+                        href="{% url 'user_dashboard' %}">Dashboard</a>
                     </li>
                     <!-- Sign Out -->
                     <li class="nav-item">
