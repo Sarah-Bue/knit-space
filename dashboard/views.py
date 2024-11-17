@@ -1,5 +1,5 @@
 # Imports
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from blog.models import SavedPost
 
@@ -17,3 +17,15 @@ def user_dashboard(request):
         'dashboard/dashboard.html', 
         {'saved_posts': saved_posts}
     )
+
+"""
+Display 
+"""
+@login_required
+def delete_saved_post(request, post_id):
+    # Retrieve all saved posts for active user
+    saved_post = get_object_or_404(SavedPost, user=request.user, post_id=post_id)
+    # Delete saved post
+    saved_post.delete()
+    # Redirect back to dashboard
+    return redirect('user_dashboard')

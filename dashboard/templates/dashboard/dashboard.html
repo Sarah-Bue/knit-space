@@ -32,6 +32,14 @@
                         <h6 class="card-subtitle mb-2 text-muted">by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</h6>
                     </div>
                 </div>
+            </a>
+            <!-- Delete post from dashboard -->
+            <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-secondary mb-3">
+                    Delete
+                </button>
+            </form>
             <!-- Alternative text if no saved posts available -->
             {% empty %}
                 <p>No saved posts yet. Start saving your favorite blog posts!</p>
