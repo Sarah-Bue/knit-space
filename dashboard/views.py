@@ -19,7 +19,8 @@ def user_dashboard(request):
     )
 
 """
-Display 
+Delete saved posts and redirect to dashboard.
+This is only available after successful login. 
 """
 @login_required
 def delete_saved_post(request, post_id):
