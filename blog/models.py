@@ -11,9 +11,8 @@ class BlogPost(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User,
-        # Fallback to "deleted user" user ID when author-user is deleted
-        on_delete=models.SET_DEFAULT,
-        default="deleted user",                     # this needs to be changed to user ID of "deleted user"
+        # Delete all authored posts when user is deleted
+        on_delete=models.CASCADE,
         related_name="blog_posts"
     )
     # Optional excerpt

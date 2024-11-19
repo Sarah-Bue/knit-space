@@ -14,6 +14,3 @@ class BlogPostAdmin(SummernoteModelAdmin):
     list_filter = ('author', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-
-
-# Register your models here.
