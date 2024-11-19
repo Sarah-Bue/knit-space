@@ -168,13 +168,20 @@ As a **registered user**, I can **log out of my account** so that **I can ensure
 As a **registered user**, I can **save posts to my dashboard** so that **I can easily access my favorite content**.
 - For logged in users, a link to the dashboard is visible in the navigation bar.
 - For logged in users, a button to save a blog post is visible on the full-page blog post.
-- Once saved, the blog post appears on the users dashboard
+- Once saved, the blog post appears on the users dashboard.
+- A feedback message is provided to indicate a post has been saved successfully.
 
 As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
 
 As a **registered user**, I can **delete saved blog posts from my dashboard** so that **I can manage my content board**.
+- A *Delete* button is displayed with each saved blog post preview.
+- When clicked, the correspsonding blog post is removed from the dashboard.
+- A feedback message is provided to indicate a post has been deleted successfully.
 
 As a **registered user**, I can **click on a saved post preview** so that **I can open the full post and read it in detail**.
+- Saved blogposts appear as previews on the dashboard.
+- When the preview is clicked, the user is redirected to the full-page view of the post. 
+- A *Back* button returns users to their dashboard from the full-page view.
 
 As a **registered user**, I can **access exclusive content** so that **I can engage with the community and share information**.
 

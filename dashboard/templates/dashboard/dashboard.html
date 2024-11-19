@@ -16,6 +16,18 @@
 {% block content %}
 
 <div class="container">
+
+    <!-- User Feedback: Post deleted -->
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <div class="row">
         <h1 class="post-title">Welcome to your Dashboard, {{ request.user.username }}!</h1>
     </div>

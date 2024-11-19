@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from blog.models import SavedPost
+from django.contrib import messages
 
 """
 Display dashboard for the active user showing their saved blog posts.
@@ -28,5 +29,7 @@ def delete_saved_post(request, post_id):
     saved_post = get_object_or_404(SavedPost, user=request.user, post_id=post_id)
     # Delete saved post
     saved_post.delete()
+    # Add a success message after deletion
+    messages.success(request, f'"{saved_post.post.title}" has been removed from your dashboard.')
     # Redirect back to dashboard
     return redirect('user_dashboard')
