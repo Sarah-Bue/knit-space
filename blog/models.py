@@ -1,6 +1,7 @@
 # Imports
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 # The BlogPostAdmin class is adapted from the PostAdmin class
@@ -21,6 +22,8 @@ class BlogPost(models.Model):
     # Optional excerpt
     excerpt = models.TextField(blank=True)
     content = models.TextField()
+    # Optional image
+    featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField('date modified', auto_now=True)
 

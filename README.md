@@ -25,14 +25,19 @@ Custom labels were created to visually distinguish the issues. Labels were used 
 
 [Coolors](https://coolors.co/image-picker) was used to generate a color palette from the main background image. 
 
-![Color Pallette Image](TBA)
-
+<details>
+<summary> Color Pallette Image</summary>
+<img src = "">
+</details>
 
 #### Typography
 
 [Google Fonts](https://fonts.google.com) was used to pair and import fonts. 
 
-![Type Font Image](TBA)
+<details>
+<summary> Type Font Image</summary>
+<img src = "">
+</details>
 
 #### Wireframes
 
@@ -190,6 +195,8 @@ Once the account has been created, users can use their credentials to log into t
 - [Summernote](https://summernote.org/) was used as WYSIWYG editor.
 
 - [Heroku Postgres](https://www.heroku.com/postgres) was used in production, as a service based on PostgreSQL provided by Heroku.
+
+- [Cloudinary](https://cloudinary.com/) was used as an image storage solution.
 
 
 ### Tools and Programs
@@ -479,7 +486,7 @@ Here are the steps to deploy a website to GitHub Pages from its GitHub repositor
 Deployment to [Heroku](https://www.heroku.com) was completed using the following steps:
 
 1. Prepare for deployment.
-    - Create an env.py file in your main directory and add *DATABASE_URL* and *SECRET_KEY* to it.
+    - Create an env.py file in your main directory and add *DATABASE_URL*, *CLOUDINARY_URL*, and *SECRET_KEY* to it.
     - Import *DATABASE_URL* and *SECRET_KEY* into your *settings.py* file, and remove the default database confihuration.
     - Add your apps to the list of *Installed Apps* in *settings.py*.
     - Add Heroku to the *ALLOWED_HOSTS* list in *settings.py*.

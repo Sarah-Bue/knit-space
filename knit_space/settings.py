@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 # Imports
-
 from pathlib import Path
 import os
 import dj_database_url
@@ -29,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Allowed Hosts for application
 ALLOWED_HOSTS = [
@@ -39,7 +38,6 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
-
 INSTALLED_APPS = [
     # Default Django applications
     'django.contrib.admin',
@@ -55,20 +53,23 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # Summernote
     'django_summernote',
+    # Cloudinary
+    'cloudinary_storage',
+    'cloudinary',
     # KnitSpace applications
     'blog',
     'dashboard',
 ]
 
-# Django-allauth configuration for user authentication and redirection
 
+# Django-allauth configuration for user authentication and redirection
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+
 # Middleware configuration for processing requests/responses
 # and handling security, sessions, and authentication
-
 MIDDLEWARE = [
     # Security and session management middleware
     'django.middleware.security.SecurityMiddleware',
@@ -84,12 +85,12 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+
 # Root URL configuration
 ROOT_URLCONF = 'knit_space.urls'
 
 
 # Template Rendering and Processing
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -117,7 +118,6 @@ DATABASES = {
 }
 
 # Trusted Origins for Requests
-
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com"
@@ -126,28 +126,32 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Disable email verification for account creation
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -159,12 +163,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

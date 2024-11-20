@@ -15,8 +15,15 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
             <a href="{% url 'blogpost_detail' blogpost.slug %}" class="text-decoration-none text-dark">
                 <div class="card mb-5 shadow-sm hover-card">
-                    <!-- Image -->
-                    <img src="{% static 'images/default.png' %}" class="img-fluid" alt="{{ blogpost.title }}"/>
+                    <!-- Image 
+                    <img src="{% static 'images/default.png' %}" class="img-fluid" alt="{{ blogpost.title }}"/> -->
+                    {% if "placeholder" in blogpost.featured_image.url %}
+                    <img class="img-fluid" src="{% static 'images/default.png' %}"
+                        alt="placeholder image">
+                    {% else %}
+                    <img class="img-fluid" src=" {{ blogpost.featured_image.url }}"
+                        alt="{{ post.title }}">
+                    {% endif %}
                     <div class="card-body">
                         <!-- Title -->
                         <div class="card-title">
