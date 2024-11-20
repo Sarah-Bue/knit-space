@@ -3,9 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Model to represent a blog post within the application
-# The BlogPost model is adapted from the Post model in Code Institute's "I think therefore I blog" walkthrough
+# The BlogPostAdmin class is adapted from the PostAdmin class
+# in Code Institute's "I think therefore I blog" walkthrough
 class BlogPost(models.Model):
+    """
+    Model to represent a blog post within the application.
+    """
     # BlogPost fields
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -26,16 +29,22 @@ class BlogPost(models.Model):
         return self.title
 
 
-# Model to represent a user's saved blog posts
 class SavedPost(models.Model):
+    """
+    Model to represent a user's saved blog posts.
+    """
     # Delete all saved posts from dashboard when user is deleted
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='saved_posts')
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='saved_posts'
+    )
     # Delete post from dashboard when post is deleted
     post = models.ForeignKey('BlogPost', on_delete=models.CASCADE)
 
     class Meta:
         # Ensure each user can save each post only once
-        unique_together = ('user', 'post')  
+        unique_together = ('user', 'post')
 
     # String representation indicating which user saved which post
     def __str__(self):

@@ -29,10 +29,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Allowed Hosts for application
-ALLOWED_HOSTS = ['8000-sarahbue-knitspace-dfcgalkmwni.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-sarahbue-knitspace-dfcgalkmwni.ws.codeinstitute-ide.net',
+    '.herokuapp.com'
+]
 
 
 # Application definition
@@ -63,7 +66,8 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Middleware configuration for processing requests/responses and handling security, sessions, and authentication
+# Middleware configuration for processing requests/responses
+# and handling security, sessions, and authentication
 
 MIDDLEWARE = [
     # Security and session management middleware
@@ -106,9 +110,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'knit_space.wsgi.application'
 
 
-# Database
+# PostgreSQL Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-# Connect PostgreSQL Database 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }

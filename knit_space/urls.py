@@ -16,12 +16,11 @@ Including another URLconf
 """
 
 # Imports
-
 from django.contrib import admin
 from django.urls import path, include
 
 
-# Define URL patterns for KnitSpace project
+# URL patterns for KnitSpace project
 
 urlpatterns = [
     # Include URL configurations from Allauth

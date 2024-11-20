@@ -6,12 +6,13 @@ from .models import BlogPost, SavedPost
 from django.contrib import messages
 
 
-"""
-Display all Blog Post previews, 9 posts per page.
-No login required.
-"""
 class PostList(generic.ListView):
-    # Retrieves all BlogPost objects, ordered by last_modified un descending order 
+    """
+    Display all Blog Post previews, 9 posts per page.
+    No login required.
+    """
+    # Retrieves all BlogPost objects
+    # Ordered in descending order by last_modified
     queryset = BlogPost.objects.all().order_by('-last_modified')
     # Template used to render list of blog posts
     template_name = "blog/index.html"
@@ -19,11 +20,11 @@ class PostList(generic.ListView):
     paginate_by = 9
 
 
-"""
-Display individual Blog Posts.
-No login required.
-"""
 def blogpost_detail(request, slug):
+    """
+    Display individual Blog Posts.
+    No login required.
+    """
     # Retrieve all BlogPost objects
     # Return 404 if not found
     queryset = BlogPost.objects.all()
@@ -37,21 +38,28 @@ def blogpost_detail(request, slug):
         {"blogpost": blogpost},
     )
 
-"""
-Save Blogposts to dashboard.
-This is only available after successful login.
-"""
+
 @login_required
 def save_post(request, post_id):
+    """
+    Save Blogposts to dashboard.
+    This is only available after successful login.
+    """
     # Retrieve BlogPost object based on post_id
     # Return 404 if not found
     post = get_object_or_404(BlogPost, id=post_id)
     # Save post to active user's list of saved posts
-    saved, created = SavedPost.objects.get_or_create(user=request.user, post=post)
+    saved, created = SavedPost.objects.get_or_create(
+        user=request.user,
+        post=post
+    )
 
     # If post was saved / created, add a success message
     if created:
-        messages.success(request, f'"{post.title}" has been saved to your Dashboard.')
+        messages.success(
+            request,
+            f'"{post.title}" has been saved to your Dashboard.'
+        )
 
     # Redirect to full-page view of saved blog post
     return redirect('blogpost_detail', slug=post.slug)

@@ -2,7 +2,7 @@
 from . import views
 from django.urls import path
 
-# Define URL patterns for Blog application
+# URL patterns for Blog application
 
 urlpatterns = [
     # URL for homepage, displaying list of posts
@@ -11,6 +11,4 @@ urlpatterns = [
     path('post/<int:post_id>/save/', views.save_post, name='save_post'),
     # URL for individual blog post full-page view, identified by slug
     path('post/<slug:slug>/', views.blogpost_detail, name='blogpost_detail'),
-    # full-page blog post view, redundant?
-    # path('<slug:slug>/', views.blogpost_detail, name='blogpost_detail'),
 ]
