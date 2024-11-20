@@ -11,6 +11,7 @@ urlpatterns = [
         views.delete_saved_post,
         name='delete_saved_post'
     ),
+    
     # URL for user dashboard
     path('', views.user_dashboard, name='user_dashboard'),
 ]

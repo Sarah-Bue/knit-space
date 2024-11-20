@@ -15,22 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
 # Imports
 from django.contrib import admin
 from django.urls import path, include
 
-
 # URL patterns for KnitSpace project
-
 urlpatterns = [
     # Include URL configurations from Allauth
     path("accounts/", include("allauth.urls")),
+
     # Django admin interface
     path('admin/', admin.site.urls),
+
     # Dashboard
     path('dashboard/', include('dashboard.urls')),
+
     # Summernote
     path('summernote/', include('django_summernote.urls')),
+
     # Include URL configurations from Blog app
-    path("", include("blog.urls"), name="blog-urls"),
+    path("", include("blog.urls")),  
 ]

@@ -1,0 +1,25 @@
+<!-- Inherit from base.html -->
+{% extends 'base.html' %}
+
+<!-- Start Content Block -->
+{% block content %}
+
+<div class="container mt-3">
+
+    <!-- Back Button -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <a href="javascript:history.back()" class="btn btn-secondary mb-3">Back</a>
+        </div>
+    </div>
+
+    <h2>Create New Blog Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary mb-3">Create</button>
+    </form>
+</div>
+<!-- End Content Block -->
+{% endblock %}

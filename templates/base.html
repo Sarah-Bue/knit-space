@@ -66,6 +66,12 @@
                         <a class="nav-link px-lg-3 py-3 py-lg-4" 
                         href="{% url 'user_dashboard' %}">Dashboard</a>
                     </li>
+                    <!-- Create New Post -->
+                     <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4"
+                        href="{% url 'create_blogpost' %}">Create New Blog Post</a>
+
+                     </li>
                     <!-- Sign Out -->
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4 {% if request.path == logout_url %}active{% endif %}" aria-current="page" 

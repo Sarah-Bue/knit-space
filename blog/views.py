@@ -4,6 +4,8 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from .models import BlogPost, SavedPost
 from django.contrib import messages
+from .forms import BlogPostForm
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -63,3 +65,26 @@ def save_post(request, post_id):
 
     # Redirect to full-page view of saved blog post
     return redirect('blogpost_detail', slug=post.slug)
+
+
+@login_required
+def create_blogpost(request):
+    """
+    Create a new blogpost.
+    This is only available after successful login.
+    """
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Do not commit the save until after adding the user
+            blogpost = form.save(commit=False)
+            blogpost.author = request.user
+            # Ensure title is not empty and slugify it
+            blogpost.slug = slugify(blogpost.title) if blogpost.title else None
+            blogpost.save()
+            # Redirect to the full-page view of the newly created blog post
+            return redirect('blogpost_detail', slug=blogpost.slug)
+    else:
+        form = BlogPostForm()
+    
+    return render(request, 'blog/create_blogpost.html', {'form': form})
