@@ -10797,10 +10797,9 @@ header.masthead .post-heading .meta a {
   }
 }
 
+/* Custom CSS */
 
-                    /* Custom CSS */
-
-                    /* Card Hover Effect on large screens */
+/* Card Hover Effect on large screens */
 @media (min-width: 992px) {
   .hover-card {
       transition: transform 0.2s, box-shadow 0.2s;
