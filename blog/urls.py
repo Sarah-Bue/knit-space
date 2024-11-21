@@ -16,4 +16,8 @@ urlpatterns = [
 
     # URL for creating new blog posts
     path('create/', views.create_blogpost, name='create_blogpost'),
+
+    # URL for deleting a blog post
+    path('delete/<int:post_id>/', views.delete_blogpost, name='delete_blogpost'),
+
 ]

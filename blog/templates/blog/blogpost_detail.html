@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <!-- Save Button-->
+        <!-- Save Button (logged in users only)-->
         {% if user.is_authenticated %}
         <form action="{% url 'save_post' blogpost.id %}" method="post">
             {% csrf_token %}
@@ -37,6 +37,13 @@
         </form>
         {% endif %}
 
+        <!-- Delete Button (post author only)-->
+        {% if request.user == blogpost.author %}
+        <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-secondary mb-3">Delete Post</button>
+        </form>
+        {% endif %}
 
         <!-- Blog Post Details -->
         <div class="row">

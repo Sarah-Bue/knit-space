@@ -6,6 +6,8 @@ from .models import BlogPost, SavedPost
 from django.contrib import messages
 from .forms import BlogPostForm
 from django.utils.text import slugify
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 class PostList(generic.ListView):
@@ -88,3 +90,23 @@ def create_blogpost(request):
         form = BlogPostForm()
     
     return render(request, 'blog/create_blogpost.html', {'form': form})
+
+
+def delete_blogpost(request, post_id):
+    """
+    Delete a blog post.
+    This is only available after successful login.
+    Only post authors can delete their own posts.
+    """
+    # Retrieve the blog post using post_id
+    blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
+    # Delete the post
+    blogpost.delete()
+    # User feedback message
+    messages.success(
+        request,
+        f'"{blogpost.title}" has been deleted.'
+    )
+
+    # Redirect the user to their dashboard or home page after deletion
+    return HttpResponseRedirect(reverse('home'))
