@@ -15,7 +15,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User,
-        # Delete all authored posts when user is deleted
+        # Delete all posts by user when user is deleted
         on_delete=models.CASCADE,
         related_name="blog_posts"
     )
@@ -43,11 +43,19 @@ class SavedPost(models.Model):
         related_name='saved_posts'
     )
     # Delete post from dashboard when post is deleted
-    post = models.ForeignKey('BlogPost', on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        'BlogPost',
+        on_delete=models.CASCADE
+    )
+
+    # Add order field to track position of posts
+    order = models.PositiveIntegerField(default=0)
 
     class Meta:
         # Ensure each user can save each post only once
         unique_together = ('user', 'post')
+        # Orders saved posts by 'order' field
+        ordering = ['order']
 
     # String representation indicating which user saved which post
     def __str__(self):

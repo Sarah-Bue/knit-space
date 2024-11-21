@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from blog.models import SavedPost
 from django.contrib import messages
+from django.http import JsonResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
 
 
 @login_required
@@ -46,3 +49,29 @@ def delete_saved_post(request, post_id):
     )
     # Redirect back to dashboard
     return redirect('user_dashboard')
+
+
+@login_required
+@csrf_exempt
+def sort_posts(request):
+    """
+    Sort saved posts via AJAX.
+    This is only available after successful login.
+    The view is temporarily excempt from CSRF verification for AJAX requests
+    """
+    if request.method == "POST" and request.is_ajax():
+        # Retrieve list of post IDs in their order
+        order = request.POST.getlist('order[]')
+        
+        # If order list is not empty
+        if order:
+            # Convert order list to a list of integers
+            order = list(map(int, order))
+
+            for i, post_id in enumerate(order):
+                # Update order field of each saved post
+                SavedPost.objects.filter(user=request.user, id=post_id).update(order=i)
+
+            return JsonResponse({'status': 'success'})
+
+    return JsonResponse({'status': 'failed'})

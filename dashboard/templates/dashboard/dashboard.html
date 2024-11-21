@@ -33,32 +33,46 @@
     </div>
     <div class="row">
         <div class="saved-posts">
+            <!-- The sortable functionality has been adapted from https://jqueryui.com/sortable/ -->
+            <ul id="sortable">
             <!-- Iterate over saved_posts and display each one -->
             {% for saved_post in saved_posts %}
-            <!-- Whole card becomes clickable link -->
-            <a href="{% url 'blogpost_detail' slug=saved_post.post.slug %}" class="card-link">
-                <div class="card mb-4 hover-card">
-                    <!-- Post information that are being displayed -->
-                    <div class="card-body">
-                        <h3 class="card-title">{{ saved_post.post.title }}</h3>
-                        <h6 class="card-subtitle mb-2 text-muted">by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</h6>
-                    </div>
-                </div>
-            </a>
-            <!-- Delete post from dashboard -->
-            <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-secondary mb-3">
-                    Delete
-                </button>
-            </form>
-            <!-- Alternative text if no saved posts available -->
+                <!-- Each saved post as list item to be sortable -->
+                <li class="ui-state-default" data-id="{{ saved_post.id }}">
+                    <!-- Clickable link -->
+                    <a href="{% url 'blogpost_detail' slug=saved_post.post.slug %}" class="card-link">
+                        <div class="card mb-4 hover-card">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ saved_post.post.title }}</h3>
+                                <h6 class="card-subtitle mb-2 text-muted">by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Delete Post Button -->
+                    <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary mb-3">Delete</button>
+                    </form>
+                </li>
             {% empty %}
                 <p>No saved posts yet. Start saving your favorite blog posts!</p>
             {% endfor %}
         </div>
     </div>
 </div>
+
+<!-- jQuery and jQuery UI -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+
+<!-- Pass CSRF token and URL to JavaScript -->
+<script>
+    const CSRF_TOKEN = '{{ csrf_token }}';
+    const SORT_POSTS_URL = '{% url "sort_posts" %}';
+</script>
+
+<!-- Custom JavaScript -->
+<script src="{% static 'js/script.js' %}"></script>
 
 <!-- End Content Block -->
 {% endblock %}

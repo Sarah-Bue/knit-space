@@ -6,12 +6,13 @@ from . import views
 
 urlpatterns = [
     # URL for deleting posts from dashboard
-    path(
-        'delete/<int:post_id>/',
-        views.delete_saved_post,
-        name='delete_saved_post'
-    ),
     
     # URL for user dashboard
     path('', views.user_dashboard, name='user_dashboard'),
+
+    # URL for deleting a post from the dashboard
+    path('delete/<int:post_id>/', views.delete_saved_post, name='delete_saved_post'),
+
+    # URL for sorting posts
+    path('sort-posts/', views.sort_posts, name='sort_posts'),
 ]
