@@ -20,4 +20,6 @@ urlpatterns = [
     # URL for deleting a blog post
     path('delete/<int:post_id>/', views.delete_blogpost, name='delete_blogpost'),
 
+    # URL for updating a blog post
+    path('edit/<int:post_id>/', views.edit_blogpost, name='edit_blogpost'),
 ]

@@ -1,0 +1,16 @@
+<!-- Inherit from base.html -->
+{% extends 'base.html' %}
+
+<!-- Start Content Block -->
+{% block content %}
+<div class="container mt-3">
+    <h2>Edit Blog Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary mb-3">Update Post</button>
+    </form>
+</div>
+<!-- End Content Block -->
+{% endblock %}

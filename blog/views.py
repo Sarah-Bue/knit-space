@@ -110,3 +110,32 @@ def delete_blogpost(request, post_id):
 
     # Redirect the user to their dashboard or home page after deletion
     return HttpResponseRedirect(reverse('home'))
+
+
+def edit_blogpost(request, post_id):
+    """
+    Edit a blog post using a WYSIWYG editor.
+    This is only available after successful login.
+    Only post authors can edit their own posts.
+    """
+    # Retrieve the blog post using post_id
+    blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
+    # Form submission
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, instance=blogpost)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'"{blogpost.title}" has been updated.'
+            )
+            # Redirect to full-page blogpost view after update
+            return redirect('blogpost_detail', slug=blogpost.slug)
+    else:
+        form = BlogPostForm(instance=blogpost)
+    
+    return render(
+        request,
+        'blog/edit_blogpost.html',
+        {'form': form, 'post': blogpost}
+    )

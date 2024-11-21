@@ -45,6 +45,12 @@
         </form>
         {% endif %}
 
+        <!-- Edit Button (post author only)-->
+        {% if request.user == blogpost.author %}
+        <!-- Edit button visible only to the author of the post -->
+        <a href="{% url 'edit_blogpost' blogpost.id %}" class="btn btn-secondary mb-3">Edit Post</a>
+        {% endif %}
+
         <!-- Blog Post Details -->
         <div class="row">
             <div class="col-md-12 card mb-4">
