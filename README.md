@@ -11,13 +11,34 @@ Visit the deployed application [here](https://knit-space-57239e7d6ce8.herokuapp.
 ### Agile Methodology
 
 Agile methodology played a crucial role in managing the development process. The project was divided into multiple, smaller sprints, with each sprint focusing on adding a specific feature or improving an existing function.
-The first sprint focussed on setting up a basic blog application, which formed the foundation of the project. It allowed users to browse through post previews and open the full post by clicking on the preview. Users were not required to log in to the site to view posts. 
-The next sprint focussed on implementing user authentication. Once implemented, it allowed users to create an account using their email address, and to log into and out of the account.
-The next sprint focussed on setting up the dashboard and its functionality. The dashboard serves as a space for registered users to view their favourite posts. Posts can be saved to the dashboard as well as removed from the dashboard. 
+The first sprint focussed on setting up a basic blog application, which formed the foundation of the project. It allows users to browse through post previews and open the full post by clicking on the preview. Users are not required to log in to the site to view posts. 
+The second sprint focussed on implementing user authentication. Once implemented, it allows users to create an account using their email address, and to log into and out of the account. Logged in users would be able to access exclusive areas of the blog after future sprints.
+The third sprint focussed on setting up the dashboard and its functionality. The dashboard serves as a space for registered users to view their favourite posts. Posts can be saved to and removed from the dashboard via the click of a button, and can be rearranged with a drag-and-dop feature. The functionality to reorder blogposts was moved into the next sprint due to time constraints.
+The fourth sprint focussed on adding additional functions for the user. Logged in users can create their own blogposts, including custom images. Users have the ability to edit and delete their own posts.
 
 GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban style board was used to visually track the progress. Each issue was based on a user story, and was moved through the different phases of *To Do*, *In Progress*, and *Done*, in accordance with the corresponding sprints. 
 Custom labels were created to visually distinguish the issues. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritisation -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.
 
+### CRUD Functionality
+*CRUD* functionality has been implemented throughout the project to create a fully useable experience for the user.
+
+Admin (superuser only)
+- *C*: Create new users and posts.
+- *R*: Read or view all users and posts.
+- *U*: Update posts and user information.
+- *D*: Delete posts and users.
+
+Dashboard (logged in users only)
+- *C*: Create a new entry by saving a post to to the dashboard.
+- *R*: View all saved posts and open them in full-page view.
+- *U*: Update the order of the posts via drag and drop.
+- *D*: Delete a post from the dashboard.
+
+Content Management (logged in users only)
+- *C*: Create a new post.
+- *R*: View newly created and pervious posts (guest users can view all posts).
+- *U*: Update own blogposts.
+- *D*: Delete own blogposts.
 
 ### Diagrams
 ### Design Choices
@@ -27,7 +48,7 @@ Custom labels were created to visually distinguish the issues. Labels were used 
 
 <details>
 <summary> Color Pallette Image</summary>
-<img src = "">
+<img src = "assets/readme-files/images/pallette.png">
 </details>
 
 #### Typography
@@ -55,12 +76,21 @@ Blog Post | --- | ---
 
 ### Project Goals
 
+- The project incorporates a responsive design across different devices.
+- The project provides an intuitive structure and navigation.
+- The project has pleasant, coherent design to invite users to participate in the community.
+- The project allows users to register and access their account.
+- The project provides exclusive content to registered users.
+- The project incorporates full *CRUD* functionality for the user to interact with the content.
+
+
 ### User Stories
 
 #### Blog Accessibility
 
 - As a **guest user**, I can **view blog posts without the need to log in or register** so that **I can freely access content on the site**.
 - As a **guest user**, I can **click on a post preview** so that **I can open the full post and read it in detail**.
+- As a **registered user**, I can **access exclusive content** so that **I can engage with the community and share information**.
 
 #### Account Management
 
@@ -75,9 +105,12 @@ Blog Post | --- | ---
 - As a **registered user**, I can **delete saved blog posts from my dashboard** so that **I can manage my content board**.
 - As a **registered user**, I can **click on a saved post preview** so that **I can open the full post and read it in detail**.
 
-#### 
+#### Content Management
 
-- As a **registered user**, I can **access exclusive content** so that **I can engage with the community and share information**.
+- As a **registered user**, I can **create a new blog post** so that **I can share my knitting experiences and tips with the community**.
+- As a **registered user**, I can **update my existing blog posts** so that **I can correct or update the content I have shared with the community**.
+- As a **registered user**, I can **delete my blog posts** so that **I can remove content that I no longer want to share with the community**.
+
 
 [Back to top ⇧](#knitspace)
 
@@ -198,6 +231,8 @@ Once the account has been created, users can use their credentials to log into t
 
 - [Cloudinary](https://cloudinary.com/) was used as an image storage solution.
 
+- [jQuery](https://jquery.com/) was used as a JavaScript library to simplify JavaScript code used.  
+
 
 ### Tools and Programs
 
@@ -229,6 +264,9 @@ Once the account has been created, users can use their credentials to log into t
 
 - [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) was used to measure the quality of the page.
 
+- [CDNJS](https://cdnjs.com/) was used to deliver external libraries used on the website.
+
+
 [Back to top ⇧](#knitspace)
 
 ## Testing
@@ -245,6 +283,10 @@ As a **guest user**, I can **click on a post preview** so that **I can open the 
 - Previews of each post are available on the home page.
 - Clicking on a preview opens a full-page view of the post.
 - A *Back* button allows users to return to their previous spot after they finish viewing the full-page post.
+
+As a **registered user**, I can **access exclusive content** so that **I can engage with the community and share information**.
+- Only registered and logged-in users can access and update their dashboard.
+- Only registered and logged-in users can create, edit, or delete posts.
 
 #### Account Management
 As a **guest user**, I can **create an account** so that **I can have a personalized experience and access member-only features.**.
@@ -268,6 +310,9 @@ As a **registered user**, I can **save posts to my dashboard** so that **I can e
 - A feedback message is provided to indicate a post has been saved successfully.
 
 As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
+- Saved posts are presented as a list.
+- Using AJAX drag and drop, each item can be moved to a different position.
+- The new positions remain after changing between pages and logging out of the account.
 
 As a **registered user**, I can **delete saved blog posts from my dashboard** so that **I can manage my content board**.
 - A *Delete* button is displayed with each saved blog post preview.
@@ -279,7 +324,24 @@ As a **registered user**, I can **click on a saved post preview** so that **I ca
 - When the preview is clicked, the user is redirected to the full-page view of the post. 
 - A *Back* button returns users to their dashboard from the full-page view.
 
-As a **registered user**, I can **access exclusive content** so that **I can engage with the community and share information**.
+#### Content Management
+
+As a **registered user**, I can **create a new blog post** so that **I can share my knitting experiences and tips with the community**.
+- A form to create a new blogpost is available for logged in users.
+- A WYSIWYG editor is used to create a post for a pleasant and simple user experience.
+- Users can upload an optional image to their post. A placeholder image will be provided where users choose to not upload a custom image.
+- Users are redirected to the full-page view of their newly created post after successful submission.
+
+As a **registered user**, I can **update my existing blog posts** so that **I can correct or update the content I have shared with the community**.
+- Logged in users see an *Edit* button on posts that they authored.
+- Using a WYSIWYG editor, users can update their posts.
+- After submission, a user feedback message appears to inform users tha their post has been updated successfully.
+- After submission, users are redirected to the full-page view of their updated post.
+
+As a **registered user**, I can **delete my blog posts** so that **I can remove content that I no longer want to share with the community**.
+- Logged in users see a *Delete* button on posts that they authored.
+- After submission, a user feedback message appears to inform users tha their post has been deleted successfully.
+- After submission, users are redirected to the home page.
 
 ### Code Validation
 
@@ -319,6 +381,11 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 
 <details>
 <summary> Sign Out Validation Image </summary>
+<img src = "">
+</details>
+
+<details>
+<summary> 404 Validation Image </summary>
 <img src = "">
 </details>
 
@@ -369,7 +436,24 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 |Log in to account | Yes | Successful |
 |Log out of account | Yes | Successful |
 
-#### Home Page
+#### Content Management
+| Feature | Tested? | User Feedback Provided |
+|---|---|---|
+|Create new post function available to logged in users | Yes | Successful |
+|Edit function available to author of a post | Yes | Successful |
+|Delete function available to author of a post | Yes | Successful |
+|Users can provide a custom image for a post | Yes | Successful |
+
+#### Dashboard
+| Feature | Tested? | User Feedback Provided |
+|---|---|---|
+|Dashboard is only visible to logged in users | Yes | Successful |
+|Saved blog posts appear on the dashboard | Yes | Successful |
+|Saved blog posts can be deleted from the dashboard | Yes | Successful |
+|Posts can be rearranged using drag and drop | Yes | Successful |
+|New order persists after changing sites and logging out | Yes | Successful |
+
+#### Home Page & Blog Views
 | Feature | Tested? | User Feedback Provided |
 |---|---|---|
 |Browse paginated blog excerpts | Yes | Successful |
@@ -389,13 +473,6 @@ As a **registered user**, I can **access exclusive content** so that **I can eng
 |---|---|---|
 |Click on social media icon redirects to respective website | Yes | Successful |
 |Social Media links open in new tab | Yes | Successful |
-
-#### Dashboard
-| Feature | Tested? | User Feedback Provided |
-|---|---|---|
-|Dashboard is only visible to logged in users | Yes | Successful |
-|Saved blog posts appear on the dashboard | Yes | Successful |
-|Saved blog posts can be deleted from the dashboard | Yes | Successful |
 
 ### Automated Testing
 
@@ -427,7 +504,7 @@ Note: The hover effect for post previews does not appear in the deployed version
 ### Bugs
 |Feature | Bug | Fix |
 |---|---|---|
-|Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Not fixed |
+|Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Fixed |
 |Random messages | Occasionally, feedback messages detailing the last step a user has taken are shown instead of just feedback for saving / deleting a post. | Not fixed |
 
 
@@ -462,6 +539,11 @@ Note: The hover effect for post previews does not appear in the deployed version
 
 <details>
 <summary>Sign Out Lighthouse Report</summary>
+<img src = "">
+</details>
+
+<details>
+<summary>404 Page </summary>
 <img src = "">
 </details>
 
@@ -522,6 +604,7 @@ All conent was written by the developer.
 ### Media
 
 - The image used for the Favicon is from [Pixabay](https://pixabay.com/), by Clker-Free-Vector-Images.
+- The default image used for blog posts is from [Pixabay](https://pixabay.com/), by kumoknits.
 - All other images were generated by Alex Büttner using [Getimg.ai](https://getimg.ai/).
 - The blogposts and user personas were generated with the help of [Gemini](https://gemini.google.com/). 
 
@@ -529,11 +612,16 @@ All conent was written by the developer.
 
 - The models for *BlogPost* and *BlogPostAdmin* were adapted from Code Institue’s “I think therefore I blog” walkthrough. 
 - The navigation bar and footer were adapted from [Bootstrap's Clean Blog](https://startbootstrap.com/theme/clean-blog) template.
+- The sortable functionality has been adapted from [jQuery UI](https://jqueryui.com/sortable/).
 - Django Tutorials, especially [W3Schools](https://www.w3schools.com/django/), [Django documentation](https://docs.djangoproject.com/en/5.1/), and [Corey Shafer's YouTube Channel](https://www.youtube.com/@coreyms) were consulted regularly.
 
 [Back to top ⇧](#knitspace)
 
 ## Acknowledgements
 
+- Code Institute, its tutors, and the Slack community for their support and feedback.
+- Marcel, my mentor, for his insights and guidance.
+- Nono for repeatedly pointing me in the right direction.
+- My husband for supporting me throughout the process.
 
 [Back to top ⇧](#knitspace)
