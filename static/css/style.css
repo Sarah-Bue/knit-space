@@ -9,6 +9,7 @@
     min-height: 60vh;
     color: white;
 }
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -17,6 +18,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .hero-content {
     height: 100%;
     display: flex;
@@ -25,8 +27,29 @@
     flex-direction: column;
     position: relative;
 }
+
 .subheading {
     font-size: 1.25rem; 
+}
+
+
+/* Preview Cards */
+.container .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.container .card img {
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures the image covers the entire box without distorting */
+}
+
+.container .card-body {
+    flex: 1; /* Makes the card body take the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes the space equally */
 }
 
 
@@ -40,3 +63,4 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
+

@@ -7,60 +7,56 @@
 <!-- Start Content Block -->
 {% block content %}
 
-<div class="container">
-    <div class="row">
+    <div class="container">
         <!-- Preview Cards -->
-        <!-- Loop through each blog post -->
-        {% for blogpost in object_list %}
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <a href="{% url 'blogpost_detail' blogpost.slug %}" class="text-decoration-none text-dark">
-                <div class="card mb-5 shadow-sm hover-card">
-                    <!-- Image -->
-                    {% if "placeholder" in blogpost.featured_image.url %}
-                    <img class="img-fluid" src="{% static 'images/default.png' %}"
-                        alt="placeholder image">
-                    {% else %}
-                    <img class="img-fluid" src=" {{ blogpost.featured_image.url }}"
-                        alt="{{ post.title }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <!-- Title -->
-                        <div class="card-title">
-                            <h2>{{ blogpost.title }}</h2>
-                        </div>
-                        <!-- Author & Date -->
-                        <div class="card-text">
-                            <p> <em>by {{ blogpost.author }} | {{ blogpost.last_modified }}</em></p>
-                        </div>
-                        <!-- Excerpt -->
-                        <div class="card-text">
-                            <p>{{ blogpost.excerpt }}</p>
-                        </div>
+        <div class="container">
+            <div class="row">
+                {% for blogpost in object_list %}
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <a href="{% url 'blogpost_detail' blogpost.slug %}" class="text-decoration-none text-dark">
+                            <div class="card hover-card">
+                                <!-- Custom Image or Placeholder -->
+                                {% if "placeholder" in blogpost.featured_image.url %}
+                                <img class="img-fluid" src="{% static 'images/default.png' %}"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img class="img-fluid" src="{{ blogpost.featured_image.url }}"
+                                    alt="{{ blogpost.title }}">
+                                {% endif %}
+                                <!-- Body -->
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ blogpost.title }}</h5>
+                                    <p class="card-text"><em>by {{ blogpost.author }} | {{ blogpost.last_modified }}</em></p>
+                                    <p class="card-text">{{ blogpost.excerpt }}</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </a>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
+
+        <!-- Pagination (if applicable)-->
+        <!-- The pagination section has been adapted from Code Institute's "I think therefore I blog" walkthrough -->
+        {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <!-- Back Button -->
+                    {% if page_obj.has_previous %}
+                        <li>
+                            <a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; Back </a>
+                        </li>
+                    {% endif %}
+
+                    <!-- Next Button -->
+                    {% if page_obj.has_next %}
+                        <li>
+                            <a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
     </div>
-
-    <!-- Pagination (if applicable)-->
-    <!-- The pagination section has been adapted from Code Institute's "I think therefore I blog" walkthrough -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <!-- Back Button -->
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; Back </a></li>
-            {% endif %}
-
-            <!-- Next Button -->
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-
-</div>
 <!-- End Content Block -->
 {% endblock %}

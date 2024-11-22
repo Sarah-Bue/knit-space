@@ -27,36 +27,55 @@
             {% endfor %}
         </div>
     {% endif %}
+    
+    <!-- Customized Greeting -->
+    <h1 class="post-title text-center pb-3">Welcome to your Dashboard, {{ request.user.username }}!</h1>
 
-    <div class="row">
-        <h1 class="post-title">Welcome to your Dashboard, {{ request.user.username }}!</h1>
-    </div>
+    <!-- Sorting Instructions (only visible if there are saved posts) -->
+    {% if saved_posts %}
+        <div class="row">
+            <p class="text-center text-muted"><i class="fa-solid fa-circle-info"></i> Drag and drop your posts to rearrange them.</p>
+        </div>
+    {% endif %}
+
+    <!-- Saved Posts -->
     <div class="row">
         <div class="saved-posts">
             <!-- The sortable functionality has been adapted from https://jqueryui.com/sortable/ -->
-            <ul id="sortable">
-            <!-- Iterate over saved_posts and display each one -->
-            {% for saved_post in saved_posts %}
-                <!-- Each saved post as list item to be sortable -->
-                <li class="ui-state-default" data-id="{{ saved_post.id }}">
-                    <!-- Clickable link -->
-                    <a href="{% url 'blogpost_detail' slug=saved_post.post.slug %}" class="card-link">
-                        <div class="card mb-4 hover-card">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ saved_post.post.title }}</h3>
-                                <h6 class="card-subtitle mb-2 text-muted">by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</h6>
+            <ul id="sortable" class="list-unstyled">
+                {% for saved_post in saved_posts %}
+                    <li class="ui-state-default mb-3" data-id="{{ saved_post.id }}">
+                        <div class="card hover-card">
+                            <div class="row g-0 align-items-center">
+                                <!-- Post Details -->
+                                <div class="col-md-9">
+                                    <!-- Clickable to return to full page post view -->
+                                    <a href="{% url 'blogpost_detail' slug=saved_post.post.slug %}" class="text-decoration-none text-dark">
+                                        <div class="card-body">
+                                            <!-- Title -->
+                                            <h5 class="card-title m-0">{{ saved_post.post.title }}</h5>
+                                            <!-- Meta Information -->
+                                            <p class="card-text"><small class="text-muted"><em>by {{ saved_post.post.author }} | {{ saved_post.post.created_on }}</em></small></p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Responsive Button Area -->
+                                <div class="col-12 col-md-3 text-center text-md-end px-3 mt-2 mt-md-0 pb-3 pb-md-0">
+                                    <!-- Form for deleting the post -->
+                                    <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" class="mb-0">
+                                        {% csrf_token %}
+                                        <!-- Delete Button -->
+                                        <button type="submit" class="btn btn-secondary w-75 w-md-auto">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                    <!-- Delete Post Button -->
-                    <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-secondary mb-3">Delete</button>
-                    </form>
-                </li>
-            {% empty %}
-                <p>No saved posts yet. Start saving your favorite blog posts!</p>
-            {% endfor %}
+                    </li>
+                <!-- Placeholder text if no saved posts are available. -->
+                {% empty %}
+                    <p class="text-center">No saved posts yet. <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'home' %}">Start saving your favorite blog posts!</a></p>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
@@ -76,4 +95,3 @@
 
 <!-- End Content Block -->
 {% endblock %}
-
