@@ -1,6 +1,14 @@
 <!-- Inherit from base.html -->
 {% extends 'base.html' %}
 
+<!-- Load internationalization tags for content translation -->
+{% load i18n %}
+
+<!-- Set page title to "Create a Post" with translation support -->
+{% block head_title %}
+{% trans "KnitSpace | Create a Post" %}
+{% endblock %}
+
 <!-- Start Content Block -->
 {% block content %}
 
@@ -8,18 +16,50 @@
 
     <!-- Back Button -->
     <div class="row mt-3">
-        <div class="col-md-12">
+        <div class="col-12">
             <a href="javascript:history.back()" class="btn btn-secondary mb-3">Back</a>
         </div>
     </div>
 
-    <h2>Create New Blog Post</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-secondary mb-3">Create</button>
-    </form>
+    <h1 class="post-title text-center pb-3">A Penny for Your Thoughts, Liebchen...</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                
+                <!-- Title -->
+                <div class="form-group mb-3">
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                </div>
+                <!-- Excerpt -->
+                <div class="form-group mb-3">
+                    {{ form.excerpt.label_tag }}
+                    <small class="form-text text-muted">(optional)</small>
+                    {{ form.excerpt }}
+                </div>
+                <!-- Content -->
+                <div class="form-group mb-3" id="id_content_field">
+                    {{ form.content.label_tag }}
+                    {{ form.content }}
+                </div>
+                <!-- Image -->
+                <div class="form-group mb-3">
+                    {{ form.featured_image.label_tag }}
+                    <small class="form-text text-muted">(optional)</small>
+                    {{ form.featured_image }}
+                </div>
+                <!-- Submit Button -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-secondary mb-3">
+                        Create Post
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <!-- End Content Block -->
 {% endblock %}

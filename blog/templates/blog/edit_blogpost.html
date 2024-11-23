@@ -1,15 +1,28 @@
 <!-- Inherit from base.html -->
 {% extends 'base.html' %}
 
+<!-- Load internationalization tags for content translation -->
+{% load i18n %}
+
+<!-- Set page title to "Edit Your Post" with translation support -->
+{% block head_title %}
+{% trans "KnitSpace | Edit Your Post" %}
+{% endblock %}
+
 <!-- Start Content Block -->
 {% block content %}
 <div class="container mt-3">
-    <h2>Edit Blog Post</h2>
+
+    <h1 class="post-title text-center pb-3">Need to make a Change?</h1>
+    
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.non_field_errors }}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-secondary mb-3">Update Post</button>
+        <!-- Update Button -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary mb-3">Update Post</button>
+        </div>
     </form>
 </div>
 <!-- End Content Block -->
