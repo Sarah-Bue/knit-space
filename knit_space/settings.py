@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # KnitSpace applications
     'blog',
+    'about',
     'dashboard',
 ]
 

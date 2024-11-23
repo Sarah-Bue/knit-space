@@ -7,67 +7,79 @@
 <!-- Start Content Block -->
 {% block content %}
 
-
-<div class="masthead">
     <div class="container">
 
-        <!-- User Feedback: Post saved  -->
-        {% if messages %}
-        <div>
-            {% for message in messages %}
-                <div class="alert alert-success" role="alert">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        </div>
-        {% endif %}
 
-        <!-- Back Button -->
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <a href="javascript:history.back()" class="btn btn-secondary mb-3">Back</a>
+        <!-- Buttons -->
+        <div class="row mt-2">
+            <!-- Back to All Posts Button-->
+            <div class="col-auto">
+                <a href="{% url 'home' %}" class="btn btn-secondary mb-3"> &laquo; All Posts</a>
+            </div>
+            <!-- Save to Dashboard Button (logged in users only)-->
+            <div class="col-auto">
+                {% if user.is_authenticated %}
+                <form action="{% url 'save_post' blogpost.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary mb-3">
+                        Save to Dashboard
+                    </button>
+                </form>
+            {% endif %}
             </div>
         </div>
 
-        <!-- Save Button (logged in users only)-->
-        {% if user.is_authenticated %}
-        <form action="{% url 'save_post' blogpost.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-secondary mb-3">Save</button>
-        </form>
-        {% endif %}
-
-        <!-- Delete Button (post author only)-->
-        {% if request.user == blogpost.author %}
-        <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-secondary mb-3">Delete Post</button>
-        </form>
-        {% endif %}
-
-        <!-- Edit Button (post author only)-->
-        {% if request.user == blogpost.author %}
-        <!-- Edit button visible only to the author of the post -->
-        <a href="{% url 'edit_blogpost' blogpost.id %}" class="btn btn-secondary mb-3">Edit Post</a>
+        <!-- User Feedback: Post saved  -->
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
 
         <!-- Blog Post Details -->
-        <div class="row">
-            <div class="col-md-12 card mb-4">
-                <div class="card-body">
-                    <!-- Blog Post Header -->
-                    <h1 class="post-title">{{ blogpost.title }}</h1>
-                    <p class="post-subtitle"><em>by {{ blogpost.author }} | {{ blogpost.created_on }}</em></p>
-                    <!-- Blog Post Content -->
-                    <p class="card-text">
-                        <!-- "safe" for HTML rendering -->
-                        {{ blogpost.content | safe }}
-                    </p>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-12 card mb-4">
+                    <div class="card-body position-relative">
+                        <!-- Blog Post Header -->
+                        <h1 class="post-title">{{ blogpost.title }}</h1>
+                        <!-- Dropdown Menu (only visible to author of post)-->
+                        {% if request.user == blogpost.author %}
+                        <div class="dropdown position-absolute top-0 end-0 mt-2 me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!-- Edit Post Button -->
+                                <li>
+                                    <a href="{% url 'edit_blogpost' blogpost.id %}" class="dropdown-item">Edit Post</a>
+                                </li>
+                                <!-- Delete Post Button -->
+                                <li>
+                                    <form action="{% url 'delete_blogpost' blogpost.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item">Delete Post</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %} 
+
+                        <p class="post-subtitle"><em>by {{ blogpost.author }} | {{ blogpost.created_on }}</em></p>
+                        <!-- Blog Post Content -->
+                        <p class="card-text">
+                            <!-- "safe" for HTML rendering -->
+                            {{ blogpost.content | safe }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- End Content Block -->
 {% endblock content %}

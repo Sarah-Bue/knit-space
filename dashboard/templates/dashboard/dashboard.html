@@ -9,7 +9,7 @@
 
 <!-- Set page title to "Dashboard" with translation support -->
 {% block head_title %}
-{% trans "Dashboard" %}
+{% trans "KnitSpace | Dashboard" %}
 {% endblock %}
 
 <!-- Start Content Block -->
@@ -31,7 +31,7 @@
     <!-- Customized Greeting -->
     <h1 class="post-title text-center pb-3">Welcome to your Dashboard, {{ request.user.username }}!</h1>
 
-    <!-- Sorting Instructions (only visible if there are saved posts) -->
+    <!-- Sorting Instructions (only visible if there are any saved posts) -->
     {% if saved_posts %}
         <div class="row">
             <p class="text-center text-muted"><i class="fa-solid fa-circle-info"></i> Drag and drop your posts to rearrange them.</p>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </li>
-                <!-- Placeholder text if no saved posts are available. -->
+                <!-- Placeholder text if no saved posts are available -->
                 {% empty %}
                     <p class="text-center">No saved posts yet. <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'home' %}">Start saving your favorite blog posts!</a></p>
                 {% endfor %}

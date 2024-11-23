@@ -17,11 +17,11 @@
                             <div class="card hover-card">
                                 <!-- Custom Image or Placeholder -->
                                 {% if "placeholder" in blogpost.featured_image.url %}
-                                <img class="img-fluid" src="{% static 'images/default.png' %}"
-                                    alt="placeholder image">
+                                    <img class="img-fluid" src="{% static 'images/default.png' %}"
+                                        alt="placeholder image">
                                 {% else %}
-                                <img class="img-fluid" src="{{ blogpost.featured_image.url }}"
-                                    alt="{{ blogpost.title }}">
+                                    <img class="img-fluid" src="{{ blogpost.featured_image.url }}"
+                                        alt="{{ blogpost.title }}">
                                 {% endif %}
                                 <!-- Body -->
                                 <div class="card-body">

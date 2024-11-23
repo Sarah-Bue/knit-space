@@ -55,17 +55,6 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <!-- Navbar Links -->
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Blog</a>
-                    </li>
-                    <!-- To be Added -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <!-- To be Added -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,7 +62,6 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% if user.is_authenticated %}
-                            <li><a class="dropdown-item" href="{% url 'user_dashboard' %}">Dashboard</a></li>
                             <li><a class="dropdown-item" href="{% url 'create_blogpost' %}">Create New Post</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                             {% else %}
@@ -81,6 +69,22 @@
                             <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sigm Up</a></li>
                             {% endif %}
                         </ul>
+                    </li>
+                    <!-- Home Page-->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Blog</a>
+                    </li>
+                    <!-- About Page -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                    </li>
+                    <!-- To be Added -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <!-- Dashboard -->
+                    <li>
+                        <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
                     </li>
                 </ul>
                 <!-- Customized Greeting -->
@@ -98,7 +102,6 @@
     <header class="hero-header">
         <!-- Translucent Overlay -->
         <div class="hero-overlay"></div>
-
         <!-- Main Heading, only visible on home page -->
         {% if request.path == '/' %}
         <div class="hero-content">
