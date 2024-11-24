@@ -1,3 +1,6 @@
+/* JSHint directive that specifies $ as a global variable */
+/* global $ */
+
 /**
  * Initializes jQuery UI's sortable functionality for the '#sortable' element.
  * Captures changes in the order of items.

@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Allowed Hosts for application
 ALLOWED_HOSTS = [
@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     # Cloudinary
     'cloudinary_storage',
     'cloudinary',
+    # Crispy Forms
+    'crispy_forms',
     # KnitSpace applications
     'blog',
     'about',
@@ -107,6 +109,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # WSGI application configuration for serving the application
 WSGI_APPLICATION = 'knit_space.wsgi.application'

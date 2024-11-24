@@ -23,8 +23,10 @@
     <meta name="keywords" content="KnitSpace, knitting blog, knitting community, knit patterns, crafting, yarn, knitting posts, blog posts, knitting tutorials, knit designs, knitting">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&family=Sigmar&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -47,10 +49,10 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg frame">
         <div class="container px-1">
             <!-- Clickable Logo -->
-            <a class="navbar-brand me-5 fw-bold" href="{% url 'home' %}">KNITSPACE</a>
+            <a class="navbar-brand logo me-5 fw-bold" href="{% url 'home' %}">KnitSpace</a>
             <!-- Button for collapsible menu on smaller screens -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -90,7 +92,7 @@
                             </a>
                         {% endif %}
                         <!-- Dropdown Items -->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu frame" aria-labelledby="navbarDropdownMenuLink">
                             <!-- Logged in Users only-->
                             {% if user.is_authenticated %}
                                 <li><a class="dropdown-item" href="{% url 'create_blogpost' %}">Create New Post</a></li>
@@ -115,7 +117,7 @@
         <!-- Main Heading, only visible on home page -->
         {% if request.path == '/' %}
         <div class="hero-content">
-            <h1 class="display-3 fw-bold text-center">Welcome to KnitSpace!</h1>
+            <h1 class="display-3 fw-bold text-center logo">Welcome to KnitSpace!</h1>
             <hr class="my-4 w-50">
             <span class="subheading text-center fs-4">Your community for tips, tricks, and knit-spiration</span>
         </div>
@@ -131,7 +133,7 @@
      
     <!-- Footer-->
     <!-- The footer section has been adapted from Bootstrap's "Clean Blog" template -->
-    <footer class="border-top bg-light py-4">
+    <footer class="border-top  py-4 frame">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Social Networks -->

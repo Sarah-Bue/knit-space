@@ -18,3 +18,5 @@ class BlogPostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
             'excerpt': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+

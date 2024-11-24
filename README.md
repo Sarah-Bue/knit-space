@@ -1,6 +1,6 @@
 # KnitSpace
 
-![Mock Up Image]()
+![Mock Up Image](assets/readme-files/images/mockup.png)
 
 KnitSpace is a vibrant online community for knitters of all levels to share, learn, and connect. Users can browse blog posts on various knitting-related topics without logging in. They can also create an account to save their favourite posts or create their own.
 
@@ -21,6 +21,7 @@ GitHub Projects was an essential tool for tracking progress and managing tasks t
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritization -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.
 
 ### CRUD Functionality
+
 *CRUD* functionality has been implemented throughout the project to create an entirely usable experience for the user.
 
 Admin (superuser only)
@@ -41,24 +42,63 @@ Content Management (logged-in users only)
 - *U*: Update own blogposts.
 - *D*: Delete own blogposts.
 
-### Diagrams
+### Entity Relationship Diagrams
+
+During planning, [Lucidchart](https://www.lucidchart.com) was used to visualize the relationships between the models in this application. The relationships are between *User*, *BlogPost*, and *SavedPost*. *About* is an independent entity with no relation to the other models.
+
+#### User Entity
+User -> BlogPost:
+- Each User can be the author of multiple *BlogPost* instances. This is represented as a one-to-many (1:N) relationship where the *User* is on the "one" side, and each *BlogPost* is on the "many" side.
+- In the model, this relationship is facilitated by a ForeignKey in the *BlogPost* model pointing to the *User*.
+
+User -> SavedPost:
+- Each User can save multiple blog posts, resulting in several *SavedPost* entries. This is another one-to-many (1:N) relationship.
+- This is implemented via a ForeignKey in the *SavedPost* model pointing back to the User.
+
+#### BlogPost Entity
+BlogPost -> User:
+- A *BlogPost* is authored by the *User*, which is a many-to-one relationship where multiple *BlogPost* instances can be associated with a single *User*.
+
+BlogPost -> SavedPost:
+- Each BlogPost can be saved by multiple users, represented by multiple SavedPost entries. This defines another one-to-many (1:N) relationship, where *SavedPost* serves as an intermediary.
+
+
+#### SavedPost Entity
+BlogPost -> User:
+- This is a many-to-one relationship, illustrating that multiple saved posts can belong to a single user.
+
+BlogPost -> SavedPost:
+- This is a many-to-one relationship, indicating that multiple users can save the same blog post.
+
+<details>
+<summary> Entity Relationship Diagrams Image</summary>
+<img src = "assets/readme-files/images/planning-erd.png">
+</details>
+
 ### Design Choices
 #### Color Palette
 
-[Coolors](https://coolors.co/image-picker) was used to generate a color palette from the main background image. 
+The color palette makes use of three colors, taken from the header image to maintain a consistent style, as well as standard white. The colors were chosen for their pastel look, to help create a pleasant and soothing experience for the user. Only three colors were used to support that experience. The palette was generated using [Coolors](https://coolors.co/image-picker).
+- #FFFFFF (white): Cards and input fields were kept white to stand out.
+- #FAF9F6 (baby powder): This was chosen as a background for the site to create a softer look. 
+- #CDBABE (thistle): This was chosen for the header and footer to create a visual framing of the page content. 
+- #538EA3 (blue / munsell): This was chosen for the buttons of the site.
 
 <details>
 <summary> Color Pallette Image</summary>
-<img src = "assets/readme-files/images/pallette.png">
+<img src = "assets/readme-files/images/palette.png">
 </details>
 
 #### Typography
 
-[Google Fonts](https://fonts.google.com) was used to pair and import fonts. 
+Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
+*Sigmar* was chosen as the font for the logo and the header text due its bold, decorative lettering. For the main text, *Poppins* was used, as it offers a clean, modern design which is easy to read in a variety of styles and sizes.
+
 
 <details>
 <summary> Type Font Image</summary>
-<img src = "">
+<img src = "assets/readme-files/images/font-sigmar.png">
+<img src = "assets/readme-files/images/font-poppins.png">
 </details>
 
 #### Wireframes
@@ -251,7 +291,7 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 
 - [Cloudinary](https://cloudinary.com/) was used as an image storage solution.
 
-- [jQuery](https://jquery.com/) was used as a JavaScript library to simplify the JavaScript code.  
+- [jQuery](https://jquery.com/) was used as a JavaScript library to simplify the JavaScript code.
 
 
 ### Tools and Programs
@@ -267,6 +307,8 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 - [Am I Responsive](ami.responsivedesign.is) was used to preview the website across a variety of popular devices.
 
 - [Coolors](https://coolors.co) was used to create a color palette for the website.
+
+- [JPG2PNG](https://jpg2png.com) was used to convert all images to PNG format.
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project
 
@@ -285,6 +327,9 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 - [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) was used to measure the page's quality.
 
 - [CDNJS](https://cdnjs.com/) was used to deliver external libraries on the website.
+
+- [Lucidchart](https://www.lucidchart.com) was used to create the Entity Relationship Diagrams.
+
 
 
 [Back to top ⇧](#knitspace)
@@ -375,134 +420,123 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 
 #### HTML
 
-- [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code of each templated page.
+[W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code of each templated page.
 
-<details>
-<summary> Home Validation Image </summary>
-<img src = "">
-</details>
+| **Tested** | **Result** | **View Result** | **Pass** |
+--- | --- | --- | ---
+|Home | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/home-validation.png)</details>| Pass |
+|About | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-validation.png)</details>| Pass |
+|Dashboard | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-validation.png)</details>| Pass |
+|Full Page Post View | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/view-post-validation.png)</details>| Pass |
+|Create Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/create-post-validation.png)</details>| Pass |
+|Edit Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/edit-post-validation.png)</details>| Pass |
+|Sign In | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-in-validation.png)</details>| Pass |
+|Sign Up | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-up-validation.png)</details>| Pass |
+|Sign Out | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-out-validation.png)</details>| Pass |
+|404 | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/404-validation.png)</details>| Pass |
 
-<details>
-<summary> Dashboard Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> Full Page Post Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> Dashboard Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> Sign In Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> Sign Up Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> Sign Out Validation Image </summary>
-<img src = "">
-</details>
-
-<details>
-<summary> 404 Validation Image </summary>
-<img src = "">
-</details>
 
 #### CSS
 
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the custom CSS code.
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the custom CSS code.
 
-<details>
-<summary> CSS Validation Image </summary>
-<img src = "">
-</details>
+| Tested | Result | View Result | Pass/Fail |
+--- | --- | --- | ---
+|style.css | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/css-validation.png)</details>| Pass |
+
 
 #### JavaScript
 
-- [JSHint](https://jshint.com/) was used to validate the custom JavaScript code.
+[JSHint](https://jshint.com/) was used to validate the custom JavaScript code.
 
-<details>
-<summary> JavaScript Validation Image </summary>
-<img src = "">
-</details>
+| Tested | Result | View Result | Pass/Fail |
+--- | --- | --- | ---
+|script.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/js-validation.png)</details>| Pass |
+
 
 #### Python
 
-- [PEP8 Online Check](https://pep8ci.herokuapp.com) was used to validate the custom Python code.
+[PEP8 Online Check](https://pep8ci.herokuapp.com) was used to validate the custom Python code.
 
-<details>
-<summary> Python Validation Image </summary>
-<img src = "">
-</details>
+| Tested | Result | View Result | Pass/Fail |
+--- | --- | --- | ---
+|knitspace/settings.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/knitspace-settings-validation.png)</details>| Pass |
+|knitspace/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/knitspace-urls-validation.png)</details>| Pass |
+|about/apps.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-apps-validation.png)</details>| Pass |
+|about/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-urls-validation.png)</details>| Pass |
+|about/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-views-validation.png)</details>| Pass |
+|blog/admin.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-admin-validation.png)</details>| Pass |
+|blog/apps.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-apps-validation.png)</details>| Pass |
+|blog/forms.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-forms-validation.png)</details>| Pass |
+|blog/models.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-models-validation.png)</details>| Pass |
+|blog/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-urls-validation.png)</details>| Pass |
+|blog/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-views-validation.png)</details>| Pass |
+|dashboard/models.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-models-validation.png)</details>| Pass |
+|dashboard/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-urls-validation.png)</details>| Pass |
+|dashboard/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-views-validation.png)</details>| Pass |
+
 
 ### Manual Testing
 
 #### Admin Features
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
-|Create superuser | Yes | Successful |
-|Create user | Yes | Successful |
-|Delete user | Yes | Successful |
-|Create post | Yes | Successful |
-|Delete post | Yes | Successful |
-|View all posts | Yes | Successful |
-|Filter posts | Yes | Successful |
+|Create superuser | Yes | Pass |
+|Create user | Yes | Pass |
+|Delete user | Yes | Pass |
+|Create post | Yes | Pass |
+|Delete post | Yes | Pass |
+|Upload image | Yes | Pass |
+|View all posts | Yes | Pass |
+|Filter posts | Yes | Pass |
 
 #### Account Management
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
-|Create new account | Yes | Successful |
-|Log in to account | Yes | Successful |
-|Log out of account | Yes | Successful |
+|Sign up for new account | Yes | Pass |
+|Sign in to account | Yes | Pass |
+|Sign out of account | Yes | Pass |
 
 #### Content Management
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
-|Create a new post function available to logged-in users | Yes | Successful |
-|Edit function available to the author of a post | Yes | Successful |
-|Delete function available to the author of a post | Yes | Successful |
-|Users can provide a custom image for a post | Yes | Successful |
+|Logged in users can create a new post | Yes | Pass |
+|Users can upload a custom image for a post | Yes | Pass |
+|Authors can edit their posts | Yes | Pass |
+|Authors can delete their posts | Yes | Pass |
 
 #### Dashboard
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
-| Dashboard is only visible to logged-in users | Yes | Successful |
-|Saved blog posts appear on the dashboard | Yes | Successful |
-|Users can delete posts from the dashboard | Yes | Successful |
-|Posts can be rearranged using drag and drop | Yes | Successful |
-|New order persists after changing sites and logging out | Yes | Successful |
+|Dashboard is only visible to logged-in users | Yes | Pass |
+|Saved blog posts appear on the dashboard | Yes | Pass |
+|Users can delete posts from the dashboard | Yes | Pass |
+|Posts can be rearranged using drag and drop | Yes | Pass |
+|New order persists after changing sites and logging out | Yes | Pass |
 
 #### Home Page & Blog Views
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
-|Browse paginated blog excerpts | Yes | Successful |
-|Click on excerpt opens full-page blog entry | Yes | Successful |
-|Click on back returns the user to the homepage | Yes | Successful |
-|Save button on full-page entry is invisible for guest users | Yes | Successful |
-|Action button to edit/delete own post on full-page entry is only visible to the author | Yes | Successful |
-|Hero message is only visible on the home page | Yes | Successful |
+|Browse paginated blog excerpts | Yes | Pass |
+|Click on excerpt opens full-page blog entry | Yes | Pass |
+|Click on back returns the user to the homepage | Yes | Pass |
+|Save button on full-page entry is invisible for guest users | Yes | Pass |
+|Action button to edit/delete own post on full-page entry is only visible to the author | Yes | Pass |
 
 #### Header
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
 |Click on logo returns to homepage | Yes | Successful |
 |Click on navigation bar links redirect to other internal pages  | Yes | Successful |
 |Link to Dashboard is invisible for guest users | Yes | Successful |
-| Customized greeting for logged-in users | Yes | Successful |
+|Customized greeting for logged-in users serves as Account drop-down | Yes | Successful |
+|Account drop-down instead of customized greeting for guest users | Yes | Successful |
 |Active page links change color | Yes | Successful |
+|Hero message is only visible on the home page | Yes | Pass |
 
 
 #### Footer
-| Feature | Tested? | User Feedback Provided |
+| Feature | Tested | Pass/Fail |
 |---|---|---|
 |Click on social media icon redirects to respective website | Yes | Successful |
 |Social Media links open in new tab | Yes | Successful |
@@ -537,47 +571,25 @@ JoyUI Native Browsers | No issues with appearance, responsiveness, or functional
 |Feature | Bug | Fix |
 |---|---|---|
 |Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Fixed |
-|Random messages | Occasionally, feedback messages detailing the last step a user has taken are shown instead of just feedback for saving/deleting a post. | Not fixed |
+|Random messages | Feedback messages detailing the last steps a user has taken are shown ahead of the feedback message for saving/deleting a post. | Not fixed |
 
 
 ### Accessibility
 
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) in [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to measure the page's quality, focusing on performance, accessibility, best practices, and SEO scores.
 
-<details>
-<summary>Home Page Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>Dashboard Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>Full-Page Post Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>Sign In Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>Sign Up Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>Sign Out Lighthouse Report</summary>
-<img src = "">
-</details>
-
-<details>
-<summary>404 Page </summary>
-<img src = "">
-</details>
+| Tested | Result | View Result | Pass/Fail |
+--- | --- | --- | :---:
+|Home | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/home-lighthouse.png)</details>| Pass |
+|About | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/about-lighthouse.png)</details>| Pass |
+|Dashboard | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/dashboard-lighthouse.png)</details>| Pass |
+|Full Page Post View | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/view-post-lighthouse.png)</details>| Pass |
+|Create Post | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/create-post-lighthouse.png)</details>| Pass |
+|Edit Post | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/edit-post-lighthouse.png)</details>| Pass |
+|Sign In | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-in-lighthouse.png)</details>| Pass |
+|Sign Up | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-up-lighthouse.png)</details>| Pass |
+|Sign Out | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-out-lighthouse.png)</details>| Pass |
+|404 | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/404-lighthouse.png)</details>| Pass |
 
 [Back to top ⇧](#knitspace)
 
@@ -635,8 +647,8 @@ All content was written by the developer.
 
 ### Media
 
-- The image used for the Favicon is from [Pixabay](https://pixabay.com/), by Clker-Free-Vector-Images.
-- The default image used for blog posts is from [Pixabay](https://pixabay.com/), by kumoknits.
+- The image used for the Favicon is from [Pixabay](https://pixabay.com/), by MissKaLem.
+- The default image used for blog posts is from [Pixabay](https://pixabay.com/), by MabelAmber.
 - All other images were generated by Alex Büttner using [Getimg.ai](https://getimg.ai/).
 - The blog posts and user personas were generated with the help of [Gemini](https://gemini.google.com/). 
 
