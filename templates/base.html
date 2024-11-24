@@ -42,58 +42,65 @@
 </head>
 
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container px-1">
             <!-- Clickable Logo -->
-          <a class="navbar-brand fw-bold" href="{% url 'home' %}">KNITSPACE</a>
-          <!-- Collapsible Hamburger Menu (small screens only)-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand me-5 fw-bold" href="{% url 'home' %}">KNITSPACE</a>
+            <!-- Button for collapsible menu on smaller screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Collapsible for smaller screens -->
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <!-- Navbar Links -->
-                <ul class="navbar-nav">
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% if user.is_authenticated %}
-                            <li><a class="dropdown-item" href="{% url 'create_blogpost' %}">Create New Post</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
-                            {% else %}
-                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sigm Up</a></li>
-                            {% endif %}
-                        </ul>
-                    </li>
-                    <!-- Home Page-->
+            </button>
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <!-- Blog -->
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Blog</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Blog</a>
                     </li>
-                    <!-- About Page -->
+                    <!-- About -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
                     </li>
-                    <!-- To be Added -->
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
+                    </li>
+                    <!-- Contact --> <!-- To be Added -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
-                    <!-- Dashboard -->
-                    <li>
-                        <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
+                </ul>
+                <!-- User-specific Dropdown Menu -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <!-- Customized Greeting for logged-in users -->
+                        {% if user.is_authenticated %}
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hello, {{ user.username }}
+                            </a>
+                        <!-- Guest Users see "Account" instead-->
+                        {% else %}
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                        {% endif %}
+                        <!-- Dropdown Items -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <!-- Logged in Users only-->
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'create_blogpost' %}">Create New Post</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
+                            <!-- Visible to Guest Users -->
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+                            {% endif %}
+                        </ul>
                     </li>
                 </ul>
-                <!-- Customized Greeting -->
-                {% if user.is_authenticated %}
-                <span class="navbar-text ms-auto d-none d-lg-block">
-                    Helllo, {{ request.user.username }}!
-                </span>
-                {% endif %}
-          </div>
+            </div>
         </div>
     </nav>
 
@@ -115,7 +122,7 @@
     <!-- Main -->
     <main>
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content goes here -->
         {% endblock content %}
     </main>
      
