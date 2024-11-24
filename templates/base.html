@@ -1,6 +1,9 @@
 <!-- Load Static Library -->
 {% load static %}
 
+<!-- Load internationalization tags for content translation -->
+{% load i18n %}
+
 <!-- Capture URLS for specific views -->
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
