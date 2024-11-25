@@ -17,8 +17,8 @@ def user_dashboard(request):
     # Retrieve all saved posts for active user
     saved_posts = (
         SavedPost.objects.
-        filter(user=request.user)
-        .select_related('post')
+        filter(user=request.user).order_by('order')
+        # .select_related('post')
     )
     # Render user's dashboard and pass saved posts to context
     return render(
