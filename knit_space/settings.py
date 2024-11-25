@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # Crispy Forms
     'crispy_forms',
+    "crispy_bootstrap5",
     # KnitSpace applications
     'blog',
     'about',
@@ -110,7 +111,9 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# Templates for Crispy FOrm 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # WSGI application configuration for serving the application
 WSGI_APPLICATION = 'knit_space.wsgi.application'

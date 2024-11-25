@@ -293,6 +293,8 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 
 - [jQuery](https://jquery.com/) was used as a JavaScript library to simplify the JavaScript code.
 
+- [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/stable/index.html) was used to render the forms.
+
 
 ### Tools and Programs
 
