@@ -28,8 +28,16 @@
         </div>
     {% endif %}
     
+    <!-- Switch to My Posts Button -->
+    <div class="row mt-3">
+        <div class="col-12">
+            <a href="{% url 'user_blogposts' %}" class="btn btn-secondary mb-3">Switch to Your Posts</a>
+        </div>
+    </div>
+
     <!-- Customized Greeting -->
-    <h1 class="post-title text-center pb-3">Welcome to your Dashboard, {{ request.user.username }}!</h1>
+    <h1 class="post-title text-center">Welcome to your Dashboard, {{ request.user.username }}!</h1>
+    <hr>
 
     <!-- Sorting Instructions (only visible if there are any saved posts) -->
     {% if saved_posts %}

@@ -16,8 +16,8 @@ class PostList(generic.ListView):
     No login required.
     """
     # Retrieves all BlogPost objects
-    # Ordered in descending order by last_modified
-    queryset = BlogPost.objects.all().order_by('-last_modified')
+    # Ordered in descending order by created_on
+    queryset = BlogPost.objects.all().order_by('-created_on')
     # Template used to render list of blog posts
     template_name = "blog/index.html"
     # Show 9 posts per page
@@ -66,7 +66,10 @@ def save_post(request, post_id):
         )
 
     # Redirect to full-page view of saved blog post
-    return redirect('blogpost_detail', slug=post.slug)
+    return redirect(
+        'blogpost_detail',
+        slug=post.slug
+    )
 
 
 @login_required
@@ -85,11 +88,19 @@ def create_blogpost(request):
             blogpost.slug = slugify(blogpost.title) if blogpost.title else None
             blogpost.save()
             # Redirect to the full-page view of the newly created blog post
-            return redirect('blogpost_detail', slug=blogpost.slug)
+            return redirect(
+                'blogpost_detail',
+                slug=blogpost.slug
+            )
     else:
         form = BlogPostForm()
     
-    return render(request, 'blog/create_blogpost.html', {'form': form})
+    # Render in blog/create_blogpost.html template
+    return render(
+        request,
+        'blog/create_blogpost.html',
+        {'form': form}
+    )
 
 
 def delete_blogpost(request, post_id):
@@ -108,13 +119,15 @@ def delete_blogpost(request, post_id):
         f'"{blogpost.title}" has been deleted.'
     )
 
-    # Redirect the user to their dashboard or home page after deletion
-    return HttpResponseRedirect(reverse('home'))
+    # Redirect the user to home page after deletion
+    return HttpResponseRedirect(
+        reverse('home')
+    )
 
 
 def edit_blogpost(request, post_id):
     """
-    Edit a blog post using a WYSIWYG editor.
+    Edit a blog post.
     This is only available after successful login.
     Only post authors can edit their own posts.
     """
@@ -130,12 +143,34 @@ def edit_blogpost(request, post_id):
                 f'"{blogpost.title}" has been updated.'
             )
             # Redirect to full-page blogpost view after update
-            return redirect('blogpost_detail', slug=blogpost.slug)
+            return redirect(
+                'blogpost_detail',
+                slug=blogpost.slug
+            )
     else:
         form = BlogPostForm(instance=blogpost)
     
+    # Render in blog/edit_blogpost.html template
     return render(
         request,
         'blog/edit_blogpost.html',
-        {'form': form, 'post': blogpost}
+        {'form': form,
+        'blogpost': blogpost}
+    )
+
+
+@login_required
+def user_blogposts(request):
+    """
+    Display a list of all blog posts authored by active user.
+    This is only available after successful login.
+    """
+    # Query to retrieve all blog posts authored by active user
+    authored_posts = BlogPost.objects.filter(author=request.user)
+
+    # Render in blog/user_blogposts.html template
+    return render(
+        request,
+        'blog/user_blogposts.html',
+        {'authored_posts': authored_posts}
     )

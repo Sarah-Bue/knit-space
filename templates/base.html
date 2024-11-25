@@ -68,10 +68,12 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
                     </li>
-                    <!-- Dashboard -->
+                    <!-- Dashboard (only visible when logged in)-->
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
                     </li>
+                    {% endif %}
                     <!-- Contact --> <!-- To be Added -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
@@ -83,7 +85,7 @@
                         <!-- Customized Greeting for logged-in users -->
                         {% if user.is_authenticated %}
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hello, {{ user.username }}
+                                Hello, {{ user.username }}!
                             </a>
                         <!-- Guest Users see "Account" instead-->
                         {% else %}
@@ -95,8 +97,18 @@
                         <ul class="dropdown-menu frame" aria-labelledby="navbarDropdownMenuLink">
                             <!-- Logged in Users only-->
                             {% if user.is_authenticated %}
-                                <li><a class="dropdown-item" href="{% url 'create_blogpost' %}">Create New Post</a></li>
-                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'user_dashboard' %}">View Your Dashboard</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'user_blogposts' %}">View Your Posts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'create_blogpost' %}">Create a New Post</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
+                                </li>
                             <!-- Visible to Guest Users -->
                             {% else %}
                                 <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>

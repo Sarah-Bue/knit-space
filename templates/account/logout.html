@@ -4,47 +4,67 @@
 <!-- Load internationalization tags for content translation -->
 {% load i18n %}
 
+<!-- Load CrispyForms -->
+{% load crispy_forms_tags %}
+
 <!-- Set page title to "Sign Out"-->
 {% block head_title %}
-{% trans "Sign Out" %}
+{% trans "KnitSpace | Sign Out" %}
 {% endblock %}
 
 <!-- Start Content Block -->
 {% block content %}
 
 <!-- The Log Out section has been adapted from Code Institute's "I Think Therefore I Blog" walkthrough -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign Out" %}</h3>
-            <p>
-              <!-- Start Translation Block -->
-              {% blocktrans %}
-              Are you sure? 
-              {% endblocktrans %}
-              <!-- End Translation Block -->
-            </p>
+<div class="container d-flex justify-content-center my-5">
+  <div class="card shadow-sm px-4 py-3" style="max-width: 500px;">
+    <div class="card-body">
+      <!-- Headers -->
+      <h3 class="text-center mb-4">{% trans "Sign Out" %}</h3>
+      <!-- Translation Block -->
+      <p class="mb-3 text-center">
+        {% blocktrans %}
+          Are you sure?
+        {% endblocktrans %}
+      </p>
+      <!-- Log Out Form -->
+      <form method="POST" action="{% url 'account_logout' %}">
+        <!-- Cross-Site request forgery protection -->
+        {% csrf_token %}
+        <!-- Formfields rendered with CrispyForms -->
+        {{ form|crispy }}
+        <!-- Redirect after successful logout -->
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <!-- Sign In Button -->
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-secondary my-3" type="submit">
+            {% trans "Sign Out" %}
+          </button>
         </div>
+      </form>
+      <hr>
+      <!-- Link to Sign Up -->
+      <p class="text-center">
+        <!-- Translation Block -->
+        {% url 'home' as my_url %}
+        {% blocktrans %}
+          Changed your mind? - <a class="link" href="{{ my_url }}">Keep browsing</a>.
+        {% endblocktrans %}
+      </p>
     </div>
-    
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form method="post" action="{% url 'account_logout' %}">
-              <!-- Cross-Site request forgery protection -->
-              {% csrf_token %}
-              <!-- Redicrect after successful logout -->
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <!-- Button -->
-              <div class="d-flex justify-content-center">
-                <button class="btn btn-secondary mb-3" type="submit">{% trans "Sign Out" %}</button>
-              </div>
-            </form>
-        </div>
-    </div>
+  </div>
 </div>
-<!-- End Content Block -->
+
+
+
+
+
+
+
+
+
 {% endblock %}
 
 

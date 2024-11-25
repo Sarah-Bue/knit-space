@@ -22,4 +22,8 @@ urlpatterns = [
 
     # URL for updating a blog post
     path('edit/<int:post_id>/', views.edit_blogpost, name='edit_blogpost'),
+
+    # ExiURL for viewing own posts
+    path('my-posts/', views.user_blogposts, name='user_blogposts'),
+
 ]

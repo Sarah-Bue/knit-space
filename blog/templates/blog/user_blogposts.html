@@ -1,0 +1,83 @@
+<!-- Inherit from base.html -->
+{% extends "base.html" %}
+
+<!-- Load Static Library -->
+{% load static %}
+
+<!-- Start Content Block -->
+{% block content %}
+<div class="container mt-4">
+
+    <!-- Switch to Dashboard Button -->
+    <div class="row mt-3">
+        <div class="col-12">
+            <a href="{% url 'user_dashboard' %}" class="btn btn-secondary mb-3">Switch to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <h2 class="post-title text-center">Your Blog Posts</h2>
+    <hr>
+
+    <!-- Instructions (only visible if there are any saved posts) -->
+    {% if authored_posts %}
+        <div class="row">
+            <p class="text-center text-muted"><i class="fa-solid fa-circle-info"></i> Click on the menu icon to edit or delete your posts.</p>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        {% if authored_posts %}
+            {% for post in authored_posts %}
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="row g-0 align-items-center">
+                            <!-- Post Details -->
+                            <div class="col-md-12">
+                                <!-- Clickable to return to full page post view -->
+                                <div class="card-body">
+                                    <!-- Title -->
+                                    <h5 class="card-title m-0">{{ post.title }}</h5>
+                                    <!-- Date -->
+                                    <p class="card-text"><small class="text-muted"><em>{{ post.created_on }}</em></small></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Dropdown -->
+                        <div class="dropdown position-absolute top-0 end-0 mt-2 me-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{% url 'blogpost_detail' slug=post.slug %}" class="dropdown-item">View Post</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'edit_blogpost' post.id %}" class="dropdown-item">Edit Post</a>
+                                </li>
+                                <li>
+                                    <form action="{% url 'delete_blogpost' post.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item">Delete Post</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">
+                You have not authored any blog posts yet. 
+                <br>
+                <a href="{% url 'create_blogpost' %}">Start posting now.</a>
+            </p>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
