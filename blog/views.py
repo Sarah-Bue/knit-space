@@ -111,24 +111,29 @@ def delete_blogpost(request, post_id):
     This is only available after successful login.
     Only post authors can delete their own posts.
     """
-    # Retrieve the blog post using post_id
-    blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
+    # Only allow POST requests to prevent accidental deletions from URL access
+    if request.method == 'POST':
+        # Retrieve the blog post using post_id
+        blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
 
-    # Delete the post
-    blogpost.delete()
-    # User feedback message
-    messages.add_message(
-        request,
-        messages.SUCCESS,
-        f'"{blogpost.title}" has been deleted.',
-        extra_tags='post_action'
-    )
+    if request.method == 'POST':
+        # Delete the post
+        blogpost.delete()
+        # User feedback message
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            f'"{blogpost.title}" has been deleted.',
+            extra_tags='post_action'
+        )
 
-    # Redirect the user to user_blogposts page after deletion
-    return redirect(
-    'user_blogposts'
-    )
+        # Redirect the user to user_blogposts page after deletion
+        return redirect(
+        'user_blogposts'
+        )
 
+    # If not POST request, redirect to home
+    return redirect('user_blogposts')
     
 
 

@@ -4,6 +4,14 @@
 <!-- Load Static Library -->
 {% load static %}
 
+<!-- Load internationalization tags for content translation -->
+{% load i18n %}
+
+<!-- Set page title to "My Posts" with translation support -->
+{% block head_title %}
+{% trans "KnitSpace | My Posts" %}
+{% endblock %}
+
 <!-- Start Content Block -->
 {% block content %}
 <div class="container mt-4">
@@ -20,6 +28,11 @@
             {% endfor %}
         </div>
     {% endif %}
+
+    <!-- Modal -->
+    {% block modal %}
+    {% endblock modal %}
+
 
     <!-- Switch to Dashboard Button -->
     <div class="row mt-3">
@@ -40,10 +53,12 @@
     {% endif %}
 
     <div class="row">
+        <!-- If posts are available -->
         {% if authored_posts %}
             {% for post in authored_posts %}
                 <div class="col-12 mb-4">
                     <div class="card">
+                        <!-- Post Summary Card -->
                         <div class="row g-0 align-items-center">
                             <!-- Post Details -->
                             <div class="col-md-12">
@@ -70,23 +85,26 @@
                                     <a href="{% url 'edit_blogpost' post.id %}" class="dropdown-item">Edit Post</a>
                                 </li>
                                 <li>
-                                    <form action="{% url 'delete_blogpost' post.id %}" method="POST">
-                                        {% csrf_token %}
-                                        <button type="submit" class="dropdown-item">Delete Post</button>
-                                    </form>
+                                    <button 
+                                        class="dropdown-item text-danger delete-post" 
+                                        data-id="{{ post.id }}"
+                                        data-title="{{ post.title }}"
+                                        data-url="{% url 'delete_blogpost' post.id %}">
+                                        Delete Post
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+        <!-- If no posts are available -->
         {% else %}
             <p class="text-center">
                 You have not authored any blog posts yet. 
                 <br>
                 <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'create_blogpost' %}">Start posting now.</a>
             </p>
-
         {% endif %}
     </div>
 </div>

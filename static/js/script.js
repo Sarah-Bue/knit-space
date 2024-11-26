@@ -35,3 +35,26 @@ $(function() {
         // JQuery Touch Punch plugin modifies jQuery UI to support touch events
         $('#sortable').sortable('option', 'handle', '.sortable-handle');
 });
+
+/**
+ * Manages the deletion modal functionality for blog posts.
+ * Handles click event on delete buttons, updates modal content,
+ * and displays confirmation dialog to user.
+ */
+$(document).ready(function() {
+    // Handle delete button click
+    $(document).on('click', '.delete-post', function(e) {
+        e.preventDefault();
+        var postId = $(this).data('id');
+        var postTitle = $(this).data('title');
+        var deleteUrl = $(this).data('url');
+        
+        // Update modal content
+        $('#deleteModal .modal-title').text('Delete Post');
+        $('#deleteModal .modal-body').text('Are you sure you want to delete "' + postTitle + '"?');
+        $('#deleteModal form').attr('action', deleteUrl);
+        
+        // Show modal
+        $('#deleteModal').modal('show');
+    });
+});
