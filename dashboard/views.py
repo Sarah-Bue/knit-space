@@ -43,10 +43,14 @@ def delete_saved_post(request, post_id):
     # Delete saved post
     saved_post.delete()
     # Add a success message after deletion
-    messages.success(
-        request,
-        f'"{saved_post.post.title}" has been removed from your dashboard.'
-    )
+
+
+    messages.add_message(
+            request,
+            messages.SUCCESS,
+            f'"{saved_post.post.title}" has been removed from your dashboard.',
+            extra_tags='post_action'
+        )
     # Redirect back to dashboard
     return redirect('user_dashboard')
 

@@ -60,9 +60,11 @@ def save_post(request, post_id):
 
     # If post was saved / created, add a success message
     if created:
-        messages.success(
+        messages.add_message(
             request,
-            f'"{post.title}" has been saved to your Dashboard.'
+            messages.SUCCESS,
+            f'"{post.title}" has been saved to your Dashboard.',
+            extra_tags='post_action'
         )
 
     # Redirect to full-page view of saved blog post
@@ -111,18 +113,24 @@ def delete_blogpost(request, post_id):
     """
     # Retrieve the blog post using post_id
     blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
+
     # Delete the post
     blogpost.delete()
     # User feedback message
-    messages.success(
+    messages.add_message(
         request,
-        f'"{blogpost.title}" has been deleted.'
+        messages.SUCCESS,
+        f'"{blogpost.title}" has been deleted.',
+        extra_tags='post_action'
     )
 
-    # Redirect the user to home page after deletion
-    return HttpResponseRedirect(
-        reverse('home')
+    # Redirect the user to user_blogposts page after deletion
+    return redirect(
+    'user_blogposts'
     )
+
+    
+
 
 
 def edit_blogpost(request, post_id):
@@ -138,9 +146,11 @@ def edit_blogpost(request, post_id):
         form = BlogPostForm(request.POST, instance=blogpost)
         if form.is_valid():
             form.save()
-            messages.success(
+            messages.add_message(
                 request,
-                f'"{blogpost.title}" has been updated.'
+                messages.SUCCESS, 
+                f'"{blogpost.title}" has been updated.',
+                extra_tags='post_action'
             )
             # Redirect to full-page blogpost view after update
             return redirect(

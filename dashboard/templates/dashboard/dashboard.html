@@ -17,13 +17,15 @@
 
 <div class="container">
 
-    <!-- User Feedback: Post deleted -->
+    <!-- User Feedback Message -->
     {% if messages %}
         <div>
             {% for message in messages %}
-                <div class="alert alert-success" role="alert">
-                    {{ message }}
-                </div>
+                {% if 'post_action' in message.tags %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message|safe }}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     {% endif %}

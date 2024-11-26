@@ -25,15 +25,17 @@
         </div>
     </div>
 
-    <!-- User Feedback Messages -->
+    <!-- User Feedback Message -->
     {% if messages %}
-    <div>
-        {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-            {{ message }}
+        <div>
+            {% for message in messages %}
+                {% if 'post_action' in message.tags %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message|safe }}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
     {% endif %}
 
     <!-- Blog Post Details Card -->
