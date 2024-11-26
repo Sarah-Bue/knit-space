@@ -1,10 +1,46 @@
 /* JSHint directive that specifies $ as a global variable */
 /* global $ */
 
+
+/**
+ * Delete BlogPost confirmation Modal
+ * Set up event listeners for delete buttons, update the modal content,
+ * and configure form submission for deleting posts.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap modal and form elements
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    const deleteForm = document.getElementById('deleteForm');
+    
+    // Handle delete button clicks
+    document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', function() {
+            // Get post data from button attributes
+            const postId = this.getAttribute('data-post-id');
+            const postTitle = this.getAttribute('data-post-title');
+            
+            // Update modal content with post information
+            document.querySelector('#deleteModalLabel').textContent = 'Delete Post';
+            document.querySelector('.modal-body p').textContent = 
+                `Are you sure you want to delete "${postTitle}"? This cannot be undone.`;
+            
+            // Set Form Action URL
+            deleteForm.action = `/delete/${postId}/`;
+            
+            // Display Confirmation Modal
+            deleteModal.show();
+        });
+    });
+});
+
+
+
 /**
  * Initializes jQuery UI's sortable functionality for the '#sortable' element.
  * Captures changes in the order of items.
  * Sends updated order information to the server via an AJAX POST request. 
+ * 
+ * The sortable functionality has been adapted from https://stackoverflow.com/questions/15633341/jquery-ui-sortable-then-write-order-into-a-database and https://jqueryui.com/sortable/
  */
 $(function() {
     // Enable sortable functionality using jQuery UI
@@ -21,7 +57,7 @@ $(function() {
                 type: 'POST', // Use POST method
                 url: '{% url "sort_posts" %}', // URL for the server endpoint
                 data: {
-                    order: order, // Data to be sent, includes the new order of IDs
+                    'order[]': order, // Data to be sent, includes the new order of IDs
                     csrfmiddlewaretoken: '{{ csrf_token }}' // CSRF token for security
                 },
 
@@ -34,27 +70,4 @@ $(function() {
     });
         // JQuery Touch Punch plugin modifies jQuery UI to support touch events
         $('#sortable').sortable('option', 'handle', '.sortable-handle');
-});
-
-/**
- * Manages the deletion modal functionality for blog posts.
- * Handles click event on delete buttons, updates modal content,
- * and displays confirmation dialog to user.
- */
-$(document).ready(function() {
-    // Handle delete button click
-    $(document).on('click', '.delete-post', function(e) {
-        e.preventDefault();
-        var postId = $(this).data('id');
-        var postTitle = $(this).data('title');
-        var deleteUrl = $(this).data('url');
-        
-        // Update modal content
-        $('#deleteModal .modal-title').text('Delete Post');
-        $('#deleteModal .modal-body').text('Are you sure you want to delete "' + postTitle + '"?');
-        $('#deleteModal form').attr('action', deleteUrl);
-        
-        // Show modal
-        $('#deleteModal').modal('show');
-    });
 });

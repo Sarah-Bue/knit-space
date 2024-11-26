@@ -29,11 +29,6 @@
         </div>
     {% endif %}
 
-    <!-- Modal -->
-    {% block modal %}
-    {% endblock modal %}
-
-
     <!-- Switch to Dashboard Button -->
     <div class="row mt-3">
         <div class="col-12">
@@ -85,14 +80,10 @@
                                     <a href="{% url 'edit_blogpost' post.id %}" class="dropdown-item">Edit Post</a>
                                 </li>
                                 <li>
-                                    <button 
-                                        class="dropdown-item text-danger delete-post" 
-                                        data-id="{{ post.id }}"
-                                        data-title="{{ post.title }}"
-                                        data-url="{% url 'delete_blogpost' post.id %}">
+                                    <button class="dropdown-item btn-delete text-danger" data-post-id="{{ post.id }}" data-post-title="{{ post.title }}">
                                         Delete Post
-                                    </button>
-                                </li>
+                                    </button>                            
+                                </li>  
                             </ul>
                         </div>
                     </div>
@@ -107,5 +98,31 @@
             </p>
         {% endif %}
     </div>
+
+    <!-- Delete BlogPost Confirmation Modal -->
+    <!-- The Modal has been adapted from Code Institute's "I think therefore I blog" walkthrough-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Are you sure you want to delete this post? This cannot be undone.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form id="deleteForm" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

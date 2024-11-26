@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
-
+/* General Styles */
 body {
     background-color: #FAF9F6;
     font-family: "Poppins", sans-serif;
+    height: 100%;
 }
 
 .frame {
@@ -45,14 +46,14 @@ body {
     gap: 20px;
 }
 
-/* Logo Font */
+/* Logo */
 .logo {
     font-family: "Sigmar", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
-/* Hero Header */
+/* Header */
 .hero-header {
     position: relative;
     padding: 5rem 0;
@@ -86,7 +87,6 @@ body {
     font-size: 1.25rem; 
 }
 
-
 /* Preview Cards */
 .container .card {
     display: flex;
@@ -118,3 +118,7 @@ body {
   }
 }
 
+.sortable-handle {
+    padding: 16px;
+    cursor: pointer;
+}

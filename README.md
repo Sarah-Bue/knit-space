@@ -16,6 +16,12 @@ The second sprint focused on implementing user authentication. Once implemented,
 The third sprint focused on setting up the Dashboard and its functionality. The Dashboard serves as a space for registered users to view their favourite posts. Posts can be saved to and removed from the Dashboard via the click of a button and rearranged with a drag-and-drop feature. Due to time constraints, the functionality to reorder blog posts was moved into the next sprint.
 The fourth sprint focused on completing the drag-and-drop functionality and adding additional user functions. Logged-in users can create blog posts, including custom images, and edit and delete their posts after creation.
 The fifth sprint focused on adding an *About* page to the blog to allow users to connect with its fictional host.
+The sixth sprint focused on enhancing the user experience by improving existing features and addressing issues that had become apparent during testing. Some exmaples include:
+- A *My Posts* page was created, allowing users to comfortably manage all their posts in one place.
+- Feedback messages afer saving, updating, or deleting a post were added to provide users with immediate fedback to their actions.
+- A confirmation modal was added before posts are deleted permanently to avoid any accidental deletions which cannot be undone.
+
+Testing revealed that locating a user’s own posts could proof to be difficult, depending on how many posts that user had authored and how long ago, a *My Posts* page was implemented as a counterpart to the dashboard, allowing users to comfortably manage all their posts in one place. Feedback messages for deleted, saved, and updated posts were implemented.
 
 GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to visually track progress. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, in accordance with the corresponding sprints. 
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritization -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.
@@ -153,6 +159,7 @@ Sign Up / Sign In | --- | ---
 - As a **registered user**, I can **create a new blog post** so that **I can share my knitting experiences and tips with the community**.
 - As a **registered user**, I can **update my existing blog posts** so that **I can correct or update the content I have shared with the community**.
 - As a **registered user**, I can **delete my blog posts** so that **I can remove content that I no longer want to share with the community**.
+- As a **registered user**, I can **access and manage all my authored posts from a central page** so that **I can efficiently maintain and update my content**.
 
 
 [Back to top ⇧](#knitspace)
@@ -293,6 +300,9 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 
 - [jQuery](https://jquery.com/) was used as a JavaScript library to simplify the JavaScript code.
 
+- [jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](https://www.drupal.org/project/jquery_ui_touch_punch) were used to implement the drag-and-drop functionality on desktop and mobile devices.
+
+
 - [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/stable/index.html) was used to render the forms.
 
 
@@ -389,7 +399,7 @@ As a **registered user**, I can **save posts to my Dashboard** so that **I can e
 As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
 - Saved posts are presented as a list.
 - Using AJAX drag and drop, users can move their saved posts to a different position.
-- The new positions remain after changing between pages and logging out of the account.
+- The drag and drop functionality is implemented on desktop and mobile devices.
 
 As a **registered user**, I can **delete saved blog posts from my Dashboard** so that **I can manage my content board**.
 - A *Delete* button is displayed with each saved blog post preview.
@@ -418,6 +428,11 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 - After submission, a user feedback message informs users that their post has been deleted successfully.
 - After submission, users are redirected to the home page.
 
+As a **registered user**, I can **access and manage all my authored posts from a central page** so that **I can efficiently maintain and update my content**.
+-	Users can access a list of all their authored posts from their account drop-down menu. 
+-	Users can open, update, or delete each post straight from their post list. 
+-	Users can easily switch between views of their authored posts and their saved posts. 
+
 ### Code Validation
 
 #### HTML
@@ -429,6 +444,7 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 |Home | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/home-validation.png)</details>| Pass |
 |About | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-validation.png)</details>| Pass |
 |Dashboard | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-validation.png)</details>| Pass |
+|My Posts | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/my-posts-validation.png)</details>| Pass |
 |Full Page Post View | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/view-post-validation.png)</details>| Pass |
 |Create Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/create-post-validation.png)</details>| Pass |
 |Edit Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/edit-post-validation.png)</details>| Pass |
@@ -506,6 +522,7 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 |Users can upload a custom image for a post | Yes | Pass |
 |Authors can edit their posts | Yes | Pass |
 |Authors can delete their posts | Yes | Pass |
+|Authors can access all their authored posts in one place | Yes | Pass |
 
 #### Dashboard
 | Feature | Tested | Pass/Fail |
@@ -514,7 +531,7 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 |Saved blog posts appear on the dashboard | Yes | Pass |
 |Users can delete posts from the dashboard | Yes | Pass |
 |Posts can be rearranged using drag and drop | Yes | Pass |
-|New order persists after changing sites and logging out | Yes | Pass |
+|New order persists after changing sites and logging out | No | Fail |
 
 #### Home Page & Blog Views
 | Feature | Tested | Pass/Fail |
@@ -529,7 +546,7 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 | Feature | Tested | Pass/Fail |
 |---|---|---|
 |Click on logo returns to homepage | Yes | Successful |
-|Click on navigation bar links redirect to other internal pages  | Yes | Successful |
+|Click on navigation bar links redirect to other internal pages | Yes | Successful |
 |Link to Dashboard is invisible for guest users | Yes | Successful |
 |Customized greeting for logged-in users serves as Account drop-down | Yes | Successful |
 |Account drop-down instead of customized greeting for guest users | Yes | Successful |
@@ -556,8 +573,6 @@ MacBook Air 13" | No appearance, responsiveness, or functionality issues. | ---
 Acer Predator Helios 300 | No appearance, responsiveness, or functionality issues. | ---
 Black Shark PAR-HOA | No issues with appearance, responsiveness, or functionality. | ---
 SAMSUNG Galaxy S23 | No issues with appearance, responsiveness, or functionality. | ---
-
-*Note*: Due to time constraints, the drag-and-drop feature has not been implemented for touch screens.
 
 #### Browser Compatibility
 Browser | Outcome | Pass/Fail
@@ -657,10 +672,11 @@ All content was written by the developer.
 ### Code
 
 - The models for *BlogPost* and *BlogPostAdmin* were adapted from Code Institute's "I think therefore I blog" walkthrough.
+- The Confirmation Modal before deleting a BlogPost was adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The basic design of the *About* page was adapted from Code Institue's "I think therefore I blog" walkthrough.
 - The navigation bar and footer were adapted from [Bootstrap's Clean Blog](https://startbootstrap.com/theme/clean-blog) template.
 - The sortable functionality was adapted from [jQuery UI](https://jqueryui.com/sortable/).
-- Django Tutorials, especially [W3Schools](https://www.w3schools.com/django/), [Django documentation](https://docs.djangoproject.com/en/5.1/)  were consulted regularly.
+- Django Tutorials, especially [W3Schools](https://www.w3schools.com/django/), [Django documentation](https://docs.djangoproject.com/en/5.1/) were consulted regularly.
 - Several [Youtube](https://www.youtube.com) channels were consulted for inspiration, especially [Corey Shafer](https://www.youtube.com/@coreyms) and [Codemy](https://www.youtube.com/@Codemycom).
 - [Bootstrap 5 Documentation](https://getbootstrap.com) was consulted throughout the project to style the majority of the content.
 
