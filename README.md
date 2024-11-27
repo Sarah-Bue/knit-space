@@ -20,8 +20,7 @@ The sixth sprint focused on enhancing the user experience by improving existing 
 - A *My Posts* page was created, allowing users to comfortably manage all their posts in one place.
 - Feedback messages afer saving, updating, or deleting a post were added to provide users with immediate fedback to their actions.
 - A confirmation modal was added before posts are deleted permanently to avoid any accidental deletions which cannot be undone.
-
-Testing revealed that locating a user’s own posts could proof to be difficult, depending on how many posts that user had authored and how long ago, a *My Posts* page was implemented as a counterpart to the dashboard, allowing users to comfortably manage all their posts in one place. Feedback messages for deleted, saved, and updated posts were implemented.
+- Custom pages for the two most common errors encountered during production - 404 and 404 - were created.
 
 GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to visually track progress. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, in accordance with the corresponding sprints. 
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritization -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.

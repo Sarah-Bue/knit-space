@@ -134,8 +134,6 @@ def delete_blogpost(request, post_id):
 
     # If not POST request, redirect to home
     return redirect('user_blogposts')
-    
-
 
 
 def edit_blogpost(request, post_id):
@@ -189,3 +187,18 @@ def user_blogposts(request):
         'blog/user_blogposts.html',
         {'authored_posts': authored_posts}
     )
+
+
+# Error Handling
+
+def handler404(request, exception):
+    """
+    Custom 404 error handler
+    """
+    return render(request, 'templates/404.html', status=404)
+
+def handler500(request):
+    """
+    Custom 500 error handler
+    """
+    return render(request, 'templates/500.html', status=500)
