@@ -48,9 +48,16 @@ Content Management (logged-in users only)
 - *U*: Update own blogposts.
 - *D*: Delete own blogposts.
 
+**Note**: The *CRUD* functionality for content management has been implemented in multiple places. Users can update and delete their posts from the *My Post* section as well as from the full-page view of each post. Users can create a new post from their account menu and from the *My Post* section.
+
 ### Entity Relationship Diagrams
 
 During planning, [Lucidchart](https://www.lucidchart.com) was used to visualize the relationships between the models in this application. The relationships are between *User*, *BlogPost*, and *SavedPost*. *About* is an independent entity with no relation to the other models.
+
+<details>
+<summary> Entity Relationship Diagrams Image</summary>
+<img src = "assets/readme-files/images/planning-erd.png">
+</details>
 
 #### User Entity
 User -> BlogPost:
@@ -76,11 +83,6 @@ BlogPost -> User:
 BlogPost -> SavedPost:
 - This is a many-to-one relationship, indicating that multiple users can save the same blog post.
 
-<details>
-<summary> Entity Relationship Diagrams Image</summary>
-<img src = "assets/readme-files/images/planning-erd.png">
-</details>
-
 ### Design Choices
 #### Color Palette
 
@@ -100,7 +102,6 @@ The color palette makes use of three colors, taken from the header image to main
 Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
 *Sigmar* was chosen as the font for the logo and the header text due its bold, decorative lettering. For the main text, *Poppins* was used, as it offers a clean, modern design which is easy to read in a variety of styles and sizes.
 
-
 <details>
 <summary> Type Font Image</summary>
 <img src = "assets/readme-files/images/font-sigmar.png">
@@ -114,11 +115,17 @@ Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
 Page | Desktop Version | Mobile Version
 --- | --- | ---
 Home | --- | ---
+About | --- | ---
 Dashboard | --- | ---
+My Posts | --- | ---
 Blog Post View | --- | ---
 Edit / Create Post | --- | ---
 Sign Up / Sign In | --- | ---
 404 | --- | ---
+
+#### Pre-existing Posts
+
+In order to create a realisitc, emmersive feeling for new users, a total of 30 blog posts have been created and uploaded into the database as a .json file. These posts were created with six different user personas in mind and were given various created_on dates to give the appearance of a well established blog. Posts were originally supposed to be diplayed by their last_modified rather than their created_on date, but frequent testing and updates throughout the process meant that these dates were much closer together than originally anticipated. In order to maintain the feeling of a pre-existing blog, the decision was made to order posts by their created_om date instead.
 
 [Back to top ⇧](#knitspace)
 
@@ -174,15 +181,13 @@ The header is the same across all pages to provide users with a familiar layout 
 The header includes the main background image, which displays a welcome message across the home page, however, this message disappears on the other pages.
 
 <details>
+<summary> Header Images</summary>
 <summary> Header Image Guest User</summary>
-<img src = "">
-</details>
+<img src ="assets/readme-files/images/guest-header.png">
 
-<details>
 <summary> Header Image Registered User</summary>
-<img src = "">
+<img src ="assets/readme-files/images/user-header.png">
 </details>
-
 
 #### Footer
 
@@ -190,7 +195,7 @@ The footer is the same across pages to provide users with a familiar layout and 
 
 <details>
 <summary> Footer Image </summary>
-<img src = "">
+<img src = "assets/readme-files/images/footer.png">
 </details>
 
 ### Home Page
@@ -200,21 +205,37 @@ Arrows at the bottom of the page allow users to browse between multiple pages.
 
 <details>
 <summary> Home Page Image </summary>
-<img src = "">
+<img src = "assets/readme-files/images/home-page.png">
 </details>
 
 ### Posts
 
-When clicking on a blog post preview card, a full-page view opens. It presents the user with the post's title, author, date, and full text. A *Back* button above the post allows users to return to the *Home* page. Additionally, for logged-in users, a *Save* button above the post allows users to save their favorite posts to their Dashboard. The author of each post also sees a dropdown menu allowing them to edit or delete their posts.
+Post previews are displayed as cards shwoing an image, the title of the post, the author and creation date, and an excerpt. Images are optional, and a default image will be provided if users chose not to upload a custom image.
+
+When clicking on a blog post preview card, a full-page view opens. This view presents the user with the post's title, author, date, and full text. A *Back* button above the post allows users to return to the *Home* page. Additionally, for logged-in users, a *Save* button above the post allows users to save their favorite posts to their Dashboard. The author of each post also sees a dropdown menu allowing them to edit or delete their posts. A confirmation modal prevents users from accidentally deleting posts.
 
 <details>
-<summary> Post Preview Image</summary>
-<img src = "">
+<summary> Post Previews Image </summary>
+<summary> Default Image on the Right </summary>
+<img src = "assets/readme-files/images/preview-cards.png">
 </details>
 
 <details>
-<summary> Full Page Post Image </summary>
-<img src = "">
+<summary> Post Details Images </summary>
+<summary> Post Details - Guest User</summary>
+<img src = "assets/readme-files/images/details-guest.png">
+
+<summary> Post Details - Registered User</summary>
+<img src = "assets/readme-files/images/details-user.png">
+
+<summary> Post Details - Post Author</summary>
+<img src = "assets/readme-files/images/details-author.png">
+
+<summary> Post Details - Confirmation Message</summary>
+<img src = "assets/readme-files/images/details-confirmation-message.png">
+
+<summary> Post Details - Confirmation Modal</summary>
+<img src = "assets/readme-files/images/details-confirmation-modal.png">
 </details>
 
 
@@ -223,8 +244,31 @@ When clicking on a blog post preview card, a full-page view opens. It presents t
 The Dashboard lets users view all their saved posts in one continuous list. A link to the Dashboard only appears for logged-in users. Each post is presented as a more condensed version of the post preview and will open the full-page post when clicked. Users can delete their saved posts from their Dashboard at any time and rearrange their posts using drag-and-drop functionality.
 
 <details>
-<summary> Dashboard Image </summary>
-<img src = "">
+<summary> Dashboard Images </summary>
+<summary> Dashboard Image - No Saved Posts </summary>
+<img src = "assets/readme-files/images/dashboard-empty.png">
+
+<summary> Dashboard Image - Saved Posts </summary>
+<img src = "assets/readme-files/images/dashboard-full.png">
+
+<summary> Dashboard Image - Confirmation Message </summary>
+<img src = "assets/readme-files/images/dashboard-confirmation.png">
+</details>
+
+### My Posts
+
+This page lets users easily view and manage all the posts they have authored in one place. Posts will appear here after they have been created, and will disappear from the blog when deleted. A confirmation modal prevents users from accidentally deleting posts.
+
+<details>
+<summary> My Posts Images </summary>
+<summary> My Posts - No Posts</summary>
+<img src = "assets/readme-files/images/my-posts-empty.png">
+
+<summary> My Posts - Posts</summary>
+<img src = "assets/readme-files/images/my-posts-full.png">
+
+<summary> My Posts - Confirmation Modal</summary>
+<img src = "assets/readme-files/images/my-posts-confirmation-modal.png">
 </details>
 
 ### User Authentication
@@ -233,18 +277,15 @@ Users can create an account using their email address. Their username must be un
 After successfully creating an account, users can use their credentials to log into the page and access exclusive content, such as their dashboards. Users can log out of their account to return to the guest view when finished.
 
 <details>
+<summary> User Authentication Images </summary>
 <summary> Sign Up Image </summary>
-<img src = "">
-</details>
+<img src = "assets/readme-files/images/sign-up.png">
 
-<details>
 <summary> Sign In Image </summary>
-<img src = "">
-</details>
+<img src = "assets/readme-files/images/sign-in.png">
 
-<details>
 <summary> Sign Out Image </summary>
-<img src = "">
+<img src = "assets/readme-files/images/sign-out.png">
 </details>
 
 ### About Page
@@ -253,15 +294,28 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 
 <details>
 <summary> About Page Image </summary>
-<img src = "">
+<img src = "assets/readme-files/images/about-page.png">
 </details>
 
 ### Future Features
 
-### Comments
+#### Comments
+- Registered users can add comments to a blogpost and respond to another comment made on a blogpost.
+- Users can view, update, and delete their comments when they are logged in.
+- Guest users will be able to view existing comments.
 
-### User Profiles
+#### Confirmation Emails & Password Reset
+- When creating an account, users will be sent a confirmation email.
+- When logging in, users will be able to reset their password via email.
 
+#### User Profiles
+- Users will be able to access their profile from the account menu.
+- User will be able to update and add to their personal information.
+- Users will be able to delete their accounts.
+
+#### Search Bar & Filters
+- Users will have the ability to search the contents of the blog in order to find what they are looking for.
+- Users will be able to apply filters to the blogposts on the home page, their dashboard, and their *My Post* page in order to customize their view based on their needs.
 
 [Back to top ⇧](#knitspace)
 
@@ -272,7 +326,7 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript)
-- [Python ](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Tools
 
@@ -301,7 +355,6 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 - [jQuery](https://jquery.com/) was used as a JavaScript library to simplify the JavaScript code.
 
 - [jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](https://www.drupal.org/project/jquery_ui_touch_punch) were used to implement the drag-and-drop functionality on desktop and mobile devices.
-
 
 - [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/stable/index.html) was used to render the forms.
 
