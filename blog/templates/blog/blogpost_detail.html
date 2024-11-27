@@ -46,12 +46,11 @@
 
                     <!-- Blog Post Image (only if custom image has been provided)-->
                     <div class="post-image">
-                        {% if blogpost.featured_image %}
+                        {% if not "placeholder" in blogpost.featured_image.url %}
                             <img class="img-fluid rounded-3" src="{{ blogpost.featured_image.url }}" alt="{{ blogpost.title }}">
                         {% endif %}
                     </div>
                     
-
                     <!-- Blog Post Title and Metadata -->
                     <h1 class="post-title">{{ blogpost.title }}</h1>
                     <p class="post-subtitle"><em>by {{ blogpost.author }} | {{ blogpost.created_on }}</em></p>
@@ -100,7 +99,9 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        Are you sure you want to delete this post? This cannot be undone.
+                        Are you sure you want to delete this post?
+                        <br>
+                        This cannot be undone.
                     </p>
                 </div>
                 <div class="modal-footer">

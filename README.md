@@ -102,8 +102,12 @@ Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
 *Sigmar* was chosen as the font for the logo and the header text due its bold, decorative lettering. For the main text, *Poppins* was used, as it offers a clean, modern design which is easy to read in a variety of styles and sizes.
 
 <details>
-<summary> Type Font Image</summary>
+<summary> Type Font Images</summary>
+<summary> Sigmar</summary>
 <img src = "assets/readme-files/images/font-sigmar.png">
+<br>
+<br>
+<summary> Poppins</summary>
 <img src = "assets/readme-files/images/font-poppins.png">
 </details>
 
@@ -183,7 +187,8 @@ The header includes the main background image, which displays a welcome message 
 <summary> Header Images</summary>
 <summary> Header Image Guest User</summary>
 <img src ="assets/readme-files/images/guest-header.png">
-
+<br>
+<br>
 <summary> Header Image Registered User</summary>
 <img src ="assets/readme-files/images/user-header.png">
 </details>
@@ -197,7 +202,9 @@ The footer is the same across pages to provide users with a familiar layout and 
 <img src = "assets/readme-files/images/footer.png">
 </details>
 
-### Home Page
+### Pages
+
+#### Home Page
 
 The *Home* page previews all available blog posts, ordered from most to least recent. Each post is presented in a clickable card that opens the full-page view. Each card contains an image at the top, which defaults to a preset image unless changed by the user when creating a post, followed by the author and date and, lastly, the excerpt, if available.
 Arrows at the bottom of the page allow users to browse between multiple pages.
@@ -207,7 +214,7 @@ Arrows at the bottom of the page allow users to browse between multiple pages.
 <img src = "assets/readme-files/images/home-page.png">
 </details>
 
-### Posts
+#### Post Previews & Detail Views
 
 Post previews are displayed as cards shwoing an image, the title of the post, the author and creation date, and an excerpt. Images are optional, and a default image will be provided if users chose not to upload a custom image.
 
@@ -223,22 +230,30 @@ When clicking on a blog post preview card, a full-page view opens. This view pre
 <summary> Post Details Images </summary>
 <summary> Post Details - Guest User</summary>
 <img src = "assets/readme-files/images/details-guest.png">
-
+<br>
+<br>
 <summary> Post Details - Registered User</summary>
 <img src = "assets/readme-files/images/details-user.png">
-
+<br>
+<br>
 <summary> Post Details - Post Author</summary>
 <img src = "assets/readme-files/images/details-author.png">
-
-<summary> Post Details - Confirmation Message</summary>
-<img src = "assets/readme-files/images/details-confirmation-message.png">
-
+<br>
+<br>
+<summary> Post Details - No Image Provided</summary>
+<img src = "assets/readme-files/images/details-no-image.png">
+<br>
+<br>
 <summary> Post Details - Confirmation Modal</summary>
 <img src = "assets/readme-files/images/details-confirmation-modal.png">
+<br>
+<br>
+<summary> Post Details - Confirmation Message</summary>
+<img src = "assets/readme-files/images/details-confirmation-message.png">
 </details>
 
 
-### User Dashboard
+#### User Dashboard
 
 The Dashboard lets users view all their saved posts in one continuous list. A link to the Dashboard only appears for logged-in users. Each post is presented as a more condensed version of the post preview and will open the full-page post when clicked. Users can delete their saved posts from their Dashboard at any time and rearrange their posts using drag-and-drop functionality.
 
@@ -246,15 +261,17 @@ The Dashboard lets users view all their saved posts in one continuous list. A li
 <summary> Dashboard Images </summary>
 <summary> Dashboard Image - No Saved Posts </summary>
 <img src = "assets/readme-files/images/dashboard-empty.png">
-
+<br>
+<br>
 <summary> Dashboard Image - Saved Posts </summary>
 <img src = "assets/readme-files/images/dashboard-full.png">
-
+<br>
+<br>
 <summary> Dashboard Image - Confirmation Message </summary>
 <img src = "assets/readme-files/images/dashboard-confirmation.png">
 </details>
 
-### My Posts
+#### My Posts
 
 This page lets users easily view and manage all the posts they have authored in one place. Posts will appear here after they have been created, and will disappear from the blog when deleted. A confirmation modal prevents users from accidentally deleting posts.
 
@@ -262,38 +279,81 @@ This page lets users easily view and manage all the posts they have authored in 
 <summary> My Posts Images </summary>
 <summary> My Posts - No Posts</summary>
 <img src = "assets/readme-files/images/my-posts-empty.png">
-
+<br>
+<br>
 <summary> My Posts - Posts</summary>
 <img src = "assets/readme-files/images/my-posts-full.png">
-
+<br>
+<br>
 <summary> My Posts - Confirmation Modal</summary>
 <img src = "assets/readme-files/images/my-posts-confirmation-modal.png">
+<br>
+<br>
+<summary> My Posts - Confirmation Message</summary>
+<img src = "assets/readme-files/images/my-posts-confirmation-message.png">
 </details>
 
-### User Authentication
-
-Users can create an account using their email address. Their username must be unique, and the password they choose must meet the standard safety criteria. No verification email is sent out by email.
-After successfully creating an account, users can use their credentials to log into the page and access exclusive content, such as their dashboards. Users can log out of their account to return to the guest view when finished.
-
-<details>
-<summary> User Authentication Images </summary>
-<summary> Sign Up Image </summary>
-<img src = "assets/readme-files/images/sign-up.png">
-
-<summary> Sign In Image </summary>
-<img src = "assets/readme-files/images/sign-in.png">
-
-<summary> Sign Out Image </summary>
-<img src = "assets/readme-files/images/sign-out.png">
-</details>
-
-### About Page
+#### About 
 
 The *About* page lets users learn more about Frau Wolle, the face and hands behind KnitSpace. It consists of an image and a short biography which invite users to connect with her.
 
 <details>
 <summary> About Page Image </summary>
 <img src = "assets/readme-files/images/about-page.png">
+</details>
+
+#### Error Pages 
+
+The *404* page is displayed when an invalid or incorrect URL is entered.
+<br>
+The *500* is displayed when an internal server error occurs.
+<br>
+Both pages are identical except for the error code they state. The clickable logo in the header and a clickable link im the content card allow the user to return to the home page.
+
+<details>
+<summary> 404 Page Image </summary>
+<img src = "assets/readme-files/images/404-page.png">
+</details>
+
+### Content Management
+
+Users are able to create new posts after logging in. A blank form is rendered where users can input all relevant information. Optional fields are marked as such with a muted text comment.
+<br>
+Posts can be updated any time. Users can change any information associated with the post, as long as the title remains unique. When updating a post, the form loads with the original content in prepopulated fields. 
+
+<details>
+<summary> Post Management Images </summary>
+<summary> Create a Post </summary>
+<img src = "assets/readme-files/images/create-post.png">
+<br>
+<br>
+<summary> Update a Post </summary>
+<img src = "assets/readme-files/images/update-post.png">
+<br>
+<br>
+<summary> Update Confirmation </summary>
+<img src = "assets/readme-files/images/update-post-confirmation.png">
+</details>
+
+
+### User Authentication
+
+Users can create an account using their email address. Their username must be unique, and the password they choose must meet the standard safety criteria. No verification email is sent out by email.
+<br>
+After successfully creating an account, users can use their credentials to log into the page and access exclusive content, such as their dashboards. Users can log out of their account to return to the guest view when finished.
+
+<details>
+<summary> User Authentication Images </summary>
+<summary> Sign Up Image </summary>
+<img src = "assets/readme-files/images/sign-up.png">
+<br>
+<br>
+<summary> Sign In Image </summary>
+<img src = "assets/readme-files/images/sign-in.png">
+<br>
+<br>
+<summary> Sign Out Image </summary>
+<img src = "assets/readme-files/images/sign-out.png">
 </details>
 
 ### Future Features
