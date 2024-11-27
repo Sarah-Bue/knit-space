@@ -57,7 +57,7 @@
                     <li class="ui-state-default mb-3" data-id="{{ saved_post.id }}">
                         <div class="card hover-card">
                             <div class="row g-0 align-items-center">
-                                <!-- Post Details -->
+                                
                                  <!-- Draggable Cards -->
                                 <div class="col-md-9 sortable-handle">
                                     <!-- Clickable to return to full page post view -->
@@ -70,7 +70,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <!-- Responsive Button Area -->
+
+                                <!-- Button Area -->
                                 <div class="col-12 col-md-3 text-center text-md-end px-3 mt-2 mt-md-0 pb-3 pb-md-0">
                                     <!-- Form for deleting the post -->
                                     <form action="{% url 'delete_saved_post' post_id=saved_post.post.id %}" method="post" class="mb-0">
@@ -82,6 +83,7 @@
                             </div>
                         </div>
                     </li>
+
                 <!-- Placeholder text if no saved posts are available -->
                 {% empty %}
                     <p class="text-center">No saved posts yet. <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'home' %}">Start saving your favorite blog posts!</a></p>

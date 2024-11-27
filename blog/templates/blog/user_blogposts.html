@@ -29,10 +29,18 @@
         </div>
     {% endif %}
 
-    <!-- Switch to Dashboard Button -->
-    <div class="row mt-3">
-        <div class="col-12">
+
+
+
+    <!-- Navigation Buttons -->
+    <div class="row mt-2">
+        <!-- Switch to Dashboard Button -->
+        <div class="col-auto">
             <a href="{% url 'user_dashboard' %}" class="btn btn-secondary mb-3">Switch to Dashboard</a>
+        </div>
+        <!-- Create a New Post Button -->
+        <div class="col-auto">
+            <a href="{% url 'create_blogpost' %}" class="btn btn-secondary mb-3">Create a New Post</a>
         </div>
     </div>
 
