@@ -45,15 +45,12 @@
                 <div class="card-body position-relative">
 
                     <!-- Blog Post Image (only if custom image has been provided)-->
-                    {% if blogpost.featured_image %}
                     <div class="post-image">
-                        <img class="img-fluid rounded-3" src="{{ blogpost.featured_image.url }}" alt="{{ blogpost.title }}">
+                        {% if blogpost.featured_image %}
+                            <img class="img-fluid rounded-3" src="{{ blogpost.featured_image.url }}" alt="{{ blogpost.title }}">
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <div class="post-image">
-                        <img class="img-fluid rounded-3" src="{% static 'images/placeholder.png' %}" alt="placeholder image">
-                    </div>
-                    {% endif %}
+                    
 
                     <!-- Blog Post Title and Metadata -->
                     <h1 class="post-title">{{ blogpost.title }}</h1>

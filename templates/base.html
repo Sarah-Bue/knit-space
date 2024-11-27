@@ -49,7 +49,7 @@
     <title>{% block head_title %}KnitSpace | Let's get creative!{% endblock %}</title>
 </head>
 
-<body>
+<body class="d-flex flex-column vh-100">
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg frame">
@@ -61,38 +61,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav mr-auto">
-                    <!-- Blog -->
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Blog</a>
-                    </li>
-                    <!-- About -->
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
-                    </li>
-                    <!-- Dashboard (only visible when logged in)-->
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
-                    </li>
-                    {% endif %}
-                    <!-- Contact --> <!-- To be Added -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-
-                <!-- User-specific Dropdown Menu -->
-                <ul class="navbar-nav ms-auto">
+                <!-- User Account Dropdown - Will appear first on mobile -->
+                <ul class="navbar-nav ms-auto order-lg-last order-first">
                     <li class="nav-item dropdown">
-                        <!-- Customized Greeting for logged-in users -->
                         {% if user.is_authenticated %}
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Hello, {{ user.username }}!
                             </a>
-                        <!-- Guest Users see "Account" instead-->
                         {% else %}
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
@@ -114,12 +90,29 @@
                                 <li>
                                     <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
                                 </li>
-                            <!-- Visible to Guest Users -->
                             {% else %}
-                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
-                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
-                            {% endif %}
+                            <!-- Visible to Guest Users -->
+                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+                        {% endif %}
                         </ul>
+                    </li>
+                </ul>
+                <!-- Main Navigation Links - Will appear second on mobile -->
+                <ul class="navbar-nav mr-auto order-lg-first order-last">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'user_dashboard' %}">Dashboard</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -150,7 +143,7 @@
 
     <!-- Footer-->
     <!-- The footer section has been adapted from Bootstrap's "Clean Blog" template -->
-    <footer class="border-top  py-4 frame">
+    <footer class="border-top mt-auto py-4 frame">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Social Networks -->
