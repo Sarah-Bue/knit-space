@@ -4,6 +4,9 @@
 <!-- Load internationalization tags for content translation -->
 {% load i18n %}
 
+<!-- Load CrispyForms -->
+{% load crispy_forms_tags %}
+
 <!-- Set page title to "Create a Post" with translation support -->
 {% block head_title %}
 {% trans "KnitSpace | Create a Post" %}
@@ -28,29 +31,10 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
+                <!-- Formfields rendered with CrispyForms -->
+                {{ form|crispy }}
                 
-                <!-- Title -->
-                <div class="form-group mb-3">
-                    {{ form.title.label_tag }}
-                    {{ form.title }}
-                </div>
-                <!-- Excerpt -->
-                <div class="form-group mb-3">
-                    {{ form.excerpt.label_tag }}
-                    <small class="form-text text-muted">(optional)</small>
-                    {{ form.excerpt }}
-                </div>
-                <!-- Content -->
-                <div class="form-group mb-3" id="id_content_field">
-                    {{ form.content.label_tag }}
-                    {{ form.content }}
-                </div>
-                <!-- Image -->
-                <div class="form-group mb-3">
-                    {{ form.featured_image.label_tag }}
-                    <small class="form-text text-muted">(optional)</small>
-                    {{ form.featured_image }}
-                </div>
+
                 <!-- Submit Button -->
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-secondary mb-3">

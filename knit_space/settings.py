@@ -116,6 +116,26 @@ TEMPLATES = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# Summernote Configuration
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+    'summernote': {
+        'width': '100%',
+        'height': '480',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+    }
+}
+
+SUMMERNOTE_THEME = 'bs5'
+
 # WSGI application configuration for serving the application
 WSGI_APPLICATION = 'knit_space.wsgi.application'
 

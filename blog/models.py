@@ -19,11 +19,12 @@ class BlogPost(models.Model):
         on_delete=models.CASCADE,
         related_name="blog_posts"
     )
+    content = models.TextField()
     # Optional excerpt
     excerpt = models.TextField(blank=True)
-    content = models.TextField()
     # Optional image
     featured_image = CloudinaryField('image', default='placeholder')
+    # Automatically generated Timestamps
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField('date modified', auto_now=True)
 

@@ -4,6 +4,9 @@
 <!-- Load internationalization tags for content translation -->
 {% load i18n %}
 
+<!-- Load CrispyForms -->
+{% load crispy_forms_tags %}
+
 <!-- Set page title to "Edit Your Post" with translation support -->
 {% block head_title %}
 {% trans "KnitSpace | Edit Your Post" %}
@@ -25,7 +28,9 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.non_field_errors }}
-            {{ form.as_p }}
+            <!-- Formfields rendered with CrispyForms -->
+            {{ form|crispy }}
+            <!-- {{ form.as_p }} -->
             <!-- Update Button -->
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-secondary mb-3">Update Post</button>
