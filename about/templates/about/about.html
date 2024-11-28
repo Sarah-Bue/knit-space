@@ -26,43 +26,14 @@
         </div>
 
         <div class="row">
+            <h1 class="text-center mb-4">{{ about.title }}</h1>
             <!-- About Image -->
             <div class="col-4 text-center round-3 pb-5 mb-5">
                 <img class="img-fluid rounded-3" src="{% static 'images/frau-wolle.png' %}" alt="Frau Wolle">
             </div>
             <!-- About Text -->
             <div class="col-8">
-                <h2 class="text-center">About Frau Wolle</h2>
-                <p>
-                    Guten Tag, Liebchen!
-                </p>
-                <p>
-                    I'm Frau Wolle, a 86-year-old Oma (grandmother) from the charming town of Rothenburg ob
-                    der Tauber in Bavaria, Germany. For 64 years, knitting has been my passion, my meditation, and my
-                    way of spreading warmth and love to those around me.
-                </p>
-                <p>
-                    My journey with needles and yarn began when I was just a young Mädchen of 22, learning from my own
-                    Großmutter. Since then, I've crafted everything from simple scarves to intricate lace shawls, always
-                    preferring the challenge of complex patterns over easy projects.
-                </p>
-                <p>
-                    Despite my love for complicated designs, I'm a firm believer in the power of simple tools. Give me
-                    a pair of straight needles, some quality wool, and a quiet corner, and I'm in my element. I've
-                    never met a cable stitch I didn't like or a color-work pattern I couldn't master!
-                </p>
-                <p>
-                    When I'm not knitting, you can find me tending to my herb garden, baking Apfelstrudel for my
-                    grandchildren, or sipping Kaffee with my knitting circle, where we exchange patterns, stories, and a
-                    fair bit of local gossip.
-                </p>
-                <p>
-                    Through this blog, I hope to share not just my patterns and techniques, but also the joy, patience,
-                    and sense of accomplishment that knitting has brought to my life. So grab your needles, pour
-                    yourself a warm drink, and let's create something beautiful together!
-                </p>
-                <p>Strick mit Liebe (Knit with love),</p>
-                <p>Frau Wolle</p>
+                {{ about.content | safe }}
             </div>
         </div>
     </div>
