@@ -23,10 +23,10 @@ from django.urls import path, include
 # URL patterns for KnitSpace project
 urlpatterns = [
     # Include URL configurations from Blog app
-    path("", include("blog.urls")),
+    path("", include("blog.urls"), name="blog-urls"),
 
     # Include URL configurations from About app
-    path('about/', include('about.urls')),
+    path('about/', include('about.urls'), name="about-urls"),
 
     # Include URL configurations from Allauth
     path("accounts/", include("allauth.urls")),
@@ -34,8 +34,11 @@ urlpatterns = [
     # Django admin interface
     path('admin/', admin.site.urls),
 
-    # Dashboard
-    path('dashboard/', include('dashboard.urls')),
+    # Include URL configurations from Contact app
+    path('contact/', include('contact.urls'), name="contact-urls"),
+
+    # Include URL configurations from Dashboard app
+    path('dashboard/', include('dashboard.urls'), name="dashboard-urls"),
 
     # Summernote
     path('summernote/', include('django_summernote.urls')),
