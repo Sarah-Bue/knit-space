@@ -1,6 +1,7 @@
 # Imports
 from django.shortcuts import render
 
+
 def about(request):
     """
     Display About page.

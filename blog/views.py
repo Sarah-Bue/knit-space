@@ -1,13 +1,15 @@
-# Imports
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
-from django.contrib.auth.decorators import login_required
-from .models import BlogPost, SavedPost
+# Django imports
 from django.contrib import messages
-from .forms import BlogPostForm
-from django.utils.text import slugify
-from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+from django.utils.text import slugify
+from django.views import generic
+
+# Local imports
+from .models import BlogPost, SavedPost
+from .forms import BlogPostForm
 
 
 class PostList(generic.ListView):
@@ -96,7 +98,6 @@ def create_blogpost(request):
             )
     else:
         form = BlogPostForm()
-    
     # Render in blog/create_blogpost.html template
     return render(
         request,
@@ -115,8 +116,6 @@ def delete_blogpost(request, post_id):
     if request.method == 'POST':
         # Retrieve the blog post using post_id
         blogpost = get_object_or_404(BlogPost, id=post_id, author=request.user)
-
-    if request.method == 'POST':
         # Delete the post
         blogpost.delete()
         # User feedback message
@@ -129,7 +128,7 @@ def delete_blogpost(request, post_id):
 
         # Redirect the user to user_blogposts page after deletion
         return redirect(
-        'user_blogposts'
+            'user_blogposts'
         )
 
     # If not POST request, redirect to home
@@ -151,7 +150,7 @@ def edit_blogpost(request, post_id):
             form.save()
             messages.add_message(
                 request,
-                messages.SUCCESS, 
+                messages.SUCCESS,
                 f'"{blogpost.title}" has been updated.',
                 extra_tags='post_action'
             )
@@ -162,13 +161,13 @@ def edit_blogpost(request, post_id):
             )
     else:
         form = BlogPostForm(instance=blogpost)
-    
+
     # Render in blog/edit_blogpost.html template
     return render(
         request,
         'blog/edit_blogpost.html',
         {'form': form,
-        'blogpost': blogpost}
+            'blogpost': blogpost}
     )
 
 
@@ -195,10 +194,18 @@ def handler404(request, exception):
     """
     Custom 404 error handler
     """
-    return render(request, 'templates/404.html', status=404)
+    return render(
+        request,
+        'templates/404.html',
+        status=404)
+
 
 def handler500(request):
     """
     Custom 500 error handler
     """
-    return render(request, 'templates/500.html', status=500)
+    return render(
+        request,
+        'templates/500.html',
+        status=500
+    )

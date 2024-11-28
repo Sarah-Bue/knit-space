@@ -1,11 +1,15 @@
-# Imports
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from blog.models import SavedPost
-from django.contrib import messages
-from django.http import JsonResponse
+# Standard library imports
 import json
+
+# Django imports
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+
+# Local imports
+from blog.models import SavedPost
 
 
 @login_required
@@ -18,7 +22,6 @@ def user_dashboard(request):
     saved_posts = (
         SavedPost.objects.
         filter(user=request.user).order_by('order')
-        # .select_related('post')
     )
     # Render user's dashboard and pass saved posts to context
     return render(
@@ -44,7 +47,6 @@ def delete_saved_post(request, post_id):
     saved_post.delete()
     # Add a success message after deletion
 
-
     messages.add_message(
             request,
             messages.SUCCESS,
@@ -66,7 +68,6 @@ def sort_posts(request):
     if request.method == "POST" and request.is_ajax():
         # Retrieve list of post IDs in their order
         order = request.POST.getlist('order[]')
-        
         # If order list is not empty
         if order:
             # Convert order list to a list of integers
@@ -74,7 +75,8 @@ def sort_posts(request):
 
             for i, post_id in enumerate(order):
                 # Update order field of each saved post
-                SavedPost.objects.filter(user=request.user, id=post_id).update(order=i)
+                SavedPost.objects.filter(
+                    user=request.user, id=post_id).update(order=i)
 
             return JsonResponse({'status': 'success'})
 

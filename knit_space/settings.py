@@ -111,7 +111,7 @@ TEMPLATES = [
     },
 ]
 
-# Templates for Crispy FOrm 
+# Templates for Crispy Form
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -137,7 +137,8 @@ CSRF_TRUSTED_ORIGINS = [
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'django.contrib.auth.password_validation'
+        '.UserAttributeSimilarityValidator',
     },
     {
         'NAME':

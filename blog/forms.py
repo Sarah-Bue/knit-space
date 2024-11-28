@@ -1,7 +1,8 @@
 # Imports
 from django import forms
-from .models import BlogPost
 from django_summernote.widgets import SummernoteWidget
+from .models import BlogPost
+
 
 class BlogPostForm(forms.ModelForm):
     """
@@ -18,5 +19,3 @@ class BlogPostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
             'excerpt': forms.TextInput(attrs={'class': 'form-control'}),
         }
-
-

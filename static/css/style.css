@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* General Styles */
+/* ---------- General Styles ---------- */
 
 html {
     height: 100%;
@@ -21,7 +21,8 @@ body {
     background-color: #cdbabe;
 }
 
-/* Buttons */
+/* ---------- Buttons ---------- */
+
 .btn-secondary {
     --bs-btn-color: #fff;
     --bs-btn-bg: #538ea3;
@@ -51,14 +52,16 @@ body {
     gap: 20px;
 }
 
-/* Logo */
+/* ---------- Logo ---------- */
+
 .logo {
     font-family: "Sigmar", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
-/* Header */
+/* ---------- Hero / Header ---------- */
+
 .hero-header {
     position: relative;
     padding: 5rem 0;
@@ -92,7 +95,8 @@ body {
     font-size: 1.25rem; 
 }
 
-/* Preview Cards */
+/* ---------- Preview Cards ---------- */
+
 .container .card {
     display: flex;
     flex-direction: column;
@@ -111,12 +115,12 @@ body {
     justify-content: space-between; /* Distributes the space equally */
 }
 
-
-/* Preview Card Hover Effect on large screens */
+/*  Preview Card Hover Effect on large screens  */
 @media (min-width: 992px) {
   .hover-card {
       transition: transform 0.2s, box-shadow 0.2s;
   }
+
   .hover-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

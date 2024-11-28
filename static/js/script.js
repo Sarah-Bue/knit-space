@@ -34,13 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 /**
  * Initializes jQuery UI's sortable functionality for the '#sortable' element.
  * Captures changes in the order of items.
  * Sends updated order information to the server via an AJAX POST request. 
  * 
- * The sortable functionality has been adapted from https://stackoverflow.com/questions/15633341/jquery-ui-sortable-then-write-order-into-a-database and https://jqueryui.com/sortable/
+ * The sortable functionality has been adapted from:
+ * https://stackoverflow.com/questions/70809674/how-do-i-implement-jquery-ui-touch-punch-into-my-code
+ * https://stackoverflow.com/questions/15633341/jquery-ui-sortable-then-write-order-into-a-database
+ * https://jqueryui.com/sortable/
+ * https://unpkg.com/browse/jquery-ui-touch-punch@0.2.3/
+ * 
  */
 $(function() {
     // Enable sortable functionality using jQuery UI

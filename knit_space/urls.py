@@ -24,9 +24,9 @@ from django.urls import path, include
 urlpatterns = [
     # Include URL configurations from Blog app
     path("", include("blog.urls")),
-    
-    # About
-    path('about/', include('about.urls')),  # Include the about app URLs
+
+    # Include URL configurations from About app
+    path('about/', include('about.urls')),
 
     # Include URL configurations from Allauth
     path("accounts/", include("allauth.urls")),

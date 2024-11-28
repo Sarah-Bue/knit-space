@@ -572,7 +572,7 @@ As a **registered user**, I can **access and manage all my authored posts from a
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|style.css | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/css-validation.png)</details>| Pass |
+|style.css | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.pngjs)</details>| Pass |
 
 
 #### JavaScript
@@ -581,7 +581,7 @@ As a **registered user**, I can **access and manage all my authored posts from a
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|script.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/js-validation.png)</details>| Pass |
+|script.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/js-validation.png)</details>| Pass |
 
 
 #### Python
@@ -590,20 +590,17 @@ As a **registered user**, I can **access and manage all my authored posts from a
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|knitspace/settings.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/knitspace-settings-validation.png)</details>| Pass |
-|knitspace/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/knitspace-urls-validation.png)</details>| Pass |
-|about/apps.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-apps-validation.png)</details>| Pass |
-|about/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-urls-validation.png)</details>| Pass |
-|about/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-views-validation.png)</details>| Pass |
-|blog/admin.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-admin-validation.png)</details>| Pass |
-|blog/apps.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-apps-validation.png)</details>| Pass |
-|blog/forms.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-forms-validation.png)</details>| Pass |
-|blog/models.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-models-validation.png)</details>| Pass |
-|blog/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-urls-validation.png)</details>| Pass |
-|blog/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/blog-views-validation.png)</details>| Pass |
-|dashboard/models.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-models-validation.png)</details>| Pass |
-|dashboard/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-urls-validation.png)</details>| Pass |
-|dashboard/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-views-validation.png)</details>| Pass |
+|knitspace/settings.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/knitspace-settings-validation.png)</details>| Pass |
+|knitspace/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/knitspace-urls-validation.png)</details>| Pass |
+|about/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-urls-validation.png)</details>| Pass |
+|about/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-views-validation.png)</details>| Pass |
+|blog/admin.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/blog-admin-validation.png)</details>| Pass |
+|blog/forms.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/blog-forms-validation.png)</details>| Pass |
+|blog/models.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/blog-models-validation.png)</details>| Pass |
+|blog/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/blog-urls-validation.png)</details>| Pass |
+|blog/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/blog-views-validation.png)</details>| Pass |
+|dashboard/urls.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/dashboard-urls-validation.png)</details>| Pass |
+|dashboard/views.py | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/dashboard-views-validation.png)</details>| Pass |
 
 
 ### Manual Testing
@@ -679,20 +676,20 @@ As a **registered user**, I can **access and manage all my authored posts from a
 #### Device Compatibility
 Device | Outcome | Pass/Fail
 --- | --- | ---
-iPhone 13 Mini | No issues with appearance, responsiveness, or functionality. | ---
+iPhone 13 Mini | No issues with appearance, responsiveness, or functionality. | Pass
 iPad 9th Generation | No issues with appearance, responsiveness, or functionality. | ---
-MacBook Air 13" | No appearance, responsiveness, or functionality issues. | ---
-Acer Predator Helios 300 | No appearance, responsiveness, or functionality issues. | ---
-Black Shark PAR-HOA | No issues with appearance, responsiveness, or functionality. | ---
+MacBook Air 13" | No appearance, responsiveness, or functionality issues. | Pass
+Acer Predator Helios 300 | No appearance, responsiveness, or functionality issues. | Pass
+Black Shark PAR-HOA | No issues with appearance, responsiveness, or functionality. | Pass
 SAMSUNG Galaxy S23 | No issues with appearance, responsiveness, or functionality. | ---
 
 #### Browser Compatibility
 Browser | Outcome | Pass/Fail
 --- | --- | ---
-Safari | No issues with appearance, responsiveness, or functionality. | ---
-Google Chrome | No issues with appearance, responsiveness, or functionality. | ---
+Safari | No issues with appearance, responsiveness, or functionality. | Pass
+Google Chrome | No issues with appearance, responsiveness, or functionality. | Pass
 Microsoft Edge | No issues with appearance, responsiveness, or functionality. | ---
-Mozilla Firefox | No issues with appearance, responsiveness, or functionality. | ---
+Mozilla Firefox | No issues with appearance, responsiveness, or functionality. | Pass
 JoyUI Native Browsers | No issues with appearance, responsiveness, or functionality. | ---
 
 
@@ -700,25 +697,31 @@ JoyUI Native Browsers | No issues with appearance, responsiveness, or functional
 |Feature | Bug | Fix |
 |---|---|---|
 |Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Fixed |
-|Random messages | Feedback messages detailing the last steps a user has taken are shown ahead of the feedback message for saving/deleting a post. | Not fixed |
+|Random messages | Feedback messages detailing the last steps a user has taken are shown ahead of the feedback message for saving/deleting a post. | Fixed |
+|Saving updated post order | The updated order of a user's saved posts on their dashboard does not remain after reloading the page| Not fixed |
+|404 page after post deletion | If a user doubleclicks on the *Delete* button of a post (saved or authored), they get redirected to a 404 page. The post is still deleted.| Not fixed |
+|Return to previous page | Where the *Return* button takes users back to their previous location rather than a specific page, they have to click on it twice if a feedback message has been. | Not fixed |
 
 
 ### Accessibility
 
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) in [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to measure the page's quality, focusing on performance, accessibility, best practices, and SEO scores.
+<br>
+The scores are ordered as *Performance* - *Accessibility* - *Best Practices* - *SEO*.
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | :---:
-|Home | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/home-lighthouse.png)</details>| Pass |
-|About | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/about-lighthouse.png)</details>| Pass |
-|Dashboard | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/dashboard-lighthouse.png)</details>| Pass |
-|Full Page Post View | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/view-post-lighthouse.png)</details>| Pass |
-|Create Post | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/create-post-lighthouse.png)</details>| Pass |
-|Edit Post | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/edit-post-lighthouse.png)</details>| Pass |
-|Sign In | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-in-lighthouse.png)</details>| Pass |
-|Sign Up | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-up-lighthouse.png)</details>| Pass |
-|Sign Out | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/sign-out-lighthouse.png)</details>| Pass |
-|404 | No errors | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/images/404-lighthouse.png)</details>| Pass |
+|Home | 79 - 93 - 74 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/home-lighthouse.png)</details>| Pass |
+|About | 80 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/about-lighthouse.png)</details>| Pass |
+|My Posts | 86 - 86 - 100 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-posts-lighthouse.png)</details>| Pass |
+|Dashboard | 84 - 93 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/dashboard-lighthouse.png)</details>| Pass |
+|Full Page Post View | 85 - 95 - 78 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/view-post-lighthouse.png)</details>| Pass |
+|Create Post | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/create-post-lighthouse.png)</details>| Pass |
+|Edit Post | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-post-lighthouse.png)</details>| Pass |
+|Sign In | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-in-lighthouse.png)</details>| Pass |
+|Sign Up | 88 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-up-lighthouse.png)</details>| Pass |
+|Sign Out | 86 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details>| Pass |
+|404 | 89 - 100 - 96 - 90 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/404-lighthouse.png)</details>| Pass |
 
 [Back to top ⇧](#knitspace)
 
@@ -787,10 +790,12 @@ All content was written by the developer.
 - The Confirmation Modal before deleting a BlogPost was adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The basic design of the *About* page was adapted from Code Institue's "I think therefore I blog" walkthrough.
 - The navigation bar and footer were adapted from [Bootstrap's Clean Blog](https://startbootstrap.com/theme/clean-blog) template.
-- The sortable functionality was adapted from [jQuery UI](https://jqueryui.com/sortable/).
-- Django Tutorials, especially [W3Schools](https://www.w3schools.com/django/), [Django documentation](https://docs.djangoproject.com/en/5.1/) were consulted regularly.
-- Several [Youtube](https://www.youtube.com) channels were consulted for inspiration, especially [Corey Shafer](https://www.youtube.com/@coreyms) and [Codemy](https://www.youtube.com/@Codemycom).
+- The sortable functionality was adapted from [jQuery UI](https://jqueryui.com/sortable/) and [Web Dev Simplified on YouTube](https://www.youtube.com/@WebDevSimplified).
+- [Stack Overflow](https://stackoverflow.com/) was consulted regularly.
+- Django Tutorials, especially [W3Schools](https://www.w3schools.com/django/) and [Django documentation](https://docs.djangoproject.com/en/5.1/) were consulted regularly.
+- Several [YouTube](https://www.youtube.com) channels were consulted for inspiration, especially [Corey Shafer](https://www.youtube.com/@coreyms) and [Codemy](https://www.youtube.com/@Codemycom).
 - [Bootstrap 5 Documentation](https://getbootstrap.com) was consulted throughout the project to style the majority of the content.
+- [JSHint Docs](https://jshint.com/docs/options/) was consulted for global declarations. 
 
 
 [Back to top ⇧](#knitspace)
