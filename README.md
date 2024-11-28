@@ -12,17 +12,17 @@ Visit the deployed application [here](https://knit-space-57239e7d6ce8.herokuapp.
 
 Agile methodology played a crucial role in managing the development process. The project was divided into smaller sprints, each focusing on adding a specific feature or improving an existing function.
 The first sprint focused on setting up a basic blog application, which formed the project's foundation. The application allows users to browse through post previews and open the full post by clicking on the preview. Users are not required to log in to the site to view posts. 
-The second sprint focused on implementing user authentication. Once implemented, it allows users to create an account using their email address and log into and out of the account. After future sprints, logged-in users will be able to access exclusive areas of the blog.
-The third sprint focused on setting up the Dashboard and its functionality. The Dashboard serves as a space for registered users to view their favourite posts. Posts can be saved to and removed from the Dashboard via the click of a button and rearranged with a drag-and-drop feature. Due to time constraints, the functionality to reorder blog posts was moved into the next sprint.
+The second sprint focused on implementing user authentication. Once implemented, it allows users to create an account using their email address and log into and out of the account. After future sprints, logged-in users can access exclusive areas of the blog.
+The third sprint focused on setting up the Dashboard and its functionality. The Dashboard serves as a space for registered users to view their favourite posts. Posts can be saved and removed from the Dashboard via a button and rearranged with a drag-and-drop feature. Due to time constraints, the functionality to reorder blog posts was moved into the next sprint.
 The fourth sprint focused on completing the drag-and-drop functionality and adding additional user functions. Logged-in users can create blog posts, including custom images, and edit and delete their posts after creation.
 The fifth sprint focused on adding an *About* page to the blog to allow users to connect with its fictional host.
-The sixth sprint focused on enhancing the user experience by improving existing features and addressing issues that had become apparent during testing. Some exmaples include:
-- A *My Posts* page was created, allowing users to comfortably manage all their posts in one place.
-- Feedback messages afer saving, updating, or deleting a post were added to provide users with immediate fedback to their actions.
-- A confirmation modal was added before posts are deleted permanently to avoid any accidental deletions which cannot be undone.
+The sixth sprint focused on enhancing the user experience by improving existing features and addressing issues that had become apparent during testing. Some examples include:
+- A *My Posts* page was created, allowing users to manage all their posts comfortably in one place.
+- Messages after saving, updating, or deleting a post were added to provide users with immediate feedback on their actions.
+- A confirmation modal was added before posts are permanently deleted to avoid accidental deletions that cannot be undone.
 - Custom pages for the two most common errors encountered during production - 404 and 404 - were created.
 
-GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to visually track progress. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, in accordance with the corresponding sprints. 
+GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to track progress visually. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, following the corresponding sprints. 
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritization -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.
 
 ### CRUD Functionality
@@ -47,7 +47,7 @@ Content Management (logged-in users only)
 - *U*: Update own blogposts.
 - *D*: Delete own blogposts.
 
-**Note**: The *CRUD* functionality for content management has been implemented in multiple places. Users can update and delete their posts from the *My Post* section as well as from the full-page view of each post. Users can create a new post from their account menu and from the *My Post* section.
+**Note**: The *CRUD* functionality for content management has been implemented in multiple places. Users can update and delete their posts from the *My Post* section and the full-page view of each post. Users can also create a new post from their account menu and the *My Post* section.
 
 ### Entity Relationship Diagrams
 
@@ -60,12 +60,12 @@ During planning, [Lucidchart](https://www.lucidchart.com) was used to visualize 
 
 #### User Entity
 User -> BlogPost:
-- Each User can be the author of multiple *BlogPost* instances. This is represented as a one-to-many (1:N) relationship where the *User* is on the "one" side, and each *BlogPost* is on the "many" side.
+- Each User can be the author of multiple *BlogPost* instances. This represents a one-to-many (1:N) relationship where the *User* is on the "one" side, and each *BlogPost* is on the "many" side.
 - In the model, this relationship is facilitated by a ForeignKey in the *BlogPost* model pointing to the *User*.
 
 User -> SavedPost:
 - Each User can save multiple blog posts, resulting in several *SavedPost* entries. This is another one-to-many (1:N) relationship.
-- This is implemented via a ForeignKey in the *SavedPost* model pointing back to the User.
+- This is implemented via a ForeignKey in the *SavedPost* model, which points back to the user.
 
 #### BlogPost Entity
 BlogPost -> User:
@@ -73,7 +73,6 @@ BlogPost -> User:
 
 BlogPost -> SavedPost:
 - Each BlogPost can be saved by multiple users, represented by multiple SavedPost entries. This defines another one-to-many (1:N) relationship, where *SavedPost* serves as an intermediary.
-
 
 #### SavedPost Entity
 BlogPost -> User:
@@ -85,11 +84,11 @@ BlogPost -> SavedPost:
 ### Design Choices
 #### Color Palette
 
-The color palette makes use of three colors, taken from the header image to maintain a consistent style, as well as standard white. The colors were chosen for their pastel look, to help create a pleasant and soothing experience for the user. Only three colors were used to support that experience. The palette was generated using [Coolors](https://coolors.co/image-picker).
-- #FFFFFF (white): Cards and input fields were kept white to stand out.
+The color palette uses three colors taken from the header image to maintain a consistent style, as well as standard white. The colors were chosen for their pastel look to help create a pleasant and soothing experience for the user. Only three colors were used to support that experience. The palette was generated using [Coolors](https://coolors.co/image-picker).
+- #FFFFFF (white): Cards and input fields are white to stand out.
 - #FAF9F6 (baby powder): This was chosen as a background for the site to create a softer look. 
-- #CDBABE (thistle): This was chosen for the header and footer to create a visual framing of the page content. 
-- #538EA3 (blue / munsell): This was chosen for the buttons of the site.
+- #CDBABE (thistle): This was chosen for the header and footer to frame the page content visually. 
+- #538EA3 (blue / munsell): This was chosen for the site's buttons.
 
 <details>
 <summary> Color Pallette Image</summary>
@@ -99,7 +98,7 @@ The color palette makes use of three colors, taken from the header image to main
 #### Typography
 
 Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
-*Sigmar* was chosen as the font for the logo and the header text due its bold, decorative lettering. For the main text, *Poppins* was used, as it offers a clean, modern design which is easy to read in a variety of styles and sizes.
+*Sigmar* was chosen as the font for the logo and the header text due to its bold, decorative lettering. For the main text, *Poppins* was used, as it offers a clean, modern design that is easy to read in various styles and sizes.
 
 <details>
 <summary> Type Font Images</summary>
@@ -128,7 +127,7 @@ Sign Up / Sign In | --- | ---
 
 #### Pre-existing Posts
 
-In order to create a realisitc, emmersive feeling for new users, a total of 30 blog posts have been created and uploaded into the database as a .json file. These posts were created with six different user personas in mind and were given various created_on dates to give the appearance of a well established blog. Posts were originally supposed to be diplayed by their last_modified rather than their created_on date, but frequent testing and updates throughout the process meant that these dates were much closer together than originally anticipated. In order to maintain the feeling of a pre-existing blog, the decision was made to order posts by their created_om date instead.
+In order to create a realistic, immersive feeling for new users, a total of 30 blog posts have been designed and uploaded into the database as a .json file. These posts were created with six user personas in mind and were given various created_on dates to make a well-established blog appear. Posts were initially supposed to be displayed by their last_modified rather than their created_on date. However, frequent testing and updates throughout the process meant that these dates were much closer together than initially anticipated. To maintain the feeling of a pre-existing blog, the decision was made to order posts by their created_on date instead.
 
 [Back to top ⇧](#knitspace)
 
@@ -181,7 +180,7 @@ In order to create a realisitc, emmersive feeling for new users, a total of 30 b
 #### Header and Navigation
 
 The header is the same across all pages to provide users with a familiar layout and allow them to focus on the content of each page. It contains the KnitSpace logo in the top left, doubling as a Home Page link. It also includes links to all website pages across the top, which will take on a different color when active.
-The header includes the main background image, which displays a welcome message across the home page, however, this message disappears on the other pages.
+The header includes the main background image, which displays a welcome message across the home page. However, this message disappears on the other pages.
 
 <details>
 <summary> Header Images</summary>
@@ -195,7 +194,7 @@ The header includes the main background image, which displays a welcome message 
 
 #### Footer
 
-The footer is the same across pages to provide users with a familiar layout and allow them to focus on the content of each page. It contains links to social media networks, which will open a new tab when clicked, as well as a copyright declaration.
+The footer is the same across pages to provide users with a familiar layout and allow them to focus on the content of each page. It contains links to social media networks, which will open a new tab when clicked, and a copyright declaration.
 
 <details>
 <summary> Footer Image </summary>
@@ -206,7 +205,7 @@ The footer is the same across pages to provide users with a familiar layout and 
 
 #### Home Page
 
-The *Home* page previews all available blog posts, ordered from most to least recent. Each post is presented in a clickable card that opens the full-page view. Each card contains an image at the top, which defaults to a preset image unless changed by the user when creating a post, followed by the author and date and, lastly, the excerpt, if available.
+The *Home* page previews all available blog posts, ordered from most to least recent. Each post is presented in a clickable card that opens the full-page view. Each card contains an image at the top, which defaults to a preset image unless changed by the user when creating a post, followed by the author, date, and, lastly, the excerpt, if available.
 Arrows at the bottom of the page allow users to browse between multiple pages.
 
 <details>
@@ -216,9 +215,9 @@ Arrows at the bottom of the page allow users to browse between multiple pages.
 
 #### Post Previews & Detail Views
 
-Post previews are displayed as cards shwoing an image, the title of the post, the author and creation date, and an excerpt. Images are optional, and a default image will be provided if users chose not to upload a custom image.
+Post previews are displayed as cards showing an image, the post's title, the author and creation date, and an excerpt. Images are optional; if users choose not to upload a custom image, a default image is displayed.
 
-When clicking on a blog post preview card, a full-page view opens. This view presents the user with the post's title, author, date, and full text. A *Back* button above the post allows users to return to the *Home* page. Additionally, for logged-in users, a *Save* button above the post allows users to save their favorite posts to their Dashboard. The author of each post also sees a dropdown menu allowing them to edit or delete their posts. A confirmation modal prevents users from accidentally deleting posts.
+When clicking on a blog post preview card, a full-page view opens. This view presents the user with the post's title, author, date, and full text. A *Back* button above the post allows users to return to the *Home* page. Additionally, for logged-in users, a *Save* button above the post will enable users to save their favorite posts to their Dashboard. The author of each post also sees a drop-down menu allowing them to edit or delete their posts. A confirmation modal prevents users from accidentally deleting posts.
 
 <details>
 <summary> Post Previews Image </summary>
@@ -255,7 +254,7 @@ When clicking on a blog post preview card, a full-page view opens. This view pre
 
 #### User Dashboard
 
-The Dashboard lets users view all their saved posts in one continuous list. A link to the Dashboard only appears for logged-in users. Each post is presented as a more condensed version of the post preview and will open the full-page post when clicked. Users can delete their saved posts from their Dashboard at any time and rearrange their posts using drag-and-drop functionality.
+The Dashboard lets users view all their saved posts in one continuous list. A link to the Dashboard only appears for logged-in users. Each post is presented as a more condensed version of the post preview and will open the full-page post when clicked. Users can delete their saved posts from their Dashboard anytime and rearrange them using drag-and-drop functionality.
 
 <details>
 <summary> Dashboard Images </summary>
@@ -273,7 +272,7 @@ The Dashboard lets users view all their saved posts in one continuous list. A li
 
 #### My Posts
 
-This page lets users easily view and manage all the posts they have authored in one place. Posts will appear here after they have been created, and will disappear from the blog when deleted. A confirmation modal prevents users from accidentally deleting posts.
+This page lets users easily view and manage all the posts they have authored in one place. Posts appear here after they are created and disappear from the blog when deleted. A confirmation modal prevents users from accidentally deleting posts.
 
 <details>
 <summary> My Posts Images </summary>
@@ -295,7 +294,7 @@ This page lets users easily view and manage all the posts they have authored in 
 
 #### About 
 
-The *About* page lets users learn more about Frau Wolle, the face and hands behind KnitSpace. It consists of an image and a short biography which invite users to connect with her.
+The *About* page lets users learn more about Frau Wolle, the face and hands behind KnitSpace. It consists of an image and a short biography which invites users to connect with her.
 
 <details>
 <summary> About Page Image </summary>
@@ -308,7 +307,7 @@ The *404* page is displayed when an invalid or incorrect URL is entered.
 <br>
 The *500* is displayed when an internal server error occurs.
 <br>
-Both pages are identical except for the error code they state. The clickable logo in the header and a clickable link im the content card allow the user to return to the home page.
+Both pages are identical except for the error code they state. The clickable logo in the header and a clickable link in the content card allow the user to return to the home page.
 
 <details>
 <summary> 404 Page Image </summary>
@@ -317,9 +316,9 @@ Both pages are identical except for the error code they state. The clickable log
 
 ### Content Management
 
-Users are able to create new posts after logging in. A blank form is rendered where users can input all relevant information. Optional fields are marked as such with a muted text comment.
+After logging in, users can create new posts. A blank form is rendered where they can input all relevant information. Optional fields are marked as such with a muted text comment.
 <br>
-Posts can be updated any time. Users can change any information associated with the post, as long as the title remains unique. When updating a post, the form loads with the original content in prepopulated fields. 
+Posts can be updated at any time. Users can change any information associated with the post, as long as the title remains unique. The form loads with the original content in prepopulated fields when updating a post. 
 
 <details>
 <summary> Post Management Images </summary>
@@ -338,9 +337,9 @@ Posts can be updated any time. Users can change any information associated with 
 
 ### User Authentication
 
-Users can create an account using their email address. Their username must be unique, and the password they choose must meet the standard safety criteria. No verification email is sent out by email.
+Users can create an account using their email address. Their username must be unique, and their chosen password must meet the standard safety criteria. No verification email is sent out by email.
 <br>
-After successfully creating an account, users can use their credentials to log into the page and access exclusive content, such as their dashboards. Users can log out of their account to return to the guest view when finished.
+After successfully creating an account, users can use their credentials to log into the page and access exclusive content, such as their dashboards. When finished, users can log out of their account to return to the guest view.
 
 <details>
 <summary> User Authentication Images </summary>
@@ -359,7 +358,7 @@ After successfully creating an account, users can use their credentials to log i
 ### Future Features
 
 #### Comments
-- Registered users can add comments to a blogpost and respond to another comment made on a blogpost.
+- Registered users can add comments to a blog post and respond to another comment made on a blog post.
 - Users can view, update, and delete their comments when they are logged in.
 - Guest users will be able to view existing comments.
 
@@ -373,8 +372,8 @@ After successfully creating an account, users can use their credentials to log i
 - Users will be able to delete their accounts.
 
 #### Search Bar & Filters
-- Users will have the ability to search the contents of the blog in order to find what they are looking for.
-- Users will be able to apply filters to the blogposts on the home page, their dashboard, and their *My Post* page in order to customize their view based on their needs.
+- Users will have the ability to search the contents of the blog to find what they are looking for.
+- Users will be able to apply filters to the blog posts on the home page, their Dashboard, and their *My Post* page to customize their view based on their needs.
 
 [Back to top ⇧](#knitspace)
 
@@ -436,7 +435,7 @@ After successfully creating an account, users can use their credentials to log i
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project
 
-- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used for code review and to test responsiveness during the development process.
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used for code review and to test responsiveness during development.
 
 - [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
 
@@ -453,6 +452,8 @@ After successfully creating an account, users can use their credentials to log i
 - [CDNJS](https://cdnjs.com/) was used to deliver external libraries on the website.
 
 - [Lucidchart](https://www.lucidchart.com) was used to create the Entity Relationship Diagrams.
+
+- [Grammalry](https://app.grammarly.com) was used to spell-check the contents of the Readme.
 
 
 
@@ -504,17 +505,17 @@ As a **registered user**, I can **log out of my account** so that **I can ensure
 
 As a **registered user**, I can **save posts to my Dashboard** so that **I can easily access my favorite content**.
 - A link to the Dashboard is visible in the navigation bar for logged-in users.
-- A button to save a blog post is visible on the full-page blog post for logged-in users.
-- Once saved, the blog post will appear on the user's Dashboard.
+- A button to save a blog post is visible for logged-in users on the full-page blog post.
+- The blog post will appear on the user's Dashboard once saved.
 - A feedback message indicates a post has been saved successfully.
 
 As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
 - Saved posts are presented as a list.
 - Using AJAX drag and drop, users can move their saved posts to a different position.
-- The drag and drop functionality is implemented on desktop and mobile devices.
+- Drag-and-drop functionality is implemented on desktop and mobile devices.
 
 As a **registered user**, I can **delete saved blog posts from my Dashboard** so that **I can manage my content board**.
-- A *Delete* button is displayed with each saved blog post preview.
+- Each saved blog post preview displays a *Delete* button.
 - When clicked, the corresponding blog post is removed from the Dashboard.
 - A feedback message indicates a post has been deleted successfully.
 
@@ -541,9 +542,9 @@ As a **registered user**, I can **delete my blog posts** so that **I can remove 
 - After submission, users are redirected to the home page.
 
 As a **registered user**, I can **access and manage all my authored posts from a central page** so that **I can efficiently maintain and update my content**.
--	Users can access a list of all their authored posts from their account drop-down menu. 
--	Users can open, update, or delete each post straight from their post list. 
--	Users can easily switch between views of their authored posts and their saved posts. 
+- Users can access a list of all their authored posts from their account drop-down menu. 
+- Users can open, update, or delete each post straight from their post list. 
+- Users can easily switch between views of their authored and saved posts. 
 
 ### Code Validation
 
@@ -553,17 +554,17 @@ As a **registered user**, I can **access and manage all my authored posts from a
 
 | **Tested** | **Result** | **View Result** | **Pass** |
 --- | --- | --- | ---
-|Home | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/home-validation.png)</details>| Pass |
-|About | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/about-validation.png)</details>| Pass |
-|Dashboard | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/dashboard-validation.png)</details>| Pass |
-|My Posts | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/my-posts-validation.png)</details>| Pass |
-|Full Page Post View | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/view-post-validation.png)</details>| Pass |
-|Create Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/create-post-validation.png)</details>| Pass |
-|Edit Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/edit-post-validation.png)</details>| Pass |
-|Sign In | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-in-validation.png)</details>| Pass |
-|Sign Up | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-up-validation.png)</details>| Pass |
-|Sign Out | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/sign-out-validation.png)</details>| Pass |
-|404 | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/images/404-validation.png)</details>| Pass |
+|Home | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/home-validation.png)</details>| Pass |
+|About | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-validation.png)</details>| Pass |
+|Dashboard | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/dashboard-validation.png)</details>| Pass |
+|My Posts | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/my-posts-validation.png)</details>| Pass |
+|Full Page Post View | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/view-post-validation.png)</details>| Pass |
+|Create Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/create-post-validation.png)</details>| Pass |
+|Edit Post | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/edit-post-validation.png)</details>| Pass |
+|Sign In | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/sign-in-validation.png)</details>| Pass |
+|Sign Up | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/sign-up-validation.png)</details>| Pass |
+|Sign Out | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/sign-out-validation.png)</details>| Pass |
+|404 | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/404-validation.png)</details>| Pass |
 
 
 #### CSS
@@ -627,7 +628,7 @@ As a **registered user**, I can **access and manage all my authored posts from a
 #### Content Management
 | Feature | Tested | Pass/Fail |
 |---|---|---|
-|Logged in users can create a new post | Yes | Pass |
+| Logged-in users can create a new post | Yes | Pass |
 |Users can upload a custom image for a post | Yes | Pass |
 |Authors can edit their posts | Yes | Pass |
 |Authors can delete their posts | Yes | Pass |
@@ -636,7 +637,7 @@ As a **registered user**, I can **access and manage all my authored posts from a
 #### Dashboard
 | Feature | Tested | Pass/Fail |
 |---|---|---|
-|Dashboard is only visible to logged-in users | Yes | Pass |
+| Dashboard is only visible to logged-in users | Yes | Pass |
 |Saved blog posts appear on the dashboard | Yes | Pass |
 |Users can delete posts from the dashboard | Yes | Pass |
 |Posts can be rearranged using drag and drop | Yes | Pass |
@@ -698,9 +699,9 @@ JoyUI Native Browsers | No issues with appearance, responsiveness, or functional
 |---|---|---|
 |Hover effect for preview cards | In the deployed version, the preview cards do not appear to lift when hovered over. However, the effect works as expected on the local server. | Fixed |
 |Random messages | Feedback messages detailing the last steps a user has taken are shown ahead of the feedback message for saving/deleting a post. | Fixed |
-|Saving updated post order | The updated order of a user's saved posts on their dashboard does not remain after reloading the page| Not fixed |
-|404 page after post deletion | If a user doubleclicks on the *Delete* button of a post (saved or authored), they get redirected to a 404 page. The post is still deleted.| Not fixed |
-|Return to previous page | Where the *Return* button takes users back to their previous location rather than a specific page, they have to click on it twice if a feedback message has been. | Not fixed |
+|Saving updated post order | The updated order of a user's saved posts on their Dashboard does not remain after reloading the page| Not fixed |
+|404 page after post deletion | If a user double clicks on a post's *Delete* button (saved or authored), they get redirected to a 404 page. The post is still deleted.| Not fixed |
+|Return to the previous page | Where the *Return* button takes users back to their previous location rather than a specific page, they have to click twice if a feedback message has been displayed. | Not fixed |
 
 
 ### Accessibility
@@ -767,7 +768,6 @@ Deployment to [Heroku](https://www.heroku.com) was completed using the following
         - When prompted to *Connect to GitHub*, find your repository and click *Connect*.
     - Select either *Automatic Deploys* or *Manual Deploys* and click *Deploy Branch*.
 5. Once deployment is complete, click *View* for the deployed project. 
-
  
 [Back to top ⇧](#knitspace)
 
@@ -788,7 +788,7 @@ All content was written by the developer.
 
 - The models for *BlogPost* and *BlogPostAdmin* were adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The Confirmation Modal before deleting a BlogPost was adapted from Code Institute's "I think therefore I blog" walkthrough.
-- The basic design of the *About* page was adapted from Code Institue's "I think therefore I blog" walkthrough.
+- The basic design of the *About* page was adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The navigation bar and footer were adapted from [Bootstrap's Clean Blog](https://startbootstrap.com/theme/clean-blog) template.
 - The sortable functionality was adapted from [jQuery UI](https://jqueryui.com/sortable/) and [Web Dev Simplified on YouTube](https://www.youtube.com/@WebDevSimplified).
 - [Stack Overflow](https://stackoverflow.com/) was consulted regularly.
@@ -796,7 +796,6 @@ All content was written by the developer.
 - Several [YouTube](https://www.youtube.com) channels were consulted for inspiration, especially [Corey Shafer](https://www.youtube.com/@coreyms) and [Codemy](https://www.youtube.com/@Codemycom).
 - [Bootstrap 5 Documentation](https://getbootstrap.com) was consulted throughout the project to style the majority of the content.
 - [JSHint Docs](https://jshint.com/docs/options/) was consulted for global declarations. 
-
 
 [Back to top ⇧](#knitspace)
 
@@ -808,4 +807,3 @@ All content was written by the developer.
 - My husband, thank you for supporting me throughout the process.
 
 [Back to top ⇧](#knitspace)
-
