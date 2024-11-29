@@ -117,15 +117,18 @@ Fonts were paired and imported using [Google Fonts](https://fonts.google.com).
 
 Page | Desktop Version | Mobile Version
 --- | --- | ---
-Home | --- | ---
-About | --- | ---
-Contact Us | --- | ---
-Dashboard | --- | ---
-My Posts | --- | ---
-Blog Post View | --- | ---
-Edit / Create Post | --- | ---
-Sign Up / Sign In | --- | ---
-404 | --- | ---
+Home | ![Desktop Home Image](assets/readme-files/wireframes/home-desktop-wf.png) | ![Mobile Home Image](assets/readme-files/wireframes/home-mobile-wf.png)
+About | ![Desktop About Image](assets/readme-files/wireframes/about-desktop-wf.png)  | ![Mobile About Image](assets/readme-files/wireframes/about-mobile-wf.png)
+Contact Us | ![Desktop Contact Image](assets/readme-files/wireframes/contact-desktop-wf.png) | ![Mobile Contact Image](assets/readme-files/wireframes/contact-mobile-wf.png)
+Dashboard | ![Desktop Dashboard Image](assets/readme-files/wireframes/dashboard-desktop-wf.png) | ![Mobile Dashboard Image](assets/readme-files/wireframes/dashboard-mobile-wf.png)
+My Posts | ![Desktop My Posts Image](assets/readme-files/wireframes/my-posts-desktop-wf.png) | ![Mobile My Posts Image](assets/readme-files/wireframes/my-posts-mobile-wf.png)
+Blog Post View | ![Desktop Post Details Image](assets/readme-files/wireframes/post-details-desktop-wf.png) | ![Mobile Post Details Image](assets/readme-files/wireframes/post-details-mobile-wf.png)
+Edit Post | ![Desktop Edit Post Image](assets/readme-files/wireframes/edit-post-desktop-wf.png) | ![Mobile Edit Post Image](assets/readme-files/wireframes/edit-post-mobile-wf.png)
+Create Post | ![Desktop Create Post Image](assets/readme-files/wireframes/create-post-desktop-wf.png) | ![Mobile Create Post Image](assets/readme-files/wireframes/create-post-mobile-wf.png)
+Sign In | ![Desktop Sign In Image](assets/readme-files/wireframes/sign-in-desktop-wf.png) | ![Mobile Sign In Image](assets/readme-files/wireframes/sign-in-mobile-wf.png)
+Sign Up | ![Desktop Sign Up Image](assets/readme-files/wireframes/sign-up-desktop-wf.png) | ![Mobile Sign Up Image](assets/readme-files/wireframes/sign-up-mobile-wf.png)
+Sign Out | ![Desktop Sign Out Image](assets/readme-files/wireframes/sign-out-desktop-wf.png) | ![Mobile Sign Out Image](assets/readme-files/wireframes/sign-out-mobile-wf.png)
+Error Page | ![Desktop Error Page Image](assets/readme-files/wireframes/error-desktop-wf.png) | ![Mobile Error Page Image](assets/readme-files/wireframes/error-mobile-wf.png)
 
 #### Pre-existing Posts
 
@@ -484,6 +487,8 @@ After successfully creating an account, users can use their credentials to log i
 
 - [Grammalry](https://app.grammarly.com) was used to spell-check the contents of the Readme.
 
+- [JPG2PNG](https://jpg2png.com/) was used to convert .jpg images into .png images.
+
 
 [Back to top ⇧](#knitspace)
 
@@ -825,20 +830,22 @@ Deployment to [Heroku](https://www.heroku.com) was completed using the following
  
 [Back to top ⇧](#knitspace)
 
-## Finished Product
 
 ## Finished Product
 Page | Desktop Version | Mobile Version
 --- | --- | ---
-Home | --- | ---
-About | --- | ---
-Contact Us | --- | ---
-Dashboard | --- | ---
-My Posts | --- | ---
-Blog Post View | --- | ---
-Edit / Create Post | --- | ---
-Sign Up / Sign In | --- | ---
-404 | --- | ---
+Home | ![Result](assets/readme-files/images/home-page.png) | ![Result](assets/readme-files/images/home-page-mobile.png)
+About | ![Result](assets/readme-files/images/about-page.png) | ![Result](assets/readme-files/images/about-page-mobile.png)
+Contact Us | ![Result](assets/readme-files/images/contact.png) | ![Result](assets/readme-files/images/contact-mobile.png)
+Dashboard | ![Result](assets/readme-files/images/dashboard-full.png) | ![Result](assets/readme-files/images/dashboard-full-mobile.png)
+My Posts | ![Result](assets/readme-files/images/my-posts-full.png) | ![Result](assets/readme-files/images/my-posts-full-mobile.png)
+Blog Post View | ![Result](assets/readme-files/images/details-author.png) | ![Result](assets/readme-files/images/details-author-mobile.png)
+Create Post | ![Result](assets/readme-files/images/create-post.png) | ![Result](assets/readme-files/images/create-post-mobile.png)
+Edit Post | ![Result](assets/readme-files/images/edit-post.png) | ![Result](assets/readme-files/images/edit-post-mobile.png)
+Sign In | ![Result](assets/readme-files/images/sign-in.png) | ![Result](assets/readme-files/images/sign-in-mobile.png)
+Sign Up | ![Result](assets/readme-files/images/sign-up.png) | ![Result](assets/readme-files/images/sign-up-mobile.png)
+Sign Out | ![Result](assets/readme-files/images/sign-out.png) | ![Result](assets/readme-files/images/sign-out-mobile.png)
+Error Page | ![Result](assets/readme-files/images/404-page.png) | ![Result](assets/readme-files/images/404-page-mobile.png)
 
 [Back to top ⇧](#knitspace)
 
