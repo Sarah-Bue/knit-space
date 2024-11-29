@@ -1,5 +1,7 @@
-/* JSHint directive that specifies $ as a global variable */
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
 /* global $ */
+/* global bootstrap */
 
 
 /**
