@@ -47,17 +47,26 @@ Visit the deployed application [here](https://knit-space-57239e7d6ce8.herokuapp.
 ### Agile Methodology
 
 Agile methodology played a crucial role in managing the development process. The project was divided into smaller sprints, each focusing on adding a specific feature or improving an existing function.
+<br>
 The first sprint focused on setting up a basic blog application, which formed the project's foundation. The application allows users to browse through post previews and open the full post by clicking on the preview. Users are not required to log in to the site to view posts. 
+<br>
 The second sprint focused on implementing user authentication. Once implemented, it allows users to create an account using their email address and log into and out of the account. After future sprints, logged-in users can access exclusive areas of the blog.
+<br>
 The third sprint focused on setting up the Dashboard and its functionality. The Dashboard serves as a space for registered users to view their favourite posts. Posts can be saved and removed from the Dashboard via a button and rearranged with a drag-and-drop feature. Due to time constraints, the functionality to reorder blog posts was moved into the next sprint.
+<br>
 The fourth sprint focused on completing the drag-and-drop functionality and adding additional user functions. Logged-in users can create blog posts, including custom images, and edit and delete their posts after creation.
+<br>
 The fifth sprint focused on adding an *About* page to the blog to allow users to connect with its fictional host.
+<br>
 The sixth sprint focused on enhancing the user experience by improving existing features and addressing issues that had become apparent during testing. Some examples include:
 - A *My Posts* page was created, allowing users to manage all their posts comfortably in one place.
 - Messages after saving, updating, or deleting a post were added to provide users with immediate feedback on their actions.
 - A confirmation modal was added before posts are permanently deleted to avoid accidental deletions that cannot be undone.
 - Custom pages for the two most common errors encountered during production - 404 and 404 - were created.
-The seventh sprint focused on adding a contact form to allow users to reach out to the site owners. No login information are required to access this page. Submitted contacts can be managed from the */admin* panel. In the same sprint, the ability to update the *About* page was included in the */admin* panel.
+
+The seventh sprint focused on adding a contact form to allow users to contact the site owners. No login information is required to access this page. Submitted contacts can be managed from the */admin* panel. In the same sprint, the ability to update the *About* page was included in the */admin* panel.
+
+Although no *Issues* were created for this, the final sprint focussed on polishing the project for deployment. Code validation was performed alongside a final round of compatibility and feature testing.
 
 GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to track progress visually. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, following the corresponding sprints. 
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority - *must-have*, *should-have*, *could-have* or *will-not-have*, based on the MOSCOW model of prioritization -  as well as a functionality - *C*, *R*, *U*, or *D*, to reference their role within the *CRUD* functionality.
@@ -109,7 +118,7 @@ BlogPost -> User:
 - A *BlogPost* is authored by the *User*, which is a many-to-one relationship where multiple *BlogPost* instances can be associated with a single *User*.
 
 BlogPost -> SavedPost:
-- Each BlogPost can be saved by multiple users, represented by multiple SavedPost entries. This defines another one-to-many (1:N) relationship, where *SavedPost* serves as an intermediary.
+- Each BlogPost can be saved by multiple users, represented by various SavedPost entries. This defines another one-to-many (1:N) relationship, where *SavedPost* serves as an intermediary.
 
 #### SavedPost Entity
 BlogPost -> User:
@@ -264,7 +273,7 @@ Arrows at the bottom of the page allow users to browse between multiple pages.
 
 #### Post Previews & Detail Views
 
-Post previews are displayed as cards showing an image, the post's title, the author and creation date, and an excerpt. Images are optional; if users choose not to upload a custom image, a default image is displayed.
+Post previews are displayed as cards showing an image, the post's title, the author and creation date, and an excerpt. Images are optional; a default image is displayed if users choose not to upload a custom image.
 
 When clicking on a blog post preview card, a full-page view opens. This view presents the user with the post's title, author, date, and full text. A *Back* button above the post allows users to return to the *Home* page. Additionally, for logged-in users, a *Save* button above the post will enable users to save their favorite posts to their Dashboard. The author of each post also sees a drop-down menu allowing them to edit or delete their posts. A confirmation modal prevents users from accidentally deleting posts.
 
@@ -352,7 +361,7 @@ The *About* page lets users learn more about Frau Wolle, the face and hands behi
 
 #### Contact Us
 
-The *Contact Us* page allows users to send a message to the site owner. After successful submittion, a confirmation message is displayed to the user.
+The *Contact Us* page allows users to send a message to the site owner. After successful submission, a confirmation message is displayed to the user.
 <br>
 The message can be viewed by the superuser in Django's */admin* section.
 <details>
@@ -361,7 +370,7 @@ The message can be viewed by the superuser in Django's */admin* section.
 <img src = "assets/readme-files/images/contact.png">
 <br>
 <br>
-<summary> Contact Confirmationm </summary>
+<summary> Contact Confirmations </summary>
 <img src = "assets/readme-files/images/contact-confirmation.png">
 </details>
 
@@ -423,25 +432,26 @@ After successfully creating an account, users can use their credentials to log i
 
 #### Comments
 - Registered users can add comments to a blog post and respond to another comment made on a blog post.
-- Registered users can particiapte in forum discussions.
+- Registered users can participate in forum discussions.
 - Registered users can view, update, and delete their comments when they are logged in.
 - Guest users will be able to view existing comments.
 
 #### Confirmation Emails & Password Reset
 - When creating an account, users are sent a confirmation email.
-- When logging in, users are able to reset their password via email.
+- When logging in, users can reset their password via email.
+- Users can log in using other accounts such as Facebook or Google.
 
 #### User Profiles
-- Users are able to access their profile from the account menu.
-- User are able to update and add to their personal information.
-- Users are able to delete their accounts.
+- Users can access their profile from the account menu.
+- Users can update and add to their personal information.
+- Users can delete their accounts.
 
 #### Search Bar & Filters
-- Users have the ability to search the contents of the blog to find what they are looking for.
-- Users are able to apply filters to the blog posts on the home page, their Dashboard, and their *My Post* page to customize their view based on their needs.
+- Users can search the contents of the blog to find what they are looking for.
+- Users can apply filters to the blog posts on the home page, their Dashboard, and their *My Post* page to customize their view based on their needs.
 
 #### Contact Management
-- Superusers are able to respond to incoming contacts through a platform like [Mailtrap](https://mailtrap.io/).
+- Superusers can respond to incoming contacts through a platform like [Mailtrap](https://mailtrap.io/).
 
 
 [Back to top ⇧](#knitspace)
@@ -496,7 +506,7 @@ After successfully creating an account, users can use their credentials to log i
 
 - [Heroku](https://www.heroku.com) was used to host and deploy the website.
 
-- [Am I Responsive](ami.responsivedesign.is) was used to preview the website across a variety of popular devices.
+- [Am I Responsive](ami.responsivedesign.is) was used to preview the website across various popular devices.
 
 - [Coolors](https://coolors.co) was used to create a color palette for the website.
 
@@ -548,14 +558,14 @@ Deployment to [Heroku](https://www.heroku.com) was completed using the following
 
 1. Prepare for deployment.
     - Create an env.py file in your main directory and add *DATABASE_URL*, *CLOUDINARY_URL*, and *SECRET_KEY*.
-    - Import *DATABASE_URL* and *SECRET_KEY* into your *settings.py* file, and remove the default database confihuration.
-    - Add your apps to the list of *Installed Apps* in *settings.py*.
-    - Add Heroku to the *ALLOWED_HOSTS* list in *settings.py*.
-    - Create a file named *Procfile* in your main directory, and add a command to execute your project.
-    - Create a file named *python-version* in your main directory, and add the version of Python you are using.
-    - Install *gunicorn* and *whitenoise* to virtual environment.
+    - Create a file named *Procfile* in your main directory and add *web: gunicorn project-name.wsgi* to execute your project.
+    - Create a file named *python-version* in your main directory and add the version of Python you are using.
+    - Import *DATABASE_URL* and *SECRET_KEY* into your *settings.py* file, and remove the default database configuration.
+    - Update your *Installed Apps* in *settings.py* to include your locally created and installed apps.
+    - Update your *ALLOWED_HOSTS* in *settings.py* to include Heroku.
+    - Install *gunicorn* and *whitenoise* to your virtual environment.
     - Update the *requirements.txt* file.
-    - Change your *settings.py* file to read *DEBUG = FALE*.
+    - Update your *settings.py* file to read *DEBUG = FALE*.
 2. Create a new App.
     - Log in to Heroku and click *Create New App* from the Dashboard.
     - Enter a unique app name and choose your region.
@@ -564,12 +574,13 @@ Deployment to [Heroku](https://www.heroku.com) was completed using the following
     - Go to *Settings* > *Reveal ConfigVars* and update the following information:
         - SECRET_KEY
         - DATABASE_URL
+        - CLOUDINARY_URL (if using Cloudinary)
 4. Deploy the project.
     - Go to *Deploy* and specify deployment details.
     - Select *GitHub* as the *Deployment Method*.
         - When prompted to *Connect to GitHub*, find your repository and click *Connect*.
     - Select either *Automatic Deploys* or *Manual Deploys* and click *Deploy Branch*.
-5. Once deployment is complete, click *View* for the deployed project. 
+5. Once deployment is complete, click *View* or *Open App* for the deployed project. 
  
 [Back to top ⇧](#knitspace)
 
@@ -612,7 +623,7 @@ All content was written by the developer.
 
 - The models for *BlogPost* and *BlogPostAdmin* were adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The Confirmation Modal before deleting a BlogPost was adapted from Code Institute's "I think therefore I blog" walkthrough.
-- The basic design and models of the *About* page was adapted from Code Institute's "I think therefore I blog" walkthrough.
+- The basic design and models of the *About* page were adapted from Code Institute's "I think therefore I blog" walkthrough.
 - The navigation bar and footer were adapted from [Bootstrap's Clean Blog](https://startbootstrap.com/theme/clean-blog) template.
 - The Contact Us functionality was adapted from [Mailtrap](https://mailtrap.io/blog/django-contact-form/).
 - The sortable functionality was adapted from [jQuery UI](https://jqueryui.com/sortable/) and [Web Dev Simplified on YouTube](https://www.youtube.com/@WebDevSimplified).

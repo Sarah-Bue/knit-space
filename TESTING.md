@@ -68,7 +68,7 @@ As a **registered user**, I can **save posts to my Dashboard** so that **I can e
 - The blog post will appear on the user's Dashboard once saved.
 - A feedback message indicates a post has been saved successfully.
 
-As a **registered user**, I can **rearrange my saved posts** so that **arrange my content board according to my preferences**.
+As a **registered user**, I can **rearrange my saved posts** so that **I can arrange my content board according to my preferences**.
 - Saved posts are presented as a list.
 - Using AJAX drag and drop, users can move their saved posts to a different position.
 - Drag-and-drop functionality is implemented on desktop and mobile devices.
@@ -136,13 +136,14 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 |Dashboard | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 |My Posts | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 |Full Page Post View | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
-|Create Post | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
-|Edit Post | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Create Post | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/create-post-validation.png)</details>| Pass |
+|Edit Post | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/edit-post-validation.png)</details>| Pass |
 |Sign In | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 |Sign Up | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 |Sign Out | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 |404 | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 
+**Note**: The errors in *Create Post* and *Edit Post* appear to stem from the *Summernote* editor.
 
 ### CSS
 
@@ -198,20 +199,20 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 | Element | Expected Outcome | Pass/Fail | Notes |
 |---|---|---|---|
 | Logo | Click on logo redirects user to homepage | Pass | |
-| Navigation Bar | Click on page name redirects user to corresponding page | Pass | |
+| Navigation Bar | Click on the page name redirects the user to the corresponding page | Pass | |
 | Navigation Bar | Available links depend on user status | Pass | *Dashboard* link is only visible to logged-in users | 
 | Navigation Bar | Active page links change color | Pass | | 
-| Admin Dropdown | Display of dropdown depends on user status | Pass | Logged-in users see a peronalized greeting|
+| Admin Dropdown | Display of dropdown depends on user status | Pass | Logged-in users see a personalized greeting|
 | Admin Dropdown | Available links depend on user status | Pass | Logged-in users see links to *My Posts*, *Dashboard*, and *Create New Post* |
 | Admin Dropdown | Logging menu depend on user status | Pass | Logged-in users see *Sign Out* rather than *Sign In* and *Sign Up* |
-| Hero Image | Greeting on the image is only visible on homepage | Pass | |
+| Hero Image | Greeting on the image is only visible on the homepage | Pass | |
 
 #### Footer
 
 | Element | Expected Outcome | Pass/Fail | Notes |
 |---|---|---|---|
 | Social Media links | Click on icon redirects user to corresponding page | Pass | |
-| Social Media links | Social Media pages open in new tab | Pass | For the purposes of this project, the login pages of each Social Media site have been provided |
+| Social Media links | Social Media pages open in new tab | Pass | For this project, the login pages of each Social Media site have been provided |
 
 ### Admin Features
 
@@ -256,7 +257,7 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 |---|---|---|---|
 | Form | An empty form is loaded for users to fill out | Pass |  |
 | Form Validation | Valid information has to be provided in all fields before successful submission | Pass |  |
-| *Confirmation* Message | A feedback message is displayed to the user after successul form submission | Pass |  |
+| *Confirmation* Message | A feedback message is displayed to the user after successful form submission | Pass |  |
 | *Take Me Home* Button | Users are redirected to the homepage | Pass |  |
 
 #### *Full-Page Post Views* 
@@ -267,7 +268,7 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 | Image Display | Only custom images are displayed | Pass |  |
 | *Save to Dashboard* Button | Blog posts are saved to the Dashboard | Pass | This button is only available after successful login |
 | *Confirmation* Message | A feedback message is displayed after saving a post to the Dashboard | Pass |  |
-| *Return* Button | Users are redirected to the homepage | Pass | After a feedback message is displayed, users have to doubleclick this button to return to the homepage |
+| *Return* Button | Users are redirected to the homepage | Pass | After a feedback message is displayed, users have to double-click this button to return to the homepage |
 | *Action* Dropdown - Edit Post | Users get redirected to the *Edit Your Post* page | Pass | The dropdown is only visible to the author of a post |
 | *Action* Dropdown - Delete Post | A *Confirmation* modal pops up asking users to confirm post deletion | The dropdown is only visible to the author of a post |
 
@@ -303,7 +304,7 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 |---|---|---|---|
 | List View | Users can view all their authored posts in one place | Pass |  |
 | List View | Newly authored posts automatically appear here | Pass |  |
-| Preview Cards | Authored posts appear as preview cards showing the titlle and creation date of each post | Pass |  |
+| Preview Cards | Authored posts appear as preview cards showing the title and creation date of each post | Pass |  |
 | *Action* Dropdown | Users can choose to view, edit, and delete each post | Pass |  |
 | *Confirmation* Modal | Before deleting a post, users will be asked to confirm in a modal | Pass | Clicking outside of the modal will close the modal |
 | *Switch to Dashboard* Button | Users will be redirected to the *Dashboard* page | Pass |  |
@@ -316,7 +317,7 @@ As a **guest user**, I can **learn about Frau Wolle's knitting journey and exper
 |---|---|---|---|
 | List View | Users can view all their saved posts in one place | Pass |  |
 | List View | Saved posts automatically appear on the Dashboard | Pass |  |
-| Preview Cards | Saved posts appear as preview cards showing the titlle, author, and creation date of each post | Pass |  |
+| Preview Cards | Saved posts appear as preview cards showing the title, author, and creation date of each post | Pass |  |
 | *Delete* Button | Posts will be removed from the Dashboard | Pass |  |
 | *Switch to My Posts* Button | Users will be redirected to the *My Posts* page | Pass |  |
 | Navigation Bar Link | The link is only visible after successful login | Pass |  |
@@ -339,7 +340,7 @@ Device | Outcome | Pass/Fail
 | Black Shark PAR-HOA | No issues with appearance, responsiveness, or functionality. | Pass |
 | Samsung Galaxy S23 | No issues with appearance, responsiveness, or functionality. | Pass |
 
-**Note**: When viewing *My POsts* on mobile and tablet devices, the dropdown button overlaps the post title for longer titles. However, this has no impact on the functionality.
+**Note**: When viewing *My Posts* on mobile and tablet devices, the dropdown button overlaps the post title for longer titles. However, this has no impact on the functionality.
 
 ### Browser Compatibility
 
@@ -375,15 +376,15 @@ The scores are ordered as *Performance* - *Accessibility* - *Best Practices* - *
 --- | --- | --- | ---
 |Home | 79 - 93 - 74 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/home-lighthouse.png)</details>| Pass |
 |About | 80 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/about-lighthouse.png)</details>| Pass |
-|Contact Us |  | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/contact-lighthouse.png)</details>| Pass |
-|My Posts | 86 - 86 - 100 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-posts-lighthouse.png)</details>| Pass |
-|Dashboard | 84 - 93 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/dashboard-lighthouse.png)</details>| Pass |
-|Full Page Post View | 85 - 95 - 78 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/view-post-lighthouse.png)</details>| Pass |
+|Contact Us | 87 - 96 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/contact-lighthouse.png)</details>| Pass |
+|My Pomsts | 87 - 87 - 100 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-posts-lighthouse.png)</details>| Pass |
+|Dashboard | 86 - 93 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/dashboard-lighthouse.png)</details>| Pass |
+|Full Page Post | 87 - 89 - 100 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/view-post-lighthouse.png)</details>| Pass |
 |Create Post | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/create-post-lighthouse.png)</details>| Pass |
 |Edit Post | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-post-lighthouse.png)</details>| Pass |
 |Sign In | 87 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-in-lighthouse.png)</details>| Pass |
 |Sign Up | 88 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-up-lighthouse.png)</details>| Pass |
-|Sign Out | 86 - 95 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details>| Pass |
+|Sign Out | 89 - 96 - 96 - 100 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details>| Pass |
 |404 | 89 - 100 - 96 - 90 | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/404-lighthouse.png)</details>| Pass |
 
 [Back to top ⇧](#knitspace-testing)
