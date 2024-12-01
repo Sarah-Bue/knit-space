@@ -8,6 +8,8 @@
  * Delete BlogPost confirmation Modal
  * Set up event listeners for delete buttons, update the modal content,
  * and configure form submission for deleting posts.
+ * The Modal has been adapted from Code Institute's "I think therefore I blog" walkthrough.
+ * 
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Bootstrap modal and form elements

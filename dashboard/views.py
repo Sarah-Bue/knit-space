@@ -45,8 +45,8 @@ def delete_saved_post(request, post_id):
     )
     # Delete saved post
     saved_post.delete()
-    # Add a success message after deletion
 
+    # Add a success message after deletion
     messages.add_message(
             request,
             messages.SUCCESS,
